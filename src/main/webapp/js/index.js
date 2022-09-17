@@ -1,7 +1,7 @@
 //Inicializador de popover
-$(document).ready(function(){
+/*$(document).ready(function(){
     $('[data-bs-toggle="popover"]').popover();
-});
+});*/
 
 $(document).ready(function () {
     $("#form-login").submit(function (event) {

@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "ServletUsuarioGet", value = "/ServletUsuarioGet")
 public class ServletUsuarioGet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UsuarioController usuario = new UsuarioController();

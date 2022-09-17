@@ -3,7 +3,6 @@ package com.proyecto_mascotas.controller;
 import com.google.gson.Gson;
 import com.proyecto_mascotas.beans.Ciudad;
 import com.proyecto_mascotas.beans.Departamento;
-import com.proyecto_mascotas.beans.Usuario;
 import com.proyecto_mascotas.connection.DBConnection;
 
 import java.sql.ResultSet;
@@ -44,7 +43,7 @@ public class UbicacionController implements IUbicacionController{
     public String listarCiudad(String departamento) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT id_ciudad, ciudad, id_departamento FROM ciudad INNER JOIN departamento USING(id_departamento) WHERE id_departamento = " + departamento + " ORDER BY ciudad";
+        String sql = "SELECT id_ciudad, ciudad, id_departamento FROM ciudad INNER JOIN departamento USING(id_departamento) WHERE departamento = '" + departamento + "' ORDER BY ciudad";
 
         List<String> ciudades = new ArrayList<>();
 

@@ -1,11 +1,11 @@
 $(document).ready(function () {
+    getDepartamentos();
     $("#select-departamento").change(function() {
-        alert($('#select-departamento option:selected').text());
+       let text = ($('#select-departamento option:selected').text());
+        getCiudades(text);
     });
 
 
-    getCiudades($('#select-departamento option:selected').text());
-    getDepartamentos();
 });
 
 function getDepartamentos() {
@@ -40,7 +40,6 @@ function mostrarDepartamentos(departamentos) {
 }
 
 function getCiudades(departamento) {
-    /*let departamento = $("#select-departamento option:selected").text();*/
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -64,7 +63,6 @@ function mostrarCiudades(ciudades) {
     $.each(ciudades, function (index, ciudad) {
         ciudad = JSON.parse(ciudad);
         contenido += '<option value="'+ ciudad.idCiudad +'">' + ciudad.ciudad + '</option>';
-
     });
 
     $("#select-ciudad").html(contenido);
