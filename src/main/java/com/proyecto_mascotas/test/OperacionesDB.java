@@ -11,8 +11,8 @@ import java.sql.Statement;
 
 public class OperacionesDB {
     public static void main(String[] args) throws SQLException {
-        //listarMascotas();
-        listarUsuarios("fpantoja", "fpan12345");
+        listarMascotas();
+        //listarUsuarios("fpantoja", "fpan12345");
         //actualizarMascota(13, "Wasabi");
     }
 
@@ -32,7 +32,10 @@ public class OperacionesDB {
 
     public static void listarMascotas() throws SQLException {
         DBConnection conn = new DBConnection();
-        String sql = "SELECT * FROM mascota";
+        String sql = "SELECT id_mascota, nombre_mascota, edad, especie, raza, fundacion.nombre, foto, estado, descripcion " +
+                "FROM mascota INNER JOIN raza USING(id_raza) " +
+                "INNER JOIN especie USING(id_especie) " +
+                "INNER JOIN fundacion USING(id_fundacion)";
 
         try {
             Statement stm = conn.getConnection().createStatement();
@@ -42,14 +45,15 @@ public class OperacionesDB {
 
                 int idMascota = rs.getInt("id_mascota");
                 String nombreMascota = rs.getString("nombre_mascota");
-                int edad = rs.getInt("edad");
+                float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
                 byte foto = rs.getByte("foto");
-                int idEspecie = rs.getInt("id_especie");
-                int idFundacion = rs.getInt("id_fundacion");
+                String especie = rs.getString("especie");
+                String raza = rs.getString("raza");
+                String fundacion = rs.getString("fundacion.nombre");
 
-                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, idEspecie, idFundacion);
+                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
                 System.out.println(mascota);
             }
 

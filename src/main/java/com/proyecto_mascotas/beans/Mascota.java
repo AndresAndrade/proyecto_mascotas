@@ -7,18 +7,20 @@ public class Mascota {
     private String descripcion;
     private boolean estado;
     private byte foto; //Verificar si es correcto el tipo para la foto
-    private int idRaza;
-    private int idFundacion;
+    private String especie;
+    private String raza;
+    private String fundacion;
 
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idRaza, int idFundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, String especie, String raza, String fundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
         this.descripcion = descripcion;
         this.estado = estado;
         this.foto = foto;
-        this.idRaza = idRaza;
-        this.idFundacion = idFundacion;
+        this.especie = especie;
+        this.raza = raza;
+        this.fundacion = fundacion;
     }
 
     public int getIdMascota() {
@@ -69,20 +71,28 @@ public class Mascota {
         this.foto = foto;
     }
 
-    public int getIdRaza() {
-        return idRaza;
+    public String getEspecie() {
+        return especie;
     }
 
-    public void setIdRaza(int idRaza) {
-        this.idRaza = idRaza;
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
-    public int getIdFundacion() {
-        return idFundacion;
+    public String getRaza() {
+        return raza;
     }
 
-    public void setIdFundacion(int idFundacion) {
-        this.idFundacion = idFundacion;
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public String getFundacion() {
+        return fundacion;
+    }
+
+    public void setFundacion(String fundacion) {
+        this.fundacion = fundacion;
     }
 
     @Override
@@ -94,8 +104,9 @@ public class Mascota {
                 ", descripcion='" + descripcion + '\'' +
                 ", estado=" + estado +
                 ", foto=" + foto +
-                ", idEspecie=" + idRaza +
-                ", idFundacion=" + idFundacion +
+                ", especie='" + especie + '\'' +
+                ", raza='" + raza + '\'' +
+                ", fundacion='" + fundacion + '\'' +
                 '}';
     }
 }

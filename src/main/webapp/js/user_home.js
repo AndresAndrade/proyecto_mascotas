@@ -4,13 +4,13 @@ var user;
 $(document).ready(function () {
 
     getUsuario().then(function () {
-        //$("#mi-perfil-btn").attr("href", "profile.html?username=" + username);
+        getMascotas();
         getEspecies();
-        $("#select-departamento").change(function() {
+        $("#select-especie").change(function() {
             let text = ($('#select-especie option:selected').text());
             getRaza(text);
+
         });
-        //$("#ordernar-genero").click(ordenarPelicula);
     });
 });
 
@@ -92,5 +92,46 @@ function mostrarRazas(razas) {
     });
 
     $("#select-raza").html(contenido);
+}
 
+function getMascotas() {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletMascotaListar",
+        data: $.param({
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+                mostrarMascotas(parsedResult);
+            } else {
+                console.log("Error recuperando los datos de las mascotas.");
+            }
+        }
+    });
+}
+
+function mostrarMascotas(mascotas) {
+    let contenido = "";
+    $.each(mascotas, function (index, mascota) {
+        mascota = JSON.parse(mascota);
+        contenido += '<tr><th scope="row">' + mascota.idMascota + '</th>' +
+            '<td>' + mascota.nombreMascota + '</td>' +
+            '<td>' + mascota.edad + '</td>' +
+            '<td>' + mascota.especie + '</td>' +
+            '<td>' + mascota.raza + '</td>' +
+            '<td>' + mascota.fundacion + '</td>' +
+            '<td><input type="checkbox" name="estado" id="estado' + mascota.idMascota + '" disabled ';
+
+        if (mascota.adoptado) {
+            contenido += 'checked'
+        }
+        contenido += '><td>' + mascota.descripcion + '</td>' +
+            '<td><button class="btn btn-success">Editar</button></td>' +
+            '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
+    });
+
+    $("#mascotas-tbody").html(contenido);
 }
