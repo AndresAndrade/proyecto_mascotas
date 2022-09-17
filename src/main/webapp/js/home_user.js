@@ -2,6 +2,7 @@ var username = new URL(location.href).searchParams.get("username");
 var user;
 
 $(document).ready(function () {
+
     getUsuario().then(function () {
         //$("#mi-perfil-btn").attr("href", "profile.html?username=" + username);
         getEspecies();
@@ -44,7 +45,7 @@ function getEspecies() {
         success: function (result) {
             let parsedResult = JSON.parse(result);
             if (parsedResult !== false) {
-                mostrarDepartamentos(parsedResult);
+                mostrarEspecies(parsedResult);
             } else {
                 console.log("Error recuperando los datos de las especies.");
             }
@@ -55,7 +56,7 @@ function getEspecies() {
 function mostrarEspecies(especies) {
     let contenido = "";
     $.each(especies, function (index, especie) {
-        especie = JSON.parse(departamento);
+        especie = JSON.parse(especie);
         contenido += '<option value="'+ especie.idEspecie +'">' + especie.especie + '</option>';
 
     });
@@ -75,7 +76,7 @@ function getRaza(especie) {
         success: function (result) {
             let parsedResult = JSON.parse(result);
             if (parsedResult !== false) {
-                mostrarCiudades(parsedResult);
+                mostrarRazas(parsedResult);
             } else {
                 console.log("Error recuperando los datos de las razas.");
             }
