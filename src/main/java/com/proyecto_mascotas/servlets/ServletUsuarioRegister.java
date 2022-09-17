@@ -27,9 +27,9 @@ public class ServletUsuarioRegister extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String password = request.getParameter("password");
         int idFundacion = Integer.parseInt(request.getParameter("id_fundacion"));
-        int idUbicacion = Integer.parseInt(request.getParameter("id_ubicacon"));
+        int idCiudad = Integer.parseInt(request.getParameter("id_ciudad"));
 
-        String result = usuario.register(username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idUbicacion, idFundacion);
+        String result = usuario.register(username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

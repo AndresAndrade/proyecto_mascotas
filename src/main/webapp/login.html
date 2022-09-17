@@ -44,7 +44,7 @@
 			<div class="card-body">
 				<div class="row m-3">
 					<div class="col-md-6">
-						<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+						<div id="carousel-mascotas" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">
 									<img src="img/imgindex.jpg" class="d-block w-100" alt="...">
@@ -59,11 +59,11 @@
 									<img src="img/imgindex4.jpg" class="d-block w-100" alt="...">
 								</div>
 							</div>
-							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+							<button class="carousel-control-prev" type="button" data-bs-target="#carousel-mascotas" data-bs-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 								<span class="visually-hidden">Previous</span>
 							</button>
-							<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+							<button class="carousel-control-next" type="button" data-bs-target="#carousel-mascotas" data-bs-slide="next">
 								<span class="carousel-control-next-icon" aria-hidden="true"></span>
 								<span class="visually-hidden">Next</span>
 							</button>
@@ -79,14 +79,15 @@
 								<input type="password" class="form-control" id="password" placeholder="Contraseña" required>
 							</div>
 							<hr>
-							<button type="submit" class="btn btn-primary btn-block" id="btnEntrar">Entrar</button>
-							<hr>
+							<button type="submit" class="btn btn-primary btn-block btn-lg" id="btnEntrar">Entrar</button>
 						</form>
+						<!--<a href="register.html">Registro de nuevo usuario</a>-->
+						<br>
+						<div id="login-error" class="alert alert-danger d-none" role="alert">
+							Usuario o contraseña incorrecta
+						</div>
 					</div>
-					<a href="register.html">Registro de nuevo usuario</a>
-					<div id="login-error" class="alert alert-danger d-none" role="alert">
-						Usuario o contraseña incorrecta
-					</div>
+					
 				</div>
 			</div>
 		</div>

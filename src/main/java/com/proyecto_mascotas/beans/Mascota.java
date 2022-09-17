@@ -7,17 +7,17 @@ public class Mascota {
     private String descripcion;
     private boolean estado;
     private byte foto; //Verificar si es correcto el tipo para la foto
-    private int idEspecie;
+    private int idRaza;
     private int idFundacion;
 
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idEspecie, int idFundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idRaza, int idFundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
         this.descripcion = descripcion;
         this.estado = estado;
         this.foto = foto;
-        this.idEspecie = idEspecie;
+        this.idRaza = idRaza;
         this.idFundacion = idFundacion;
     }
 
@@ -69,12 +69,12 @@ public class Mascota {
         this.foto = foto;
     }
 
-    public int getIdEspecie() {
-        return idEspecie;
+    public int getIdRaza() {
+        return idRaza;
     }
 
-    public void setIdEspecie(int idEspecie) {
-        this.idEspecie = idEspecie;
+    public void setIdRaza(int idRaza) {
+        this.idRaza = idRaza;
     }
 
     public int getIdFundacion() {
@@ -94,7 +94,7 @@ public class Mascota {
                 ", descripcion='" + descripcion + '\'' +
                 ", estado=" + estado +
                 ", foto=" + foto +
-                ", idEspecie=" + idEspecie +
+                ", idEspecie=" + idRaza +
                 ", idFundacion=" + idFundacion +
                 '}';
     }

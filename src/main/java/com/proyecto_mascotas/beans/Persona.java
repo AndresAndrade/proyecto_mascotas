@@ -7,16 +7,16 @@ public class Persona {
     private String segundoApellido;
     private String email;
     private String telefono;
-    private int idUbicacion;
+    private int idCiudad;
 
-    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idUbicacion) {
+    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad) {
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.email = email;
         this.telefono = telefono;
-        this.idUbicacion = idUbicacion;
+        this.idCiudad = idCiudad;
     }
 
     public String getPrimerNombre() {
@@ -67,12 +67,12 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public int getIdUbicacion() {
-        return idUbicacion;
+    public int getIdCiudad() {
+        return idCiudad;
     }
 
-    public void setIdUbicacion(int idUbicacion) {
-        this.idUbicacion = idUbicacion;
+    public void setIdCiudad(int idCiudad) {
+        this.idCiudad = idCiudad;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Persona {
                 ", segundoApellido='" + segundoApellido + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", ubicacion=" + idUbicacion +
+                ", ubicacion=" + idCiudad +
                 '}';
     }
 }

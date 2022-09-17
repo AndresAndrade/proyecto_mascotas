@@ -13,6 +13,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!--index.js-->
 	<script src="js/index.js"></script>
+	<!-- register.js -->
+	<script src="js/register.js"></script>
 </head>
 <body>
 <header class="sticky-top">
@@ -50,64 +52,60 @@
 				<h2 class="card-title">Formulario de registro</h2>
 				<form id="form-register" class="pb-4">
 					<div class="mb-3">
-						<label for="input-username">Nombre de usuario:</label>
+						<label class="form-label" for="input-username">Nombre de usuario:</label>
 						<input type="text" class="form-control" id="input-username" placeholder="Nombre de usuario" required>
 					</div>
-					<div class="row mb-3">
-						<div class="col-md-6">
-							<label for="input-contrasena">Contraseña:</label>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label class="form-label" for="input-contrasena">Contraseña:</label>
 							<input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" required>
 						</div>
-						<div class="col-md-6">
-							<label for="input-contrasena-repeat">Repetir contraseña:</label>
+						<div class="col-md-6 mb-3">
+							<label class="form-label" for="input-contrasena-repeat">Repetir contraseña:</label>
 							<input type="password" class="form-control" id="input-contrasena-repeat" placeholder="Repetir contraseña" required>
 						</div>
 					</div>
 					<div class="mb-3">
-						<label for="input-primer-nombre">Primer nombre:</label>
+						<label class="form-label" for="input-primer-nombre">Primer nombre:</label>
 						<input type="text" class="form-control" id="input-primer-nombre" placeholder="Primer nombre" required>
 					</div>
 					<div class="mb-3">
-						<label for="input-segundo-nombre">Segundo nombre:</label>
+						<label class="form-label" for="input-segundo-nombre">Segundo nombre:</label>
 						<input type="text" class="form-control" id="input-segundo-nombre" placeholder="Segundo nombre">
 					</div>
 					<div class="mb-3">
-						<label for="input-primer-apellido">Primer apellido:</label>
+						<label class="form-label" for="input-primer-apellido">Primer apellido:</label>
 						<input type="text" class="form-control" id="input-primer-apellido" placeholder="Primer apellido" required>
 					</div>
 					<div class="mb-3">
-						<label for="input-segundo-apellido">Segundo apellido:</label>
+						<label class="form-label" for="input-segundo-apellido">Segundo apellido:</label>
 						<input type="text" class="form-control" id="input-segundo-apellido" placeholder="Segundo apellido" required>
 					</div>
 					<div class="mb-3">
-						<label for="input-email">Correo electronico:</label>
+						<label class="form-label" for="input-email">Correo electronico:</label>
 						<input type="email" class="form-control" id="input-email" placeholder="Email" required>
 					</div>
 					<div class="mb-3">
-						<label for="input-telefono">Teléfono:</label>
+						<label class="form-label" for="input-telefono">Teléfono:</label>
 						<input type="tel" class="form-control" id="input-telefono" placeholder="Telefono" required>
 					</div>
-					<div class="row mb-3">
-						<div class="col-md-6">
-							<label for="select-departamento">Departamento:</label>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label class="form-label" for="select-departamento">Departamento:</label>
 							<select class="form-select" id="select-departamento" aria-label="select-departamento">
-								<option selected>Seleccione su departamento</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+								<!--Se llaman los datos desde MySQL con jquery-->
 							</select>
 						</div>
-						<div class="col-md-6">
-							<label for="select-ciudad">Ciudad:</label>
+						<div class="col-md-6 mb-3">
+							<label class="form-label" for="select-ciudad">Ciudad:</label>
 							<select class="form-select" id="select-ciudad" aria-label="select-ciudad">
-								<option selected>Seleccione su ciudad</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+								<!--Se llaman los datos desde MySQL con jquery-->
 							</select>
 						</div>
 					</div>
-					<input type="submit" class="btn btn-primary" id="register-btn" value="Registrar Usuario"/>
+					<div class="mb-3">
+						<input type="submit" class="btn btn-primary" id="register-btn" value="Registrar Usuario"/>
+					</div>
 				</form>
 				<div id="register-error" class="alert alert-danger d-none" role="alert">
 				</div>

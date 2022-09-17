@@ -28,10 +28,10 @@ public class UsuarioController implements IUsuarioController{
                 String segundoApellido = rs.getString("segundo_apellido");
                 String email = rs.getString("email");
                 String telefono = rs.getString("telefono");
-                int idUbicacion = rs.getInt("id_ubicacion");
+                int idCiudad = rs.getInt("id_ciudad");
                 int idFundacion = rs.getInt("id_fundacion");
 
-                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idUbicacion, idFundacion);
+                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
                 return gson.toJson(usuario);
             }
         } catch (SQLException e) {
@@ -43,10 +43,10 @@ public class UsuarioController implements IUsuarioController{
     }
 
     @Override
-    public String register(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idUbicacion, int idFundacion) {
+    public String register(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "INSERT INTO usuarios VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idUbicacion + ", " + idFundacion + ")";
+        String sql = "INSERT INTO usuarios VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idCiudad + ", " + idFundacion + ")";
 
         String consultaId = "SELECT id_usuario FROM usuarios WHERE username = " + username;
 
@@ -57,11 +57,44 @@ public class UsuarioController implements IUsuarioController{
 
             int idUsuario = rs.getInt("id_usuario");
 
-            Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idUbicacion, idFundacion);
+            Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
 
             stm.close();
             return gson.toJson(usuario);
 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String getUser(String username) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT * FROM usuario WHERE username = '" + username + "'";
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                int idUsuario = rs.getInt("id_usuario");
+                String primerNombre = rs.getString("primer_nombre");
+                String segundoNombre = rs.getString("segundo_nombre");
+                String primerApellido = rs.getString("primer_apellido");
+                String segundoApellido = rs.getString("segundo_apellido");
+                String email = rs.getString("email");
+                String telefono = rs.getString("telefono");
+                String password = rs.getString("password");
+                int idCiudad = rs.getInt("id_ciudad");
+                int idFundacion = rs.getInt("id_fundacion");
+
+                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
+                return gson.toJson(usuario);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());;
         } finally {

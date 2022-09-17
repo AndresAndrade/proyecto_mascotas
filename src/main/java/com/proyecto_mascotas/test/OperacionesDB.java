@@ -80,7 +80,7 @@ public class OperacionesDB {
                 String segundoApellido = rs.getString("segundo_apellido");
                 String email = rs.getString("email");
                 String telefono = rs.getString("telefono");
-                int idUbicacion = rs.getInt("id_ubicacion");
+                int idUbicacion = rs.getInt("id_ciudad");
                 int idFundacion = rs.getInt("id_fundacion");
 
                 Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idUbicacion, idFundacion);

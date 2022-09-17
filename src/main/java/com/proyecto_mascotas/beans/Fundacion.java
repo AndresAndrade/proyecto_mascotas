@@ -3,14 +3,14 @@ package com.proyecto_mascotas.beans;
 public class Fundacion {
     private int idFundacion;
     private String nombreFundacion;
-    private int ubicacion;
+    private int idCiudad;
     private String telefono;
     private String email;
 
-    public Fundacion(int idFundacion, String nombreFundacion, int ubicacion, String telefono, String email) {
+    public Fundacion(int idFundacion, String nombreFundacion, int idCiudad, String telefono, String email) {
         this.idFundacion = idFundacion;
         this.nombreFundacion = nombreFundacion;
-        this.ubicacion = ubicacion;
+        this.idCiudad = idCiudad;
         this.telefono = telefono;
         this.email = email;
     }
@@ -31,12 +31,12 @@ public class Fundacion {
         this.nombreFundacion = nombreFundacion;
     }
 
-    public int getUbicacion() {
-        return ubicacion;
+    public int getIdCiudad() {
+        return idCiudad;
     }
 
-    public void setUbicacion(int ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setIdCiudad(int idCiudad) {
+        this.idCiudad = idCiudad;
     }
 
     public String getTelefono() {
@@ -60,7 +60,7 @@ public class Fundacion {
         return "Fundacion{" +
                 "idFundacion=" + idFundacion +
                 ", nombreFundacion='" + nombreFundacion + '\'' +
-                ", ubicacion=" + ubicacion +
+                ", ubicacion=" + idCiudad +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 '}';
