@@ -3,16 +3,16 @@ package com.proyecto_mascotas.beans;
 public class Fundacion {
     private int idFundacion;
     private String nombreFundacion;
-    private int idCiudad;
     private String telefono;
     private String email;
+    private int idCiudad;
 
-    public Fundacion(int idFundacion, String nombreFundacion, int idCiudad, String telefono, String email) {
+    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, int idCiudad) {
         this.idFundacion = idFundacion;
         this.nombreFundacion = nombreFundacion;
-        this.idCiudad = idCiudad;
         this.telefono = telefono;
         this.email = email;
+        this.idCiudad = idCiudad;
     }
 
     public int getIdFundacion() {

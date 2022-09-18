@@ -46,18 +46,16 @@ public class UsuarioController implements IUsuarioController{
     public String register(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "INSERT INTO usuarios VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idCiudad + ", " + idFundacion + ")";
 
-        String consultaId = "SELECT id_usuario FROM usuarios WHERE username = " + username;
-
+        String sql = "INSERT INTO usuario(username, primer_nombre, segundo_nombre, primer_apellido, " +
+                "segundo_apellido, email, telefono, password, id_ciudad, id_fundacion) " +
+                "VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idCiudad + ", " + idFundacion + ")";
+        
         try {
             Statement stm = conn.getConnection().createStatement();
             stm.executeUpdate(sql);
-            ResultSet rs = stm.executeQuery(consultaId);
 
-            int idUsuario = rs.getInt("id_usuario");
-
-            Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
+            Usuario usuario = new Usuario(username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
 
             stm.close();
             return gson.toJson(usuario);

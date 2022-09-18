@@ -17,17 +17,16 @@ public class ServletUsuarioRegister extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UsuarioController usuario = new UsuarioController();
 
-        int idUsuario = Integer.parseInt(request.getParameter("id_usuario"));
         String username = request.getParameter("username");
-        String primerNombre = request.getParameter("primer_nombre");
-        String segundoNombre = request.getParameter("segundo_nombre");
-        String primerApellido = request.getParameter("primer_apellido");
-        String segundoApellido = request.getParameter("segundo_apellido");
+        String primerNombre = request.getParameter("primerNombre");
+        String segundoNombre = request.getParameter("segundoNombre");
+        String primerApellido = request.getParameter("primerApellido");
+        String segundoApellido = request.getParameter("segundoApellido");
         String email = request.getParameter("email");
         String telefono = request.getParameter("telefono");
         String password = request.getParameter("password");
-        int idFundacion = Integer.parseInt(request.getParameter("id_fundacion"));
-        int idCiudad = Integer.parseInt(request.getParameter("id_ciudad"));
+        int idCiudad = Integer.parseInt(request.getParameter("ciudad"));
+        int idFundacion = Integer.parseInt(request.getParameter("fundacion"));
 
         String result = usuario.register(username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
 

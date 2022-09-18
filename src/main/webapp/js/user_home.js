@@ -9,7 +9,6 @@ $(document).ready(function () {
         $("#select-especie").change(function() {
             let text = ($('#select-especie option:selected').text());
             getRaza(text);
-
         });
     });
 });

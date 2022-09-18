@@ -94,9 +94,6 @@
 							<label class="form-label" for="select-departamento">Departamento:</label>
 							<select class="form-select" id="select-departamento" aria-label="select-departamento">
 								<!--Se llaman los datos desde MySQL con jquery-->
-								<!--<option value="21">Magdalena</option>
-								<option value="22">Meta</option>
-								<option value="23">Nariño</option>-->
 							</select>
 						</div>
 						<div class="col-md-6 mb-3">
@@ -106,9 +103,14 @@
 							</select>
 						</div>
 					</div>
-					<div class="mb-3">
-						<input type="submit" class="btn btn-primary" id="register-btn" value="Registrar Usuario"/>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="select-fundacion">Fundación:</label>
+						<select class="form-select" id="select-fundacion" aria-label="select-fundacion">
+							<!--Se llaman los datos desde MySQL con jquery-->
+						</select>
 					</div>
+					<input type="submit" class="btn btn-primary mb-3" id="register-btn" value="Registrar Usuario"/>
+				
 				</form>
 				<div id="register-error" class="alert alert-danger d-none" role="alert">
 				</div>

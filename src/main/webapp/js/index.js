@@ -41,27 +41,32 @@ function autenticarUsuario() {
 
 function registrarUsuario() {
     let username = $("#input-username").val();
-    let contrasena = $("#input-contrasena").val();
-    let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
-    let nombre = $("#input-nombre").val();
-    let apellido = $("#input-apellido").val();
+    let primerNombre = $("#input-primer-nombre").val();
+    let segundoNombre = $("#input-segundo-nombre").val();
+    let primerApellido = $("#input-primer-apellido").val();
+    let segundoApellido = $("#input-segundo-apellido").val();
     let email = $("#input-email").val();
-    let saldo = $("#input-saldo").val();
-    let premium = $("#input-premium").prop("checked");
+    let telefono = $("#input-telefono").val();
+    let password = $("#input-contrasena").val();
+    let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
 
-    if (contrasena === contrasenaConfirmacion) {
+    if (password === contrasenaConfirmacion) {
         $.ajax({
             type: "GET",
             dataType: "html",
             url: "./ServletUsuarioRegister",
             data: $.param({
                 username: username,
-                contrasena: contrasena,
-                nombre: nombre,
-                apellido: apellido,
+                primerNombre: primerNombre,
+                segundoNombre: segundoNombre,
+                primerApellido: primerApellido,
+                segundoApellido: segundoApellido,
                 email: email,
-                saldo: saldo,
-                premium: premium
+                telefono: telefono,
+                password: password,
+                contrasenaConfirmacion: contrasenaConfirmacion,
+                ciudad: '1',
+                fundacion: '1'
             }),
             success: function (result) {
                 let parsedResult = JSON.parse(result);

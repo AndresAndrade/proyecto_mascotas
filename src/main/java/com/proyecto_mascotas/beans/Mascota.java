@@ -10,6 +10,8 @@ public class Mascota {
     private String especie;
     private String raza;
     private String fundacion;
+    private int idRaza;
+    private int idFundacion;
 
     public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, String especie, String raza, String fundacion) {
         this.idMascota = idMascota;
@@ -21,6 +23,17 @@ public class Mascota {
         this.especie = especie;
         this.raza = raza;
         this.fundacion = fundacion;
+    }
+
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idRaza, int idFundacion) {
+        this.idMascota = idMascota;
+        this.nombreMascota = nombreMascota;
+        this.edad = edad;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.foto = foto;
+        this.idRaza = idRaza;
+        this.idFundacion = idFundacion;
     }
 
     public int getIdMascota() {
@@ -95,6 +108,22 @@ public class Mascota {
         this.fundacion = fundacion;
     }
 
+    public int getIdRaza() {
+        return idRaza;
+    }
+
+    public void setIdRaza(int idRaza) {
+        this.idRaza = idRaza;
+    }
+
+    public int getIdFundacion() {
+        return idFundacion;
+    }
+
+    public void setIdFundacion(int idFundacion) {
+        this.idFundacion = idFundacion;
+    }
+
     @Override
     public String toString() {
         return "Mascota{" +
@@ -107,6 +136,8 @@ public class Mascota {
                 ", especie='" + especie + '\'' +
                 ", raza='" + raza + '\'' +
                 ", fundacion='" + fundacion + '\'' +
+                ", idRaza=" + idRaza +
+                ", idFundacion=" + idFundacion +
                 '}';
     }
 }

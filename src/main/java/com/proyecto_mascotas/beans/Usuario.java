@@ -15,6 +15,13 @@ public class Usuario extends Persona{
         this.idFundacion = idFundacion;
     }
 
+    public Usuario(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idUbicacion, int idFundacion) {
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idUbicacion);
+        this.username = username;
+        this.password = password;
+        this.idFundacion = idFundacion;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }

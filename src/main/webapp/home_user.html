@@ -15,6 +15,8 @@
 	<script src="js/index.js"></script>
 	<!-- user_home.js -->
 	<script src="js/user_home.js"></script>
+	<!-- register.js -->
+	<script src="js/register.js"></script>
 </head>
 <body>
 <header class="sticky-top mb-3">
@@ -47,6 +49,7 @@
 </header>
 <main>
 	<div class="container col-md-6">
+		<!--Tarjeta de mascotas-->
 		<div class="card mb-3">
 			<div class="row g-0">
 				<div class="col-md-2">
@@ -64,9 +67,64 @@
 				</div>
 			</div>
 		</div>
+		<!--Tarjeta Fundaciones-->
+		<div class="card mb-3">
+			<div class="row g-0">
+				<div class="col-md-2">
+					<img src="img/baseline_house_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+				</div>
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">Fundaciones</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">Lista de mascotas</button></li>
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">Agregar registro</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Tarjeta adoptantes-->
+		<div class="card mb-3">
+			<div class="row g-0">
+				<div class="col-md-2">
+					<img src="img/baseline_face_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+				</div>
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">Adoptantes</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">Lista de mascotas</button></li>
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">Agregar registro</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Tarjeta usuarios-->
+		<div class="card mb-3">
+			<div class="row g-0">
+				<div class="col-md-2">
+					<img src="img/baseline_person_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+				</div>
+				<div class="col-md-10">
+					<div class="card-body">
+						<h5 class="card-title">Usuarios</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">Lista de mascotas</button></li>
+							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-usuario">Agregar registro</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	
 	<!--Registro de mascota-->
-	<div class="modal fade" id="modal-registro-mascota" tabindex="-1" aria-hidden="true">
+	<div class="modal fade" id="modal-registro-mascota" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-mascota">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -112,7 +170,7 @@
 							</div>
 						</div>
 						<hr>
-						<button type="submit" class="btn btn-primary btn-block" id="btnEntrar">Agregar</button>
+						<button type="submit" class="btn btn-primary btn-block" id="btnAgrgar-mascota">Agregar</button>
 					</form>
 				</div>
 			</div>
@@ -121,7 +179,7 @@
 	
 	<!--Lista de mascotas-->
 	<div class="modal fade" id="modal-lista-mascotas" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-scrollable modal-xl">
+		<div class="modal-dialog modal-fullscreen-xl-down modal-xl">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
 					<h5 class="modal-title">Lista de mascotas</h5>
@@ -148,19 +206,102 @@
 							</tr>
 							</thead>
 							<tbody id="mascotas-tbody">
-							
+							<!--Se llama desde la base de datos-->
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 	
-	<a href="register.html">registar usuario</a>
-	
-	
+	<!--Registro de usuario-->
+	<div class="modal fade" id="modal-registro-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-usuario">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Registro de Usuario</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form-register" class="pb-4">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-username">Nombre de usuario:</label>
+								<input type="text" class="form-control" id="input-username" placeholder="Nombre de usuario" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-contrasena">Contraseña:</label>
+								<input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-contrasena-repeat">Repetir contraseña:</label>
+								<input type="password" class="form-control" id="input-contrasena-repeat" placeholder="Repetir contraseña" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-primer-nombre">Primer nombre:</label>
+								<input type="text" class="form-control" id="input-primer-nombre" placeholder="Primer nombre" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-segundo-nombre">Segundo nombre:</label>
+								<input type="text" class="form-control" id="input-segundo-nombre" placeholder="Segundo nombre">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-primer-apellido">Primer apellido:</label>
+								<input type="text" class="form-control" id="input-primer-apellido" placeholder="Primer apellido" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-segundo-apellido">Segundo apellido:</label>
+								<input type="text" class="form-control" id="input-segundo-apellido" placeholder="Segundo apellido" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-email">Correo electronico:</label>
+								<input type="email" class="form-control" id="input-email" placeholder="Email" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-telefono">Teléfono:</label>
+								<input type="tel" class="form-control" id="input-telefono" placeholder="Telefono" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-departamento">Departamento:</label>
+								<select class="form-select" id="select-departamento" aria-label="select-departamento">
+									<!--Se llaman los datos desde MySQL con jquery-->
+								</select>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-ciudad">Ciudad:</label>
+								<select class="form-select" id="select-ciudad" aria-label="select-ciudad">
+									<!--Se llaman los datos desde MySQL con jquery-->
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-fundacion">Fundación:</label>
+								<select class="form-select" id="select-fundacion" aria-label="select-fundacion">
+									<!--Se llaman los datos desde MySQL con jquery-->
+								</select>
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary mb-3" id="register-btn" value="Registrar Usuario"/>
+					
+					</form>
+					<div id="register-error" class="alert alert-danger d-none" role="alert">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </main>
 <footer>
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark">

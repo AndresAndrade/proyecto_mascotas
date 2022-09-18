@@ -4,8 +4,7 @@ $(document).ready(function () {
        let text = ($('#select-departamento option:selected').text());
         getCiudades(text);
     });
-
-
+    getFundaciones();
 });
 
 function getDepartamentos() {
@@ -66,5 +65,33 @@ function mostrarCiudades(ciudades) {
     });
 
     $("#select-ciudad").html(contenido);
+}
 
+function getFundaciones() {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionListar",
+        data: $.param({
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+                mostrarFundaciones(parsedResult);
+            } else {
+                console.log("Error recuperando los datos de las fundaciones.");
+            }
+        }
+    });
+}
+
+function mostrarFundaciones(fundaciones) {
+    let contenido = "";
+    $.each(fundaciones, function (index, fundacion) {
+        fundacion = JSON.parse(fundacion);
+        contenido += '<option value="'+ fundacion.idFundacion +'">' + fundacion.nombreFundacion + '</option>';
+    });
+
+    $("#select-fundacion").html(contenido);
 }
