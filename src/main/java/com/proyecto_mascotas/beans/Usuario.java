@@ -5,21 +5,37 @@ public class Usuario extends Persona{
     private String username;
     private String password;
     private int idFundacion;
+    private String fundacion;
 
-
-    public Usuario(int idUsuario, String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idUbicacion, int idFundacion) {
-        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idUbicacion);
+    public Usuario(int idUsuario, String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
         this.idUsuario = idUsuario;
         this.username = username;
         this.password = password;
         this.idFundacion = idFundacion;
     }
 
+    //Para insertar el usuario en la DB
     public Usuario(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idUbicacion, int idFundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idUbicacion);
         this.username = username;
         this.password = password;
         this.idFundacion = idFundacion;
+    }
+
+    //Para listar en el HTML
+    public Usuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad, String fundacion) {
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
+        this.idUsuario = idUsuario;
+        this.fundacion = fundacion;
+    }
+
+    public String getFundacion() {
+        return fundacion;
+    }
+
+    public void setFundacion(String fundacion) {
+        this.fundacion = fundacion;
     }
 
     public int getIdUsuario() {
@@ -61,6 +77,7 @@ public class Usuario extends Persona{
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", idFundacion=" + idFundacion +
+                ", fundacion='" + fundacion + '\'' +
                 "} " + super.toString();
     }
 }
