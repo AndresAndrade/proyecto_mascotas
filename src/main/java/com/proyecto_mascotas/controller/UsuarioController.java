@@ -47,6 +47,7 @@ public class UsuarioController implements IUsuarioController{
 
     @Override
     public String register(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
+
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
 

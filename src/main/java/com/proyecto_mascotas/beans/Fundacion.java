@@ -6,6 +6,8 @@ public class Fundacion {
     private String telefono;
     private String email;
     private int idCiudad;
+    private String ciudadFundacion;
+    private String departamentoFundacion;
 
     public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, int idCiudad) {
         this.idFundacion = idFundacion;
@@ -13,6 +15,24 @@ public class Fundacion {
         this.telefono = telefono;
         this.email = email;
         this.idCiudad = idCiudad;
+    }
+
+    /*Para insertar un registro en la base de datos*/
+    public Fundacion(String nombreFundacion, String telefono, String email, int idCiudad) {
+        this.nombreFundacion = nombreFundacion;
+        this.telefono = telefono;
+        this.email = email;
+        this.idCiudad = idCiudad;
+    }
+
+    /*Para listar en el HTML*/
+    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, String ciudadFundacion, String departamentoFundacion) {
+        this.idFundacion = idFundacion;
+        this.nombreFundacion = nombreFundacion;
+        this.telefono = telefono;
+        this.email = email;
+        this.ciudadFundacion = ciudadFundacion;
+        this.departamentoFundacion = departamentoFundacion;
     }
 
     public int getIdFundacion() {
@@ -31,14 +51,6 @@ public class Fundacion {
         this.nombreFundacion = nombreFundacion;
     }
 
-    public int getIdCiudad() {
-        return idCiudad;
-    }
-
-    public void setIdCiudad(int idCiudad) {
-        this.idCiudad = idCiudad;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -55,14 +67,40 @@ public class Fundacion {
         this.email = email;
     }
 
+    public int getIdCiudad() {
+        return idCiudad;
+    }
+
+    public void setIdCiudad(int idCiudad) {
+        this.idCiudad = idCiudad;
+    }
+
+    public String getCiudadFundacion() {
+        return ciudadFundacion;
+    }
+
+    public void setCiudadFundacion(String ciudadFundacion) {
+        this.ciudadFundacion = ciudadFundacion;
+    }
+
+    public String getDepartamentoFundacion() {
+        return departamentoFundacion;
+    }
+
+    public void setDepartamentoFundacion(String departamentoFundacion) {
+        this.departamentoFundacion = departamentoFundacion;
+    }
+
     @Override
     public String toString() {
         return "Fundacion{" +
                 "idFundacion=" + idFundacion +
                 ", nombreFundacion='" + nombreFundacion + '\'' +
-                ", ubicacion=" + idCiudad +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
+                ", idCiudad=" + idCiudad +
+                ", ciudadFundacion='" + ciudadFundacion + '\'' +
+                ", departamentoFundacion='" + departamentoFundacion + '\'' +
                 '}';
     }
 }
