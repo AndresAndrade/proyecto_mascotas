@@ -9,9 +9,8 @@ $(document).ready(function () {
        let text = $('#select-departamento option:selected').text();
         getCiudades(text);
     });
-    getFund();
 
-    getUsuariosHome()
+    listarUsuarios()
 });
 
 /*Registrar usuario*/
@@ -153,7 +152,7 @@ function mostrarFund(fundaciones) {
 }
 
 /*Listar usuarios*/
-function getUsuariosHome() {
+function listarUsuarios() {
     $.ajax({
         type: "GET",
         dataType: "html",

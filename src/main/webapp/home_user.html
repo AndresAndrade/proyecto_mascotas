@@ -17,6 +17,8 @@
 	<script src="js/mascota.js"></script>
 	<!-- fundacion.js -->
 	<script src="js/fundacion.js"></script>
+	<!-- adoptante.js -->
+	<script src="js/adoptante.js"></script>
 </head>
 <body>
 <header class="sticky-top mb-3">
@@ -412,6 +414,117 @@
 							</tr>
 							</thead>
 							<tbody id="fundaciones-tbody">
+							<!--Se llama desde la base de datos-->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Registro de adoptante-->
+	<div class="modal fade" id="modal-registro-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-adoptante">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Registro de Adoptante</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form-register-adoptante" class="pb-4">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-cedula">Cédula:</label>
+								<input type="text" class="form-control" id="input-cedula" placeholder="Cédula" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-primer-nombre-adoptante">Primer nombre:</label>
+								<input type="text" class="form-control" id="input-primer-nombre-adoptante" placeholder="Primer nombre" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-segundo-nombre-adoptante">Segundo nombre:</label>
+								<input type="text" class="form-control" id="input-segundo-nombre-adoptante" placeholder="Segundo nombre">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-primer-apellido-adoptante">Primer apellido:</label>
+								<input type="text" class="form-control" id="input-primer-apellido-adoptante" placeholder="Primer apellido" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-segundo-apellido-adoptante">Segundo apellido:</label>
+								<input type="text" class="form-control" id="input-segundo-apellido-adoptante" placeholder="Segundo apellido">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-email-adoptante">Correo electronico:</label>
+								<input type="email" class="form-control" id="input-email-adoptante" placeholder="ejemplo@mail.com" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-telefono-adoptante">Teléfono:</label>
+								<input type="tel" class="form-control" id="input-telefono-adoptante" placeholder="Telefono" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-departamento-adoptante">Departamento:</label>
+								<select class="form-select" id="select-departamento-adoptante" aria-label="select-departamento">
+									<!--Se llaman los datos desde MySQL con jquery-->
+								</select>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-ciudad-adoptante">Ciudad:</label>
+								<select class="form-select" id="select-ciudad-adoptante" aria-label="select-ciudad">
+									<!--Se llaman los datos desde MySQL con jquery-->
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-observacion-adoptante">Observación:</label>
+								<input type="text" class="form-control" id="input-observacion-adoptante" placeholder="Observación">
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary mb-3" id="bnt-register-adoptante" value="Registrar"/>
+					</form>
+					<div id="register-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
+					<div id="register-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Lista de adoptantes-->
+	<div class="modal fade" id="modal-lista-adoptantes" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-fullscreen-xl-down modal-xl">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Lista de usuarios</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="p-4 d-flex justify-content-center">
+						<table class="table">
+							<thead class="table-info">
+							<tr>
+								<th scope="col">Nº Cédula</th>
+								<th scope="col">Primer Nombre</th>
+								<th scope="col">Segundo Nombre</th>
+								<th scope="col">Primer Apellido</th>
+								<th scope="col">Segundo Apellido</th>
+								<th scope="col">Email</th>
+								<th scope="col">Teléfono</th>
+								<th scope="col">Ciudad</th>
+								<th scope="col">Observación</th>
+								<th scope="col">Editar</th>
+								<th scope="col">Eliminar</th>
+							</tr>
+							</thead>
+							<tbody id="adoptantes-tbody">
 							<!--Se llama desde la base de datos-->
 							</tbody>
 						</table>
