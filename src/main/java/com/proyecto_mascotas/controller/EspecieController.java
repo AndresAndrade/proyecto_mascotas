@@ -1,8 +1,6 @@
 package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
-import com.proyecto_mascotas.beans.Ciudad;
-import com.proyecto_mascotas.beans.Departamento;
 import com.proyecto_mascotas.beans.Especie;
 import com.proyecto_mascotas.beans.Raza;
 import com.proyecto_mascotas.connection.DBConnection;

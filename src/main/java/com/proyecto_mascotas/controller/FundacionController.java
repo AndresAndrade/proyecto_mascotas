@@ -1,9 +1,7 @@
 package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
-import com.proyecto_mascotas.beans.Departamento;
 import com.proyecto_mascotas.beans.Fundacion;
-import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.connection.DBConnection;
 
 import java.sql.ResultSet;

@@ -1,7 +1,6 @@
 package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
-import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.beans.Usuario;
 import com.proyecto_mascotas.connection.DBConnection;
 
