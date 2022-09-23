@@ -4,10 +4,10 @@ $(document).ready(function () {
         registrarAdoptante();
     });
 
-    getDepartamentos();
+    getDptoAdoptante();
     $("#select-departamento-adoptante").change(function() {
         let text = $('#select-departamento-adoptante option:selected').text();
-        getCiudades(text);
+        getCiudadesAdoptante(text);
     });
 
     listarAdoptantes()
@@ -23,6 +23,11 @@ function registrarAdoptante() {
     let email = $("#input-email-adoptante").val();
     let telefono = $("#input-telefono-adoptante").val();
     let observacion = $("#input-observacion-adoptante").val();
+    let idCiudad = $("#select-ciudad-adoptante").change(function() {
+        $("#select-ciudad-adoptante option:selected").val();
+    });
+
+    console.log("idCiudad = " + idCiudad[0].value);
 
     $.ajax({
         type: "GET",
@@ -37,7 +42,7 @@ function registrarAdoptante() {
             email: email,
             telefono: telefono,
             observacion: observacion,
-            idCiudad: '1'
+            idCiudad: idCiudad[0].value
         }),
         success: function (result) {
             let parsedResult = JSON.parse(result);
@@ -55,7 +60,7 @@ function registrarAdoptante() {
 }
 
 /*Select de departamentos*/
-function getDepartamentos() {
+function getDptoAdoptante() {
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -66,7 +71,7 @@ function getDepartamentos() {
         success: function (result) {
             let parsedResult = JSON.parse(result);
             if (parsedResult !== false) {
-                mostrarDepartamentos(parsedResult);
+                mostrarDptoAdoptante(parsedResult);
             } else {
                 console.log("Error recuperando los datos de los departamentos.");
             }
@@ -74,7 +79,7 @@ function getDepartamentos() {
     });
 }
 
-function mostrarDepartamentos(departamentos) {
+function mostrarDptoAdoptante(departamentos) {
     let contenido = "";
     $.each(departamentos, function (index, departamento) {
         departamento = JSON.parse(departamento);
@@ -86,7 +91,7 @@ function mostrarDepartamentos(departamentos) {
 }
 
 /*Select de ciudades*/
-function getCiudades(departamento) {
+function getCiudadesAdoptante(departamento) {
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -97,7 +102,7 @@ function getCiudades(departamento) {
         success: function (result) {
             let parsedResult = JSON.parse(result);
             if (parsedResult !== false) {
-                mostrarCiudades(parsedResult);
+                mostrarCiudadesAdoptante(parsedResult);
             } else {
                 console.log("Error recuperando los datos de las ciudades.");
             }
@@ -105,7 +110,7 @@ function getCiudades(departamento) {
     });
 }
 
-function mostrarCiudades(ciudades) {
+function mostrarCiudadesAdoptante(ciudades) {
     let contenido = "";
     $.each(ciudades, function (index, ciudad) {
         ciudad = JSON.parse(ciudad);

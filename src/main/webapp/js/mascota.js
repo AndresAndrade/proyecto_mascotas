@@ -3,7 +3,9 @@ $(document).ready(function () {
         event.preventDefault();
         registrarMascota();
     });
+    
     getMascotas();
+
     getEspecies();
 
     $("#select-especie").change(function() {
@@ -11,11 +13,7 @@ $(document).ready(function () {
         getRaza(text);
     });
 
-    getFundaciones()
-
-    /*$("#select-raza").change(function() {
-        $("#select-raza option:selected").val();
-    });*/
+    getFundMascotas()
 
 });
 
@@ -24,6 +22,23 @@ function registrarMascota() {
     let nombreMascota = $("#input-nombre-mascota").val();
     let edad = $("#input-edad").val();
     let descripcion = $("#input-descripcion").val();
+    let idRaza = $("#select-raza").change(function() {
+         $("#select-raza option:selected").val();
+    });
+    let idFundacion = $("#select-fundacion-mascota").change(function() {
+         $("#select-fundacion-mascota option:selected").val();
+    });
+
+    /*var raza_id = document.getElementById('select-raza').options;
+    console.log(raza_id)
+    var razas;
+    for(var i = 0 ; i < raza_id.length ; i++) {
+        razas = raza_id[i];
+        console.log(razas.value)
+    }*/
+
+    console.log("idRaza = " + idRaza[0].value);
+    console.log("idFundacion = " + idFundacion[0].value);
 
     $.ajax({
         type: "GET",
@@ -33,8 +48,8 @@ function registrarMascota() {
             nombreMascota: nombreMascota,
             edad: edad,
             descripcion: descripcion,
-            idRaza: '1',
-            idFundacion: '1'
+            idRaza: idRaza[0].value,
+            idFundacion: idFundacion[0].value
         }),
         success: function (result) {
             let parsedResult = JSON.parse(result);
@@ -110,7 +125,7 @@ function mostrarRazas(razas) {
 }
 
 /*Select de fundaciones*/
-function getFundaciones() {
+function getFundMascotas() {
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -121,7 +136,7 @@ function getFundaciones() {
         success: function (result) {
             let parsedResult = JSON.parse(result);
             if (parsedResult !== false) {
-                mostrarFundaciones(parsedResult);
+                mostrarFundMascotas(parsedResult);
             } else {
                 console.log("Error recuperando los datos de las fundaciones.");
             }
@@ -129,14 +144,14 @@ function getFundaciones() {
     });
 }
 
-function mostrarFundaciones(fundaciones) {
+function mostrarFundMascotas(fundaciones) {
     let contenido = "";
     $.each(fundaciones, function (index, fundacion) {
         fundacion = JSON.parse(fundacion);
         contenido += '<option value="'+ fundacion.idFundacion +'">' + fundacion.nombreFundacion + '</option>';
     });
 
-    $("#select-fund").html(contenido);
+    $("#select-fundacion-mascota").html(contenido);
 }
 
 /*Listar mascotas*/

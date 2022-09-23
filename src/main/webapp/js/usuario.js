@@ -4,13 +4,17 @@ $(document).ready(function () {
         registrarUsuario();
     });
 
+    listarUsuarios();
+
     getDepartamentos();
+
     $("#select-departamento").change(function() {
        let text = $('#select-departamento option:selected').text();
         getCiudades(text);
     });
 
-    listarUsuarios()
+    getFund();
+
 });
 
 /*Registrar usuario*/
@@ -24,6 +28,15 @@ function registrarUsuario() {
     let telefono = $("#input-telefono").val();
     let password = $("#input-contrasena").val();
     let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
+    let idCiudad = $("#select-ciudad").change(function() {
+        $("#select-ciudad option:selected").val();
+    });
+    let idFundacion = $("#select-fundacion").change(function() {
+        $("#select-fundacion option:selected").val();
+    });
+
+    console.log("idCiudad = " + idCiudad[0].value);
+    console.log("idFundacion = " + idFundacion[0].value);
 
     if (password === contrasenaConfirmacion) {
         $.ajax({
@@ -40,16 +53,18 @@ function registrarUsuario() {
                 telefono: telefono,
                 password: password,
                 contrasenaConfirmacion: contrasenaConfirmacion,
-                ciudad: '1',
-                fundacion: '1'
+                ciudad: idCiudad[0].value,
+                fundacion: idFundacion[0].value
             }),
             success: function (result) {
                 let parsedResult = JSON.parse(result);
 
                 if (parsedResult !== false) {
                     $("#register-error").addClass("d-none");
-                    let username = parsedResult['username'];
-                    document.location.href = "home_user.html?username=" + username;
+                    //let username = parsedResult['username'];
+                    //document.location.href = "home_user.html?username=" + username;
+                    $("#register-success-mascota").removeClass("d-none");
+                    $("#register-success-mascota").html("Registro exitoso");
                 } else {
                     $("#register-error").removeClass("d-none");
                     $("#register-error").html("Error en el registro del usuario");
