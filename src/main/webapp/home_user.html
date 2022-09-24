@@ -483,6 +483,52 @@
 		</div>
 	</div>
 	
+	<!--Editar fundaciones-->
+	<div class="modal fade" id="modal-editar-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-fundacion">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Registro de fundación</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form-editar-fundacion">
+						<div class="mb-3">
+							<label class="form-label" for="input-editar-idFundacion">ID fundacion:</label>
+							<input type="text" class="form-control" id="input-editar-idFundacion" placeholder="ID Fundación" disabled>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-editar-nombre-fundacion">Nombre de la fundacion:</label>
+							<input type="text" class="form-control" id="input-editar-nombre-fundacion" placeholder="Nombre de la fundación" required>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-editar-telefono-fundacion">Teléfono:</label>
+							<input type="tel" class="form-control" id="input-editar-telefono-fundacion" placeholder="Teléfono">
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-editar-email-fundacion">Correo electrónico:</label>
+							<input type="email" class="form-control" id="input-editar-email-fundacion" placeholder="ejemplo@mail.com" required>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-departamento-fundacion">Departamento:</label>
+								<input type="text" class="form-control" id="select-editar-departamento-fundacion" disabled>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-ciudad-fundacion">Ciudad:</label>
+								<input type="text" class="form-control" id="select-editar-ciudad-fundacion" disabled>
+							</div>
+						</div>
+						<hr>
+						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnEditar-fundacion">Guardar cambios</button>
+					</form>
+					<div id="editar-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
+					<div id="editar-success-fundacion" class="alert alert-success d-none" role="alert"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<!--Registro de adoptante-->
 	<div class="modal fade" id="modal-registro-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-adoptante">
 		<div class="modal-dialog modal-lg">

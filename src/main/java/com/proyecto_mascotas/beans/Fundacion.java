@@ -9,6 +9,7 @@ public class Fundacion {
     private String ciudadFundacion;
     private String departamentoFundacion;
 
+    /*Para las listas desplegables*/
     public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, int idCiudad) {
         this.idFundacion = idFundacion;
         this.nombreFundacion = nombreFundacion;
@@ -33,6 +34,14 @@ public class Fundacion {
         this.email = email;
         this.ciudadFundacion = ciudadFundacion;
         this.departamentoFundacion = departamentoFundacion;
+    }
+
+    /*Para actualizar registros*/
+    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email) {
+        this.idFundacion = idFundacion;
+        this.nombreFundacion = nombreFundacion;
+        this.telefono = telefono;
+        this.email = email;
     }
 
     public int getIdFundacion() {

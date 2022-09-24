@@ -2,6 +2,7 @@ package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
 import com.proyecto_mascotas.beans.Fundacion;
+import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.connection.DBConnection;
 
 import java.sql.ResultSet;
@@ -101,5 +102,61 @@ public class FundacionController implements IFundacionController{
         }
         return "false";
     }
+
+    @Override
+    public String editarFundacion(int idFundacion, String nombreFundacion, String telefono, String email) {
+        DBConnection con = new DBConnection();
+
+        String sql = "UPDATE fundacion SET nombre = '" + nombreFundacion + "', telefono = '" + telefono + "', email = '" + email + "' WHERE id_fundacion = " + idFundacion;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String eliminarFundacion(int idFundacion) {
+        return null;
+    }
+
+    @Override
+    public String llenarFundacionForm(int idFundacion) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT nombre, telefono, email, ciudad, departamento " +
+                "FROM fundacion " +
+                "INNER JOIN ciudad USING(id_ciudad) " +
+                "INNER JOIN departamento USING(id_departamento) " +
+                "WHERE id_fundacion = " + idFundacion;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreFundacion = rs.getString("nombre");
+                String telefono = rs.getString("telefono");
+                String email = rs.getString("email");
+                String ciudad = rs.getString("ciudad");
+                String departamento = rs.getString("departamento");
+
+                Fundacion fundacion = new Fundacion(idFundacion, nombreFundacion, telefono, email, ciudad, departamento);
+                return gson.toJson(fundacion);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
 }
+
 

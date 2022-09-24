@@ -8,7 +8,7 @@ class MascotasControllerTest {
 
     @Test
     void registerMascota() {
-        String registroMascota = mascotasController.registrarMascota("Test10", 8, "Test descripcion", 1, 1);
+        String registroMascota = mascotasController.registrarMascota("Test11", 8, "Test descripcion10", 1, 1);
         System.out.println("Metodo registerMascota:\n\n" + registroMascota + "\n\n");
     }
 

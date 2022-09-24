@@ -4,6 +4,11 @@ $(document).ready(function () {
         registrarFundacion();
     });
 
+    $("#form-editar-fundacion").on("submit", function (event) {
+        event.preventDefault();
+        editarFundacion();
+    });
+
     getDeptosFundacion();
     $("#select-departamento-fundacion").change(function() {
         let text = $('#select-departamento-fundacion option:selected').text();
@@ -141,8 +146,68 @@ function mostrarFundaciones(fundaciones) {
             '<td>' + fundacion.email + '</td>' +
             '<td>' + fundacion.ciudadFundacion + '</td>' +
             '<td>' + fundacion.departamentoFundacion + '</td>' +
-            '<td><button class="btn btn-success">Editar</button></td>' +
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-fundacion" onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
             '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
     });
     $("#fundaciones-tbody").html(contenido);
+}
+
+//Llenar el formulario de fundaciones para la edición
+function llenarFormularioFundacion(idFundacion) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionLlenarForm",
+        data: $.param({
+            idFundacion: idFundacion
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            console.log(parsedResult);
+            if (parsedResult !== false) {
+
+                $("#input-editar-idFundacion").val(parsedResult.idFundacion);
+                $("#input-editar-nombre-fundacion").val(parsedResult.nombreFundacion);
+                $("#input-editar-telefono-fundacion").val(parsedResult.telefono);
+                $("#input-editar-email-fundacion").val(parsedResult.email);
+                $("#select-editar-ciudad-fundacion").val(parsedResult.ciudadFundacion);
+                $("#select-editar-departamento-fundacion").val(parsedResult.departamentoFundacion);
+
+            } else {
+                console.log("Error recuperando los datos dde la mascota");
+            }
+        }
+    });
+}
+
+//editar fundacion
+function editarFundacion() {
+
+    let idFundacion = $("#input-editar-idFundacion").val();
+    let nombreFundacion = $("#input-editar-nombre-fundacion").val();
+    let telefono = $("#input-editar-telefono-fundacion").val();
+    let email = $("#input-editar-email-fundacion").val();
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionModificar",
+        data: $.param({
+            idFundacion: idFundacion,
+            nombreFundacion: nombreFundacion,
+            telefono: telefono,
+            email: email
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                $("#editar-error-fundacion").addClass("d-none");
+                $("#editar-success-fundacion").removeClass("d-none");
+                $("#editar-success-fundacion").html("Registro exitoso");
+            } else {
+                $("#editar-error-fundacion").removeClass("d-none");
+                $("#editar-error-fundacion").html("Error en el registro de la fundacion");
+            }
+        }
+    });
 }
