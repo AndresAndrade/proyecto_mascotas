@@ -26,17 +26,6 @@ public class Mascota {
         this.fundacion = fundacion;
     }
 
-    //Para Actualizar en la DB
-    public Mascota(String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idRaza, int idFundacion) {
-        this.nombreMascota = nombreMascota;
-        this.edad = edad;
-        this.descripcion = descripcion;
-        this.estado = estado;
-        this.foto = foto;
-        this.idRaza = idRaza;
-        this.idFundacion = idFundacion;
-    }
-
     //Para insertar en la DB
     public Mascota(String nombreMascota, float edad, String descripcion, int idRaza, int idFundacion) {
         this.nombreMascota = nombreMascota;
@@ -45,15 +34,23 @@ public class Mascota {
         this.idRaza = idRaza;
         this.idFundacion = idFundacion;
     }
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, int idRaza, int idFundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, int idRaza, int idFundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
         this.descripcion = descripcion;
         this.estado = estado;
-        this.foto = foto;
         this.idRaza = idRaza;
         this.idFundacion = idFundacion;
+    }
+
+    //Par hacer update
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado) {
+        this.idMascota = idMascota;
+        this.nombreMascota = nombreMascota;
+        this.edad = edad;
+        this.descripcion = descripcion;
+        this.estado = estado;
     }
 
     public int getIdMascota() {

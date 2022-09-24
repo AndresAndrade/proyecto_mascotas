@@ -71,7 +71,7 @@ function getDeptosFundacion() {
 }
 
 function mostrarDeptosFundacion(departamentos) {
-    let contenido = "";
+    let contenido = "<option selected>--Seleccione el departamento--</option>";
     $.each(departamentos, function (index, departamento) {
         departamento = JSON.parse(departamento);
         contenido += '<option value="'+ departamento.idDepartamento +'">' + departamento.departamento + '</option>';
@@ -102,7 +102,7 @@ function getCiudadesFundacion(departamento) {
 }
 
 function mostrarCiudadesFundacion(ciudades) {
-    let contenido = "";
+    let contenido = "<option selected>--Seleccione la ciudad--</option>";
     $.each(ciudades, function (index, ciudad) {
         ciudad = JSON.parse(ciudad);
         contenido += '<option value="'+ ciudad.idCiudad +'">' + ciudad.ciudad + '</option>';

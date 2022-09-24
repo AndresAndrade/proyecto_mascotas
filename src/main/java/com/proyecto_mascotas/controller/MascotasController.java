@@ -49,7 +49,7 @@ public class MascotasController implements IMascotaControlador{
     }
 
     @Override
-    public String registerMascota(String nombreMascota, float edad, String descripcion, int idRaza, int idFundacion) {
+    public String registrarMascota(String nombreMascota, float edad, String descripcion, int idRaza, int idFundacion) {
 
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
@@ -66,6 +66,71 @@ public class MascotasController implements IMascotaControlador{
             stm.close();
             return gson.toJson(mascota);
 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String editarMascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado) {
+        DBConnection con = new DBConnection();
+
+        String sql = "UPDATE mascota SET nombre_mascota = '" + nombreMascota + "', edad = " + edad + ", descripcion = '" + descripcion + "', estado = ";
+
+        if (estado == true) {
+            sql += " 1 ";
+        } else {
+            sql += " 0 ";
+        }
+
+        sql += " WHERE id_mascota = " + idMascota;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String eliminarMascota(int idMascota) {
+        return null;
+    }
+
+    @Override
+    public String llenarMascotaForm(int idMascota) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT nombre_mascota, edad, especie, raza, fundacion.nombre, foto, estado, descripcion " +
+                "FROM mascota INNER JOIN raza USING(id_raza) " +
+                "INNER JOIN especie USING(id_especie) " +
+                "INNER JOIN fundacion USING(id_fundacion) WHERE id_mascota = " + idMascota;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreMascota = rs.getString("nombre_mascota");
+                float edad = rs.getFloat("edad");
+                String descripcion = rs.getString("descripcion");
+                boolean estado = rs.getBoolean("estado");
+                byte foto = rs.getByte("foto");
+                String especie = rs.getString("especie");
+                String raza = rs.getString("raza");
+                String fundacion = rs.getString("fundacion.nombre");
+
+                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
+                return gson.toJson(mascota);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());;
         } finally {

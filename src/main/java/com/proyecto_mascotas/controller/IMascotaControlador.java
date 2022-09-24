@@ -2,5 +2,8 @@ package com.proyecto_mascotas.controller;
 
 public interface IMascotaControlador {
     String listarMascotas();
-    String registerMascota(String nombreMascota, float edad, String descripcion, int idRaza, int idFundacion);
+    String registrarMascota(String nombreMascota, float edad, String descripcion, int idRaza, int idFundacion);
+    String editarMascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado);
+    String eliminarMascota(int idMascota);
+    String llenarMascotaForm(int idMascota);
 }
