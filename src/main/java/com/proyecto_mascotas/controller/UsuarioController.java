@@ -139,5 +139,69 @@ public class UsuarioController implements IUsuarioController{
         }
         return gson.toJson(usuarios);
     }
+
+    @Override
+    public String editarusuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password) {
+        DBConnection con = new DBConnection();
+
+        String sql = "UPDATE usuario SET primer_nombre = '" + primerNombre + "', segundo_nombre = '" + segundoNombre + "', " +
+                "primer_apellido = '" + primerApellido + "', segundo_apellido = '" + segundoApellido + "', " +
+                "email = '" + email + "', telefono = '" + telefono + "', password = '" + password + "' " +
+                "WHERE id_usuario = " + idUsuario;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String eliminarUsuario(int idUsuario) {
+        return null;
+    }
+
+    @Override
+    public String llenarUsuarioFrom(int idUsuario) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT username, password, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, usuario.email, usuario.telefono, fundacion.nombre, ciudad, departamento " +
+                "FROM usuario INNER JOIN fundacion USING(id_fundacion) " +
+                "INNER JOIN ciudad ON usuario.id_ciudad = ciudad.id_ciudad " +
+                "INNER JOIN departamento USING(id_departamento) " +
+                "WHERE id_usuario = " + idUsuario;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String primerNombre = rs.getString("primer_nombre");
+                String segundoNombre = rs.getString("segundo_nombre");
+                String primerApellido = rs.getString("primer_apellido");
+                String segundoApellido = rs.getString("segundo_apellido");
+                String email = rs.getString("usuario.email");
+                String telefono = rs.getString("usuario.telefono");
+                String ciudad = rs.getString("ciudad");
+                String departamento = rs.getString("departamento");
+                String fundacion = rs.getString("fundacion.nombre");
+
+                Usuario usuario = new Usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, idUsuario, username, password, fundacion);
+                return gson.toJson(usuario);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
 }
 

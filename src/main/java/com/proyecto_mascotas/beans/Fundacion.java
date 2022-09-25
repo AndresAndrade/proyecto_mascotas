@@ -36,14 +36,6 @@ public class Fundacion {
         this.departamentoFundacion = departamentoFundacion;
     }
 
-    /*Para actualizar registros*/
-    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email) {
-        this.idFundacion = idFundacion;
-        this.nombreFundacion = nombreFundacion;
-        this.telefono = telefono;
-        this.email = email;
-    }
-
     public int getIdFundacion() {
         return idFundacion;
     }

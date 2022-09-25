@@ -4,6 +4,11 @@ $(document).ready(function () {
         registrarUsuario();
     });
 
+    $("#form-editar-usuario").submit(function (event) {
+        event.preventDefault();
+        editarUsuario();
+    });
+
     listarUsuarios();
 
     getDepartamentos();
@@ -198,8 +203,81 @@ function mostrarUsuarios(usuarios) {
             '<td>' + usuario.email + '</td>' +
             '<td>' + usuario.telefono + '</td>' +
             '<td>' + usuario.fundacion + '</td>' +
-            '<td><button class="btn btn-success">Editar</button></td>' +
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-usuario" onclick="llenarFormularioUsuario(' + usuario.idUsuario + ')">Editar</button></td>' +
             '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
     });
     $("#usuarios-tbody").html(contenido);
+}
+
+//Llenar el formulario de usuario para la edición
+function llenarFormularioUsuario(idUsuario) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioLlenarForm",
+        data: $.param({
+            idUsuario: idUsuario
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#input-editar-idUsuario").val(parsedResult.idUsuario);
+                $("#input-editar-username").val(parsedResult.username);
+                $("#input-editar-primer-nombre").val(parsedResult.primerNombre);
+                $("#input-editar-segundo-nombre").val(parsedResult.segundoNombre);
+                $("#input-editar-primer-apellido").val(parsedResult.primerApellido);
+                $("#input-editar-segundo-apellido").val(parsedResult.segundoApellido);
+                $("#input-editar-email-usuario").val(parsedResult.email);
+                $("#input-editar-telefono-usuario").val(parsedResult.telefono);
+                $("#input-editar-contrasena").val(parsedResult.password);
+                $("#select-editar-ciudad-usuario").val(parsedResult.ciudad);
+                $("#select-editar-departamento-usuario").val(parsedResult.departamento);
+                $("#select-editar-fundacion-usuario").val(parsedResult.fundacion);
+
+            } else {
+                console.log("Error recuperando los datos del usuario");
+            }
+        }
+    });
+}
+
+//Editar usuario
+function editarUsuario() {
+
+    let idUsuario = $("#input-editar-idUsuario").val();
+    let primerNombre = $("#input-editar-primer-nombre").val();
+    let segundoNombre = $("#input-editar-segundo-nombre").val();
+    let primerApellido = $("#input-editar-primer-apellido").val();
+    let segundoApellido = $("#input-editar-segundo-apellido").val();
+    let email = $("#input-editar-email-usuario").val();
+    let telefono = $("#input-editar-telefono-usuario").val();
+    let password = $("#input-editar-contrasena").val();
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioModificar",
+        data: $.param({
+            idUsuario: idUsuario,
+            primerNombre: primerNombre,
+            segundoNombre: segundoNombre,
+            primerApellido: primerApellido,
+            segundoApellido: segundoApellido,
+            email: email,
+            telefono: telefono,
+            password: password
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                $("#editar-error-usuario").addClass("d-none");
+                $("#editar-success-usuario").removeClass("d-none");
+                $("#editar-success-usuario").html("Registro exitoso");
+            } else {
+                $("#editar-error-usuario").removeClass("d-none");
+                $("#editar-error-usuario").html("Error en el registro del usuario");
+            }
+        }
+    });
 }

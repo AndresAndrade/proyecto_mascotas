@@ -8,6 +8,8 @@ public class Persona {
     private String email;
     private String telefono;
     private int idCiudad;
+    private String ciudad;
+    private String departamento;
 
     public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad) {
         this.primerNombre = primerNombre;
@@ -17,6 +19,18 @@ public class Persona {
         this.email = email;
         this.telefono = telefono;
         this.idCiudad = idCiudad;
+    }
+
+    /*Para llenar el formulario de edición*/
+    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String ciudad, String departamento) {
+        this.primerNombre = primerNombre;
+        this.segundoNombre = segundoNombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.email = email;
+        this.telefono = telefono;
+        this.ciudad = ciudad;
+        this.departamento = departamento;
     }
 
     public String getPrimerNombre() {
@@ -75,6 +89,22 @@ public class Persona {
         this.idCiudad = idCiudad;
     }
 
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -84,7 +114,9 @@ public class Persona {
                 ", segundoApellido='" + segundoApellido + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", ubicacion=" + idCiudad +
+                ", idCiudad=" + idCiudad +
+                ", ciudad='" + ciudad + '\'' +
+                ", departamento='" + departamento + '\'' +
                 '}';
     }
 }

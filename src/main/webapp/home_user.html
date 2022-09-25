@@ -404,6 +404,91 @@
 		</div>
 	</div>
 	
+	<!--Editar usuario-->
+	<div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-usuario">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Registro de Usuario</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form-editar-usuario" class="pb-4">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-idUsuario">ID Usuario:</label>
+								<input type="text" class="form-control" id="input-editar-idUsuario" disabled>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-username">Nombre de usuario:</label>
+								<input type="text" class="form-control" id="input-editar-username" placeholder="Nombre de usuario" disabled>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-contrasena">Contraseña:</label>
+								<input type="password" class="form-control" id="input-editar-contrasena" placeholder="Contraseña" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-contrasena-repeat">Repetir contraseña:</label>
+								<input type="password" class="form-control" id="input-editar-contrasena-repeat" placeholder="Repetir contraseña" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-primer-nombre">Primer nombre:</label>
+								<input type="text" class="form-control" id="input-editar-primer-nombre" placeholder="Primer nombre" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-segundo-nombre">Segundo nombre:</label>
+								<input type="text" class="form-control" id="input-editar-segundo-nombre" placeholder="Segundo nombre">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-primer-apellido">Primer apellido:</label>
+								<input type="text" class="form-control" id="input-editar-primer-apellido" placeholder="Primer apellido" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-segundo-apellido">Segundo apellido:</label>
+								<input type="text" class="form-control" id="input-editar-segundo-apellido" placeholder="Segundo apellido" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-email-usuario">Correo electronico:</label>
+								<input type="email" class="form-control" id="input-editar-email-usuario" placeholder="Email" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-telefono-usuario">Teléfono:</label>
+								<input type="tel" class="form-control" id="input-editar-telefono-usuario" placeholder="Telefono" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-departamento-usuario">Departamento:</label>
+								<input type="text" class="form-control" id="select-editar-departamento-usuario" disabled>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-ciudad-usuario">Ciudad:</label>
+								<input type="text" class="form-control" id="select-editar-ciudad-usuario" disabled>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-fundacion">Fundación:</label>
+								<input type="text" class="form-control" id="select-editar-fundacion-usuario" disabled>
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary mb-3" id="btnEditar-usuario" value="Guardar cambios"/>
+					</form>
+					<div id="editar-error-usuario" class="alert alert-danger d-none" role="alert"></div>
+					<div id="editar-success-usuario" class="alert alert-success d-none" role="alert"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<!--Registro de fundaciones-->
 	<div class="modal fade" id="modal-registro-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-fundacion">
 		<div class="modal-dialog">

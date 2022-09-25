@@ -30,6 +30,15 @@ public class Usuario extends Persona{
         this.fundacion = fundacion;
     }
 
+    /*Para llenar el formulario de edición*/
+    public Usuario(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String ciudad, String departamento, int idUsuario, String username, String password, String fundacion) {
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento);
+        this.idUsuario = idUsuario;
+        this.username = username;
+        this.password = password;
+        this.fundacion = fundacion;
+    }
+
     public String getFundacion() {
         return fundacion;
     }

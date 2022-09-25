@@ -44,15 +44,6 @@ public class Mascota {
         this.idFundacion = idFundacion;
     }
 
-    //Par hacer update
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado) {
-        this.idMascota = idMascota;
-        this.nombreMascota = nombreMascota;
-        this.edad = edad;
-        this.descripcion = descripcion;
-        this.estado = estado;
-    }
-
     public int getIdMascota() {
         return idMascota;
     }
