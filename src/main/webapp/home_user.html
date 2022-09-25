@@ -680,7 +680,7 @@
 								<input type="text" class="form-control" id="input-observacion-adoptante" placeholder="Observación">
 							</div>
 						</div>
-						<input type="submit" class="btn btn-primary mb-3" id="bnt-register-adoptante" value="Registrar"/>
+						<input type="submit" class="btn btn-primary mb-3" id="btnRegister-adoptante" value="Registrar"/>
 					</form>
 					<div id="register-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
 					<div id="register-success-adoptante" class="alert alert-success d-none" role="alert"></div>
@@ -720,6 +720,77 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Editar adoptante-->
+	<div class="modal fade" id="modal-editar-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-adoptante">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-info text-white">
+					<h5 class="modal-title">Registro de Adoptante</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form-editar-adoptante" class="pb-4">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-cedula">Cédula:</label>
+								<input type="text" class="form-control" id="input-editar-cedula" placeholder="Cédula" disabled>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-primer-nombre-adoptante">Primer nombre:</label>
+								<input type="text" class="form-control" id="input-editar-primer-nombre-adoptante" placeholder="Primer nombre" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-segundo-nombre-adoptante">Segundo nombre:</label>
+								<input type="text" class="form-control" id="input-editar-segundo-nombre-adoptante" placeholder="Segundo nombre">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-primer-apellido-adoptante">Primer apellido:</label>
+								<input type="text" class="form-control" id="input-editar-primer-apellido-adoptante" placeholder="Primer apellido" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-segundo-apellido-adoptante">Segundo apellido:</label>
+								<input type="text" class="form-control" id="input-editar-segundo-apellido-adoptante" placeholder="Segundo apellido">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-email-adoptante">Correo electronico:</label>
+								<input type="email" class="form-control" id="input-editar-email-adoptante" placeholder="ejemplo@mail.com" required>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-telefono-adoptante">Teléfono:</label>
+								<input type="tel" class="form-control" id="input-editar-telefono-adoptante" placeholder="Telefono" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-departamento-adoptante">Departamento:</label>
+								<input type="text" class="form-select" id="select-editar-departamento-adoptante" disabled>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="select-editar-ciudad-adoptante">Ciudad:</label>
+								<input type="text" class="form-select" id="select-editar-ciudad-adoptante" disabled>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label class="form-label" for="input-editar-observacion-adoptante">Observación:</label>
+								<input type="text" class="form-control" id="input-editar-observacion-adoptante" placeholder="Observación">
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary mb-3" id="btnEditar-adoptante" value="Guardar cambios"/>
+					</form>
+					<div id="editar-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
+					<div id="editar-success-adoptante" class="alert alert-success d-none" role="alert"></div>
 				</div>
 			</div>
 		</div>

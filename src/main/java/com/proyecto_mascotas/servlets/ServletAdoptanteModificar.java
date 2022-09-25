@@ -1,5 +1,6 @@
 package com.proyecto_mascotas.servlets;
 
+import com.proyecto_mascotas.controller.AdoptanteController;
 import com.proyecto_mascotas.controller.UsuarioController;
 
 import javax.servlet.*;
@@ -8,32 +9,31 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletUsuarioModificar", value = "/ServletUsuarioModificar")
-public class ServletUsuarioModificar extends HttpServlet {
-
+@WebServlet(name = "ServletAdoptanteModificar", value = "/ServletAdoptanteModificar")
+public class ServletAdoptanteModificar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletUsuarioModificar() {
+    public ServletAdoptanteModificar() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsuarioController usuario = new UsuarioController();
+        AdoptanteController adoptante = new AdoptanteController();
 
-        int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+        long cedula = Long.parseLong(request.getParameter("cedula"));
         String primerNombre = request.getParameter("primerNombre");
         String segundoNombre = request.getParameter("segundoNombre");
         String primerApellido = request.getParameter("primerApellido");
         String segundoApellido = request.getParameter("segundoApellido");
         String email = request.getParameter("email");
         String telefono = request.getParameter("telefono");
-        String password = request.getParameter("password");
+        String observacion = request.getParameter("observacion");
 
-        String usuarioStr = usuario.editarUsuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password);
+        String adoptanteStr = adoptante.editarAdoptante(cedula, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, observacion);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(usuarioStr);
+        out.println(adoptanteStr);
         out.flush();
         out.close();
     }

@@ -4,7 +4,6 @@ public class Adoptante extends Persona{
     private long cedula;
     private byte foto; //Corroborar si esto corresponde a una foto
     private String observacion;
-    private String ciudad;
 
     public Adoptante(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad, long cedula, byte foto, String observacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
@@ -21,19 +20,11 @@ public class Adoptante extends Persona{
     }
 
     /*Para listar en el html*/
-    public Adoptante(long cedula, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad, String ciudad,  String observacion) {
-        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
+
+    public Adoptante(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String ciudad, String departamento, long cedula, String observacion) {
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento);
         this.cedula = cedula;
         this.observacion = observacion;
-        this.ciudad = ciudad;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
     }
 
     public long getCedula() {
@@ -66,7 +57,6 @@ public class Adoptante extends Persona{
                 "cedula=" + cedula +
                 ", foto=" + foto +
                 ", observacion='" + observacion + '\'' +
-                ", ciudad='" + ciudad + '\'' +
                 "} " + super.toString();
     }
 }

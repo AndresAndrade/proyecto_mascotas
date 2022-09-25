@@ -141,7 +141,7 @@ public class UsuarioController implements IUsuarioController{
     }
 
     @Override
-    public String editarusuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password) {
+    public String editarUsuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password) {
         DBConnection con = new DBConnection();
 
         String sql = "UPDATE usuario SET primer_nombre = '" + primerNombre + "', segundo_nombre = '" + segundoNombre + "', " +

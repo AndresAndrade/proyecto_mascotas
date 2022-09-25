@@ -4,6 +4,11 @@ $(document).ready(function () {
         registrarAdoptante();
     });
 
+    $("#form-editar-adoptante").submit(function (event) {
+        event.preventDefault();
+        editarAdoptante();
+    });
+
     getDptoAdoptante();
     $("#select-departamento-adoptante").change(function() {
         let text = $('#select-departamento-adoptante option:selected').text();
@@ -152,8 +157,79 @@ function mostrarAdoptantes(adoptantes) {
             '<td>' + adoptante.telefono + '</td>' +
             '<td>' + adoptante.ciudad + '</td>' +
             '<td>' + adoptante.observacion + '</td>' +
-            '<td><button class="btn btn-success">Editar</button></td>' +
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-adoptante" onclick="llenarFormularioAdoptante(' + adoptante.cedula + ')">Editar</button></td>' +
             '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
     });
     $("#adoptantes-tbody").html(contenido);
+}
+
+//Llenar el formulario de adoptante para la edición
+function llenarFormularioAdoptante(cedula) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletAdoptanteLlenarForm",
+        data: $.param({
+            cedula: cedula
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#input-editar-cedula").val(parsedResult.cedula);
+                $("#input-editar-primer-nombre-adoptante").val(parsedResult.primerNombre);
+                $("#input-editar-segundo-nombre-adoptante").val(parsedResult.segundoNombre);
+                $("#input-editar-primer-apellido-adoptante").val(parsedResult.primerApellido);
+                $("#input-editar-segundo-apellido-adoptante").val(parsedResult.segundoApellido);
+                $("#input-editar-email-adoptante").val(parsedResult.email);
+                $("#input-editar-telefono-adoptante").val(parsedResult.telefono);
+                $("#select-editar-ciudad-adoptante").val(parsedResult.ciudad);
+                $("#select-editar-departamento-adoptante").val(parsedResult.departamento);
+                $("#input-editar-observacion-adoptante").val(parsedResult.observacion);
+
+            } else {
+                console.log("Error recuperando los datos del usuario");
+            }
+        }
+    });
+}
+
+//Editar adoptante
+function editarAdoptante() {
+
+    let cedula = $("#input-editar-cedula").val();
+    let primerNombre = $("#input-editar-primer-nombre-adoptante").val();
+    let segundoNombre = $("#input-editar-segundo-nombre-adoptante").val();
+    let primerApellido = $("#input-editar-primer-apellido-adoptante").val();
+    let segundoApellido = $("#input-editar-segundo-apellido-adoptante").val();
+    let email = $("#input-editar-email-adoptante").val();
+    let telefono = $("#input-editar-telefono-adoptante").val();
+    let observacion = $("#input-editar-observacion-adoptante").val();
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletAdoptanteModificar",
+        data: $.param({
+            cedula: cedula,
+            primerNombre: primerNombre,
+            segundoNombre: segundoNombre,
+            primerApellido: primerApellido,
+            segundoApellido: segundoApellido,
+            email: email,
+            telefono: telefono,
+            observacion: observacion
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                $("#editar-error-adoptante").addClass("d-none");
+                $("#editar-success-adoptante").removeClass("d-none");
+                $("#editar-success-adoptante").html("Registro exitoso");
+            } else {
+                $("#editar-error-adoptante").removeClass("d-none");
+                $("#editar-error-adoptante").html("Error en el registro del adoptante");
+            }
+        }
+    });
 }
