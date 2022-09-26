@@ -146,8 +146,12 @@ function mostrarFundaciones(fundaciones) {
             '<td>' + fundacion.email + '</td>' +
             '<td>' + fundacion.ciudadFundacion + '</td>' +
             '<td>' + fundacion.departamentoFundacion + '</td>' +
-            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-fundacion" onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
-            '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-editar-fundacion" ' +
+            'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
+            '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
+            'Eliminar</button></td></tr>';
     });
     $("#fundaciones-tbody").html(contenido);
 }
@@ -207,6 +211,58 @@ function editarFundacion() {
             } else {
                 $("#editar-error-fundacion").removeClass("d-none");
                 $("#editar-error-fundacion").html("Error en el registro de la fundacion");
+            }
+        }
+    });
+}
+
+/*Eliminar fundacion*/
+function eliminarFundacion() {
+
+    let idFundacion = $("#label-idFundacion").html();
+    console.log(idFundacion);
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionEliminar",
+        data: $.param({
+            idFundacion: idFundacion
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                console.log("Registro eliminado")
+                $("#eliminar-error-fundacion").addClass("d-none");
+                $("#eliminar-success-fundacion").removeClass("d-none");
+                $("#eliminar-success-fundacion").html("Registro eliminado con exito");
+            } else {
+                console.log("Error eliminando el registro del adoptante");
+                $("#eliminar-error-fundacion").removeClass("d-none");
+                $("#eliminar-error-fundacion").html("Error al eliminar la fundación");
+            }
+        }
+    });
+}
+
+/*llenar el objeto modal para eliminar fundación*/
+function llenarFundacionModal(idFundacion) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionModal",
+        data: $.param({
+            idFundacion: idFundacion
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#label-idFundacion").html(parsedResult.idFundacion);
+                $("#label-nombre-fundacion").html(parsedResult.nombreFundacion);
+
+            } else {
+                console.log("Error recuperando los datos de la fundación");
             }
         }
     });

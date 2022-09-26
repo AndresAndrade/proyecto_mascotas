@@ -1,6 +1,7 @@
 package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
+import com.proyecto_mascotas.beans.Adoptante;
 import com.proyecto_mascotas.beans.Usuario;
 import com.proyecto_mascotas.connection.DBConnection;
 
@@ -163,7 +164,21 @@ public class UsuarioController implements IUsuarioController{
 
     @Override
     public String eliminarUsuario(int idUsuario) {
-        return null;
+        DBConnection con = new DBConnection();
+
+        String sql = "DELETE FROM usuario WHERE id_usuario = " + idUsuario;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
     }
 
     @Override
@@ -194,6 +209,32 @@ public class UsuarioController implements IUsuarioController{
                 String fundacion = rs.getString("fundacion.nombre");
 
                 Usuario usuario = new Usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, idUsuario, username, password, fundacion);
+                return gson.toJson(usuario);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String llenarUsuarioModal(int idUsuario) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT CONCAT(primer_apellido, ' ', primer_apellido) AS nombre_completo, username " +
+                "FROM usuario " +
+                "WHERE id_usuario = " + idUsuario;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreCompleto = rs.getString("nombre_completo");
+                String username = rs.getString("username");
+                Usuario usuario = new Usuario(idUsuario, username, nombreCompleto);
                 return gson.toJson(usuario);
             }
         } catch (SQLException e) {

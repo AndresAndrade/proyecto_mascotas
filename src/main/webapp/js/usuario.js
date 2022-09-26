@@ -203,8 +203,12 @@ function mostrarUsuarios(usuarios) {
             '<td>' + usuario.email + '</td>' +
             '<td>' + usuario.telefono + '</td>' +
             '<td>' + usuario.fundacion + '</td>' +
-            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-usuario" onclick="llenarFormularioUsuario(' + usuario.idUsuario + ')">Editar</button></td>' +
-            '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-editar-usuario" ' +
+            'onclick="llenarFormularioUsuario(' + usuario.idUsuario + ')">Editar</button></td>' +
+            '<td><button type="submit" class="btn btn-warning" id="btnEliminar-usuario" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-eliminar-usuario" onclick="llenarUsuarioModal('+ usuario.idUsuario +')">' +
+            'Eliminar</button></td></tr>';
     });
     $("#usuarios-tbody").html(contenido);
 }
@@ -277,6 +281,59 @@ function editarUsuario() {
             } else {
                 $("#editar-error-usuario").removeClass("d-none");
                 $("#editar-error-usuario").html("Error en el registro del usuario");
+            }
+        }
+    });
+}
+
+/*Eliminar usuario*/
+function eliminarUsuario() {
+
+    let idUsuario = $("#label-idUsuario").html();
+    console.log(idUsuario);
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioEliminar",
+        data: $.param({
+            idUsuario: idUsuario
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                console.log("Registro eliminado")
+                $("#eliminar-error-usuario").addClass("d-none");
+                $("#eliminar-success-usuario").removeClass("d-none");
+                $("#eliminar-success-usuario").html("Registro eliminado con exito");
+            } else {
+                console.log("Error eliminando el registro del usuario");
+                $("#eliminar-error-usuario").removeClass("d-none");
+                $("#eliminar-error-usuario").html("Error al eliminar al usuario");
+            }
+        }
+    });
+}
+
+/*llenar el objeto modal para elminar usuario*/
+function llenarUsuarioModal(idUsuario) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioModal",
+        data: $.param({
+            idUsuario: idUsuario
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#label-idUsuario").html(parsedResult.idUsuario);
+                $("#label-nombre-usuario").html(parsedResult.nombreCompleto);
+                $("#label-username").html(parsedResult.username);
+
+            } else {
+                console.log("Error recuperando los datos del usuario");
             }
         }
     });

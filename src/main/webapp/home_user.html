@@ -440,7 +440,47 @@
 		</div>
 	</div>
 	
-	
+	<!--Modal para eliminar usuario-->
+	<div class="modal fade" id="modal-eliminar-usuario" tabindex="-1" role="dialog" aria-labelledby="modal-eliminar-usuario-header" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-tittle" id="modal-eliminar-usuario-header">¿Eliminar usuario?</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<h5><span class="badge text-bg-primary">ID Fundación: </span></h5>
+							<h4 class="text-dark" id="label-idUsuario"></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h5><span class="badge text-bg-primary">Username: </span></h5>
+							<h4 class="text-dark" id="label-username"></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h5><span class="badge text-bg-primary">Nombre completo: </span></h5>
+							<h4 class="text-dark" id="label-nombre-usuario"></h4>
+						</div>
+					</div>
+					<hr>
+					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" id="btnEliminar-usuario-aceptar"
+					        onclick="eliminarUsuario()">
+						Eliminar registro
+					</button>
+					<div id="eliminar-error-usuario" class="alert alert-danger d-none" role="alert"></div>
+					<div id="eliminar-success-usuario" class="alert alert-success d-none" role="alert"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<!--Editar usuario-->
 	<div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-usuario">
@@ -601,6 +641,42 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Modal para eliminar fundacion-->
+	<div class="modal fade" id="modal-eliminar-fundacion" tabindex="-1" role="dialog" aria-labelledby="modal-eliminar-fundacion-header" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-tittle" id="modal-eliminar-fundacion-header">¿Eliminar fundación?</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<h5><span class="badge text-bg-primary">ID Fundación: </span></h5>
+							<h4 class="text-dark" id="label-idFundacion"></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h5><span class="badge text-bg-primary">Nombre fundación: </span></h5>
+							<h4 class="text-dark" id="label-nombre-fundacion"></h4>
+						</div>
+					</div>
+					<hr>
+					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" id="btnEliminar-fundacion-aceptar"
+					        onclick="eliminarFundacion()">
+						Eliminar registro
+					</button>
+					<div id="eliminar-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
+					<div id="eliminar-success-fundacion" class="alert alert-success d-none" role="alert"></div>
 				</div>
 			</div>
 		</div>

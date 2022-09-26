@@ -6,6 +6,7 @@ public class Usuario extends Persona{
     private String password;
     private int idFundacion;
     private String fundacion;
+    private String nombreCompleto;
 
     public Usuario(int idUsuario, String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
@@ -37,6 +38,20 @@ public class Usuario extends Persona{
         this.username = username;
         this.password = password;
         this.fundacion = fundacion;
+    }
+
+    public Usuario(int idUsuario, String username, String nombreCompleto) {
+        this.idUsuario = idUsuario;
+        this.username = username;
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public String getFundacion() {
