@@ -12,6 +12,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- adoptante.js -->
+	<script src="js/adoptante.js"></script>
 </head>
 <body>
 <header class="sticky-top">
@@ -45,15 +47,75 @@
 		</div>
 	</nav>
 </header>
-<div class="container">
-	<div class="card-text">
-		<h3>Administrador</h3>
-		<br>
-		<h3>Nombre:</h3> Sutano Mengano<br>
-		<h3>Telefono:</h3> 333-333-33333<br>
-		<h3>Correo:</h3> smengano@mail.com<br>
+<main class="p-4 d-flex justify-content-center">
+	<!--Registro de adoptante-->
+	<div class="card sizeDiv">
+		<div class="card-body">
+			<h5 class="card-title text-center">Formulario de registro de adoptante</h5>
+			<form id="form-register-adoptante" class="pb-4">
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-cedula">Cédula:</label>
+						<input type="text" class="form-control" id="input-cedula" placeholder="Cédula" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-primer-nombre-adoptante">Primer nombre:</label>
+						<input type="text" class="form-control" id="input-primer-nombre-adoptante" placeholder="Primer nombre" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-segundo-nombre-adoptante">Segundo nombre:</label>
+						<input type="text" class="form-control" id="input-segundo-nombre-adoptante" placeholder="Segundo nombre">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-primer-apellido-adoptante">Primer apellido:</label>
+						<input type="text" class="form-control" id="input-primer-apellido-adoptante" placeholder="Primer apellido" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-segundo-apellido-adoptante">Segundo apellido:</label>
+						<input type="text" class="form-control" id="input-segundo-apellido-adoptante" placeholder="Segundo apellido">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-email-adoptante">Correo electronico:</label>
+						<input type="email" class="form-control" id="input-email-adoptante" placeholder="ejemplo@mail.com" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-telefono-adoptante">Teléfono:</label>
+						<input type="tel" class="form-control" id="input-telefono-adoptante" placeholder="Telefono" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="select-departamento-adoptante">Departamento:</label>
+						<select class="form-select" id="select-departamento-adoptante" aria-label="select-departamento">
+							<!--Se llaman los datos desde MySQL con jquery-->
+						</select>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="select-ciudad-adoptante">Ciudad:</label>
+						<select class="form-select" id="select-ciudad-adoptante" aria-label="select-ciudad">
+							<!--Se llaman los datos desde MySQL con jquery-->
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-observacion-adoptante">Observación:</label>
+						<input type="text" class="form-control" id="input-observacion-adoptante" placeholder="Observación">
+					</div>
+				</div>
+				<input type="submit" class="btn btn-primary mb-3" id="btnRegister-adoptante" value="Registrar"/>
+			</form>
+			<div id="register-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
+			<div id="register-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+		</div>
 	</div>
-</div>
+</main>
 </body>
 <footer>
 	<div class="container3">
