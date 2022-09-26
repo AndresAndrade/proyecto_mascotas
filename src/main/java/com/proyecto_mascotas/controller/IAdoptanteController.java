@@ -6,4 +6,5 @@ public interface IAdoptanteController {
     String editarAdoptante(long cedula, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String observacion);
     String eliminarAdoptante(long cedula);
     String llenarAdoptanteFrom(long cedula);
+    String llenarAdoptanteModal(long cedula);
 }

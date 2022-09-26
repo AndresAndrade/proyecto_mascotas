@@ -199,7 +199,8 @@ function listarMascotas(mascotas) {
             'data-bs-target="#modal-editar-mascota" ' +
             'onclick="llenarFormularioMascota(' + mascota.idMascota + ')">Editar</button></td>' +
             '<td><button type="submit" class="btn btn-warning" id="btnEliminar-mascota" data-bs-toggle="modal" ' +
-            'data-bs-target="#modal-eliminar-mascota" onclick="llenarMascotaModal('+ mascota.idMascota +')">Eliminar</button></td></tr> ';
+            'data-bs-target="#modal-eliminar-mascota" onclick="llenarMascotaModal('+ mascota.idMascota +')">' +
+            'Eliminar</button></td></tr>';
     });
 
     $("#mascotas-tbody").html(contenido);
@@ -268,6 +269,7 @@ function editarMascota() {
     });
 }
 
+/*Eliminar mascota*/
 function eliminarMascota() {
 
     let idMascota = $("#label-idMascota").html();
@@ -296,6 +298,7 @@ function eliminarMascota() {
     });
 }
 
+/*llenar el objeto modal para elminar mascota*/
 function llenarMascotaModal(idMascota) {
     $.ajax({
         type: "GET",

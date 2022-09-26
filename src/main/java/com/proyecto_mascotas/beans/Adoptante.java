@@ -4,6 +4,7 @@ public class Adoptante extends Persona{
     private long cedula;
     private byte foto; //Corroborar si esto corresponde a una foto
     private String observacion;
+    private String nombreCompleto;
 
     public Adoptante(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad, long cedula, byte foto, String observacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
@@ -25,6 +26,12 @@ public class Adoptante extends Persona{
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento);
         this.cedula = cedula;
         this.observacion = observacion;
+    }
+
+    public Adoptante(long cedula, String nombreCompleto) {
+        super();
+        this.cedula = cedula;
+        this.nombreCompleto = nombreCompleto;
     }
 
     public long getCedula() {
@@ -49,6 +56,14 @@ public class Adoptante extends Persona{
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     @Override

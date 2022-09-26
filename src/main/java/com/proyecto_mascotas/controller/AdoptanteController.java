@@ -2,6 +2,7 @@ package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
 import com.proyecto_mascotas.beans.Adoptante;
+import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.beans.Usuario;
 import com.proyecto_mascotas.connection.DBConnection;
 
@@ -101,7 +102,21 @@ public class AdoptanteController implements IAdoptanteController{
 
     @Override
     public String eliminarAdoptante(long cedula) {
-        return null;
+        DBConnection con = new DBConnection();
+
+        String sql = "DELETE FROM adoptante WHERE cedula = " + cedula;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
     }
 
     @Override
@@ -129,6 +144,31 @@ public class AdoptanteController implements IAdoptanteController{
                 String observacion = rs.getString("observacion");
 
                 Adoptante adoptante = new Adoptante(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, cedula, observacion);
+                return gson.toJson(adoptante);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String llenarAdoptanteModal(long cedula) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT CONCAT(primer_apellido, ' ', primer_apellido) AS nombre_completo " +
+                "FROM adoptante " +
+                "WHERE cedula = " + cedula;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreCompleto = rs.getString("nombre_completo");
+                Adoptante adoptante = new Adoptante(cedula, nombreCompleto);
                 return gson.toJson(adoptante);
             }
         } catch (SQLException e) {

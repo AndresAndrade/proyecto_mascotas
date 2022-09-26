@@ -157,8 +157,12 @@ function mostrarAdoptantes(adoptantes) {
             '<td>' + adoptante.telefono + '</td>' +
             '<td>' + adoptante.ciudad + '</td>' +
             '<td>' + adoptante.observacion + '</td>' +
-            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-adoptante" onclick="llenarFormularioAdoptante(' + adoptante.cedula + ')">Editar</button></td>' +
-            '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-editar-adoptante" ' +
+            'onclick="llenarFormularioAdoptante(' + adoptante.cedula + ')">Editar</button></td>' +
+            '<td><button type="submit" class="btn btn-warning" id="btnEliminar-adoptante" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-eliminar-adoptante" onclick="llenarAdoptanteModal('+ adoptante.cedula +')">' +
+                'Eliminar</button></td></tr>';
     });
     $("#adoptantes-tbody").html(contenido);
 }
@@ -229,6 +233,58 @@ function editarAdoptante() {
             } else {
                 $("#editar-error-adoptante").removeClass("d-none");
                 $("#editar-error-adoptante").html("Error en el registro del adoptante");
+            }
+        }
+    });
+}
+
+/*Eliminar adoptante*/
+function eliminarAdoptante() {
+
+    let cedula = $("#label-cedula").html();
+    console.log(cedula);
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletAdoptanteEliminar",
+        data: $.param({
+            cedula: cedula
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                console.log("Registro eliminado")
+                $("#eliminar-error-adoptante").addClass("d-none");
+                $("#eliminar-success-adoptante").removeClass("d-none");
+                $("#eliminar-success-adoptante").html("Registro eliminado con exito");
+            } else {
+                console.log("Error eliminando el registro del adoptante");
+                $("#eliminar-error-adoptante").removeClass("d-none");
+                $("#eliminar-error-adoptante").html("Error al eliminar al adoptante");
+            }
+        }
+    });
+}
+
+/*llenar el objeto modal para elminar adoptante*/
+function llenarAdoptanteModal(cedula) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletAdoptanteModal",
+        data: $.param({
+            cedula: cedula
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#label-cedula").html(parsedResult.cedula);
+                $("#label-nombre-completo").html(parsedResult.nombreCompleto);
+
+            } else {
+                console.log("Error recuperando los datos del adoptante");
             }
         }
     });

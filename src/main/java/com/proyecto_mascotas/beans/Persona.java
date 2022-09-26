@@ -11,6 +11,9 @@ public class Persona {
     private String ciudad;
     private String departamento;
 
+    public Persona() {
+    }
+
     public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad) {
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;

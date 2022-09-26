@@ -440,6 +440,8 @@
 		</div>
 	</div>
 	
+	
+	
 	<!--Editar usuario-->
 	<div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-usuario">
 		<div class="modal-dialog modal-lg">
@@ -756,6 +758,42 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Modal para eliminar adoptante-->
+	<div class="modal fade" id="modal-eliminar-adoptante" tabindex="-1" role="dialog" aria-labelledby="modal-eliminar-adoptante-header" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-tittle" id="modal-eliminar-adoptante-header">¿Eliminar adoptante?</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<h5><span class="badge text-bg-primary">Cédula: </span></h5>
+							<h4 class="text-dark" id="label-cedula"></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h5><span class="badge text-bg-primary">Nombre completo: </span></h5>
+							<h4 class="text-dark" id="label-nombre-completo"></h4>
+						</div>
+					</div>
+					<hr>
+					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" id="btnEliminar-adoptante-aceptar"
+					        onclick="eliminarAdoptante()">
+						Eliminar registro
+					</button>
+					<div id="eliminar-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
+					<div id="eliminar-success-adoptante" class="alert alert-success d-none" role="alert"></div>
 				</div>
 			</div>
 		</div>
