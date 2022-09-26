@@ -126,11 +126,16 @@ public class FundacionController implements IFundacionController{
     public String eliminarFundacion(int idFundacion) {
         DBConnection con = new DBConnection();
 
-        String sql = "DELETE FROM fundacion WHERE id_fundacion = " + idFundacion;
+        String deleteMascotas = "DELETE FROM mascota WHERE id_fundacion = " + idFundacion;
+        String deleteUsuarios = "DELETE FROM usuario WHERE id_fundacion = " + idFundacion;
+        String deleteFundacion = "DELETE FROM fundacion WHERE id_fundacion = " + idFundacion;
 
         try {
-            Statement st = con.getConnection().createStatement();
-            st.executeUpdate(sql);
+            Statement stm = con.getConnection().createStatement();
+            stm.executeUpdate(deleteMascotas);
+            stm.executeUpdate(deleteUsuarios);
+            stm.executeUpdate(deleteFundacion);
+
 
             return "true";
         } catch (Exception ex) {
