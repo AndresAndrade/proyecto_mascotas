@@ -71,7 +71,7 @@ public class AdoptanteController implements IAdoptanteController{
                 adoptantes.add(gson.toJson(adoptante));
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
         } finally {
             conn.desconectar();
         }

@@ -44,6 +44,11 @@ public class Mascota {
         this.idFundacion = idFundacion;
     }
 
+    public Mascota(int idMascota, String nombreMascota) {
+        this.idMascota = idMascota;
+        this.nombreMascota = nombreMascota;
+    }
+
     public int getIdMascota() {
         return idMascota;
     }

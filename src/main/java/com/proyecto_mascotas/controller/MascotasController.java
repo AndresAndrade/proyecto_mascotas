@@ -102,7 +102,21 @@ public class MascotasController implements IMascotaControlador{
 
     @Override
     public String eliminarMascota(int idMascota) {
-        return null;
+        DBConnection con = new DBConnection();
+
+        String sql = "DELETE FROM mascota WHERE id_mascota = " + idMascota;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
     }
 
     @Override
@@ -129,6 +143,31 @@ public class MascotasController implements IMascotaControlador{
                 String fundacion = rs.getString("fundacion.nombre");
 
                 Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
+                return gson.toJson(mascota);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String llenarMascotaModal(int idMascota) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT nombre_mascota " +
+                "FROM mascota " +
+                "WHERE id_mascota = " + idMascota;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreMascota = rs.getString("nombre_mascota");
+                Mascota mascota = new Mascota(idMascota, nombreMascota);
                 return gson.toJson(mascota);
             }
         } catch (SQLException e) {

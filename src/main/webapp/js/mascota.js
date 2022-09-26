@@ -183,7 +183,7 @@ function listarMascotas(mascotas) {
     let contenido = "";
     $.each(mascotas, function (index, mascota) {
         mascota = JSON.parse(mascota);
-        contenido += '<tr><th scope="row" id="mascota' + mascota.idMascota + '">' + mascota.idMascota + '</th>' +
+        contenido += '<tr><th scope="row" id="idMascota' + mascota.idMascota + '">' + mascota.idMascota + '</th>' +
             '<td>' + mascota.nombreMascota + '</td>' +
             '<td>' + mascota.edad + '</td>' +
             '<td>' + mascota.especie + '</td>' +
@@ -195,9 +195,13 @@ function listarMascotas(mascotas) {
             contenido += 'checked'
         }
         contenido += '><td>' + mascota.descripcion + '</td>' +
-            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-editar-mascota" onclick="llenarFormularioMascota(' + mascota.idMascota + ')">Editar</button></td>' +
-            '<td><button class="btn btn-warning">Eliminar</button></td></tr>';
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-editar-mascota" ' +
+            'onclick="llenarFormularioMascota(' + mascota.idMascota + ')">Editar</button></td>' +
+            '<td><button type="submit" class="btn btn-warning" id="btnEliminar-mascota" data-bs-toggle="modal" ' +
+            'data-bs-target="#modal-eliminar-mascota" onclick="llenarMascotaModal('+ mascota.idMascota +')">Eliminar</button></td></tr> ';
     });
+
     $("#mascotas-tbody").html(contenido);
 }
 
@@ -224,7 +228,7 @@ function llenarFormularioMascota(idMascota) {
                 $("#input-estado").prop("checked", parsedResult.estado);
 
             } else {
-                console.log("Error recuperando los datos dde la mascota");
+                console.log("Error recuperando los datos de la mascota");
             }
         }
     });
@@ -259,6 +263,56 @@ function editarMascota() {
             } else {
                 $("#editar-error-mascota").removeClass("d-none");
                 $("#editar-error-mascota").html("Error en el registro de la mascota");
+            }
+        }
+    });
+}
+
+function eliminarMascota() {
+
+    let idMascota = $("#label-idMascota").html();
+    console.log(idMascota);
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletMascotaEliminar",
+        data: $.param({
+            idMascota: idMascota
+        }),
+        success: function (result) {
+
+            if (result !== false) {
+                console.log("Registro eliminado")
+                $("#eliminar-error-mascota").addClass("d-none");
+                $("#eliminar-success-mascota").removeClass("d-none");
+                $("#eliminar-success-mascota").html("Registro eliminado con exito");
+            } else {
+                console.log("Error eliminando el registro de la mascota");
+                $("#eliminar-error-mascota").removeClass("d-none");
+                $("#eliminar-error-mascota").html("Error al eliminar la mascota");
+            }
+        }
+    });
+}
+
+function llenarMascotaModal(idMascota) {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletMascotaModal",
+        data: $.param({
+            idMascota: idMascota
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+
+                $("#label-idMascota").html(parsedResult.idMascota);
+                $("#label-nombre-mascota").html(parsedResult.nombreMascota);
+
+            } else {
+                console.log("Error recuperando los datos de la mascota");
             }
         }
     });

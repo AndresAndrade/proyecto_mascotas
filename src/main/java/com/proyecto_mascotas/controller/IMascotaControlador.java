@@ -6,4 +6,5 @@ public interface IMascotaControlador {
     String editarMascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado);
     String eliminarMascota(int idMascota);
     String llenarMascotaForm(int idMascota);
+    String llenarMascotaModal(int idMascota);
 }
