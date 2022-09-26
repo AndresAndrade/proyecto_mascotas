@@ -8,6 +8,8 @@ $(document).ready(function () {
         event.preventDefault();
         editarMascota();
     });
+
+    getMascotasIndex();
     
     getMascotas();
 
@@ -319,4 +321,57 @@ function llenarMascotaModal(idMascota) {
             }
         }
     });
+}
+
+/*Listar mascotas index*/
+function getMascotasIndex() {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletMascotaListar",
+        data: $.param({
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+                listarMascotasIndex(parsedResult);
+            } else {
+                console.log("Error recuperando los datos de las mascotas.");
+            }
+        }
+    });
+}
+
+function listarMascotasIndex(mascotas) {
+    let contenido = "";
+    $.each(mascotas, function (index, mascota) {
+        mascota = JSON.parse(mascota);
+        contenido += '<div class="col">' +
+            '<div class="card h-100">' +
+                '<img src="img/dog_head_profile.svg" class="card-img-top" alt="...">' +
+                    '<div class="card-body">'+
+                        '<h4 class="card-title">'+ mascota.nombreMascota +'</h4>' +
+                        '<h5>Especie:</h5>' +
+                        '<p class="card-text">' + mascota.especie + '</p>' +
+                        '<h5>Raza:</h5>' +
+                        '<p class="card-text">' + mascota.raza + '</p>' +
+                        '<h5>Edad:</h5>' +
+                        '<p class="card-text">' + mascota.edad + '</p>' +
+                        '<p>' +
+                            '<a class="btn btn-primary" data-bs-toggle="collapse" href="#info-dog' + mascota.idMascota +'" ' +
+                            'role="button" aria-expanded="false" aria-controls="info-dog' + mascota.idMascota +'">' +
+                                'Más Info' +
+                            '</a>' +
+                        '</p>' +
+                        '<div class="collapse" id="info-dog' + mascota.idMascota +'">' +
+                            '<div class="card card-body">' +
+                                '<h5>Descripción:</h5>' +
+                                '<p class="card-text">' + mascota.descripcion + '</p>' +
+                                '<h5>Fundación:</h5>' +
+                                '<p class="card-text">' + mascota.fundacion + '</p>' +
+                            '</div></div></div></div></div>';
+    });
+
+    $("#index-lista-mascotas").html(contenido);
 }

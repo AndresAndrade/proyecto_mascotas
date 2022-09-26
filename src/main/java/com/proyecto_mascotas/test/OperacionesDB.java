@@ -5,6 +5,7 @@ import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.beans.Usuario;
 import com.proyecto_mascotas.connection.DBConnection;
 
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -35,7 +36,8 @@ public class OperacionesDB {
         String sql = "SELECT id_mascota, nombre_mascota, edad, especie, raza, fundacion.nombre, foto, estado, descripcion " +
                 "FROM mascota INNER JOIN raza USING(id_raza) " +
                 "INNER JOIN especie USING(id_especie) " +
-                "INNER JOIN fundacion USING(id_fundacion)";
+                "INNER JOIN fundacion USING(id_fundacion) " +
+                "WHERE id_mascota = 1";
 
         try {
             Statement stm = conn.getConnection().createStatement();
@@ -48,7 +50,7 @@ public class OperacionesDB {
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                byte foto = rs.getByte("foto");
+                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");

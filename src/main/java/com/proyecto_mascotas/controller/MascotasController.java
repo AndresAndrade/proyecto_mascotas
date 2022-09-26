@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.connection.DBConnection;
 
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -32,7 +33,7 @@ public class MascotasController implements IMascotaControlador{
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                byte foto = rs.getByte("foto");
+                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");
@@ -137,7 +138,7 @@ public class MascotasController implements IMascotaControlador{
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                byte foto = rs.getByte("foto");
+                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");

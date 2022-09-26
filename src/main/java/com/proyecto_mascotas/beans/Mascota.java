@@ -1,12 +1,14 @@
 package com.proyecto_mascotas.beans;
 
+import java.sql.Blob;
+
 public class Mascota {
     private int idMascota;
     private String nombreMascota;
     private float edad;
     private String descripcion;
     private boolean estado;
-    private byte foto; //Verificar si es correcto el tipo para la foto
+    private Blob foto; //Verificar si es correcto el tipo para la foto
     private String especie;
     private String raza;
     private String fundacion;
@@ -14,7 +16,7 @@ public class Mascota {
     private int idFundacion;
 
     //Para listar en el html
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, byte foto, String especie, String raza, String fundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, Blob foto, String especie, String raza, String fundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
@@ -89,11 +91,11 @@ public class Mascota {
         this.estado = estado;
     }
 
-    public byte getFoto() {
+    public Blob getFoto() {
         return foto;
     }
 
-    public void setFoto(byte foto) {
+    public void setFoto(Blob foto) {
         this.foto = foto;
     }
 

@@ -1,4 +1,8 @@
+let path = $(location).attr('pathname');
+let pathRegex = /\/proyecto_mascotas(_war_exploded|)\/directorio_fundaciones.html/;
+
 $(document).ready(function () {
+    console.log(path);
     $("#form-register-fundacion").submit(function (event) {
         event.preventDefault();
         registrarFundacion();
@@ -145,13 +149,18 @@ function mostrarFundaciones(fundaciones) {
             '<td>' + fundacion.telefono + '</td>' +
             '<td>' + fundacion.email + '</td>' +
             '<td>' + fundacion.ciudadFundacion + '</td>' +
-            '<td>' + fundacion.departamentoFundacion + '</td>' +
-            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
-            'data-bs-target="#modal-editar-fundacion" ' +
-            'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
-            '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
-            'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
-            'Eliminar</button></td></tr>';
+            '<td>' + fundacion.departamentoFundacion + '</td>';
+
+            if (!pathRegex.test(path)) {
+                contenido += '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+                    'data-bs-target="#modal-editar-fundacion" ' +
+                    'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
+                    '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
+                    'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
+                    'Eliminar</button></td></tr>';
+            }
+
+
     });
     $("#fundaciones-tbody").html(contenido);
 }
