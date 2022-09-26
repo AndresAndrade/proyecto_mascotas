@@ -345,15 +345,28 @@ function getMascotasIndex() {
 
 function listarMascotasIndex(mascotas) {
     let contenido = "";
+    const IMAGEN_URL = {
+        Perro: "img/silueta-perro.jpg",
+        Gato: "img/silueta-gato.jpg",
+        Otro: "img/silueta-conejo.jpg"
+    };
+
     $.each(mascotas, function (index, mascota) {
         mascota = JSON.parse(mascota);
+        let imagenPet = IMAGEN_URL[mascota.especie];
+
         contenido += '<div class="col">' +
-            '<div class="card h-100">' +
-                '<img src="img/dog_head_profile.svg" class="card-img-top" alt="...">' +
+            '<div class="card">' +
+                '<img src="' + imagenPet +'" class="card-img-top" alt="...">' +
                     '<div class="card-body">'+
-                        '<h4 class="card-title">'+ mascota.nombreMascota +'</h4>' +
-                        '<h5>Especie:</h5>' +
-                        '<p class="card-text">' + mascota.especie + '</p>' +
+                        '<h2 class="card-title text-center">'+ mascota.nombreMascota +'</h2>' +
+                        '<div class="row">' +
+                            '<div class="col-sm-auto mb-3">' +
+                                '<h5>Especie:</h5>' +
+                                '<p class="card-text">' + mascota.especie + '</p>' +
+                            '</div>' +
+                        '</div>' +
+
                         '<h5>Raza:</h5>' +
                         '<p class="card-text">' + mascota.raza + '</p>' +
                         '<h5>Edad:</h5>' +
