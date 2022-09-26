@@ -1,6 +1,7 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.adoptante;
 
-import com.proyecto_mascotas.controller.FundacionController;
+import com.proyecto_mascotas.controller.AdoptanteController;
+import com.proyecto_mascotas.controller.UsuarioController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -8,24 +9,22 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletFundacionSeleccionar", value = "/ServletFundacionSeleccionar")
-public class ServletFundacionSeleccionar extends HttpServlet {
+@WebServlet(name = "ServletAdoptanteLlenarForm", value = "/ServletAdoptanteLlenarForm")
+public class ServletAdoptanteLlenarForm extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletFundacionSeleccionar() {
+    public ServletAdoptanteLlenarForm() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AdoptanteController adoptante = new AdoptanteController();
+        long cedula = Long.parseLong(request.getParameter("cedula"));
+        String adoptanteStr = adoptante.llenarAdoptanteFrom(cedula);
 
-        FundacionController fundacion = new FundacionController();
-
-        String fundacionStr = fundacion.seleccionarFundacion();
-
-        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(fundacionStr);
+        out.println(adoptanteStr);
         out.flush();
         out.close();
     }

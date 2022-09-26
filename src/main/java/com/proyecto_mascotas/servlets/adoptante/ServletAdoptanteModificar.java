@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.adoptante;
 
 import com.proyecto_mascotas.controller.AdoptanteController;
 import com.proyecto_mascotas.controller.UsuarioController;
@@ -9,16 +9,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletAdoptanteRegister", value = "/ServletAdoptanteRegister")
-public class ServletAdoptanteRegister extends HttpServlet {
-
+@WebServlet(name = "ServletAdoptanteModificar", value = "/ServletAdoptanteModificar")
+public class ServletAdoptanteModificar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletAdoptanteRegister() {
+    public ServletAdoptanteModificar() {
         super();
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdoptanteController adoptante = new AdoptanteController();
 
@@ -30,19 +28,18 @@ public class ServletAdoptanteRegister extends HttpServlet {
         String email = request.getParameter("email");
         String telefono = request.getParameter("telefono");
         String observacion = request.getParameter("observacion");
-        int idCiudad = Integer.parseInt(request.getParameter("idCiudad"));
 
-        String result = adoptante.register(cedula, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, observacion, idCiudad);
+        String adoptanteStr = adoptante.editarAdoptante(cedula, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, observacion);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(result);
+        out.println(adoptanteStr);
         out.flush();
         out.close();
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         doGet(request, response);
     }
 }

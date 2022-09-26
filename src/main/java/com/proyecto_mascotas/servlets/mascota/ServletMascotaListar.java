@@ -1,6 +1,6 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.mascota;
 
-import com.proyecto_mascotas.controller.AdoptanteController;
+import com.proyecto_mascotas.controller.EspecieController;
 import com.proyecto_mascotas.controller.MascotasController;
 
 import javax.servlet.*;
@@ -9,23 +9,23 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletAdoptanteModal", value = "/ServletAdoptanteModal")
-public class ServletAdoptanteModal extends HttpServlet {
+@WebServlet(name = "ServletMascotaListar", value = "/ServletMascotaListar")
+public class ServletMascotaListar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletAdoptanteModal() {
+    public ServletMascotaListar() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        AdoptanteController adoptante = new AdoptanteController();
-        long cedula = Long.parseLong(request.getParameter("cedula"));
+        MascotasController mascota = new MascotasController();
 
-        String adoptanteStr = adoptante.llenarAdoptanteModal(cedula);
+        String mascotaStr = mascota.listarMascotas();
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(adoptanteStr);
+        out.println(mascotaStr);
         out.flush();
         out.close();
     }

@@ -1,7 +1,7 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.especie;
 
-import com.proyecto_mascotas.controller.AdoptanteController;
-import com.proyecto_mascotas.controller.UsuarioController;
+import com.proyecto_mascotas.controller.EspecieController;
+import com.proyecto_mascotas.controller.UbicacionController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,22 +9,23 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletAdoptanteLlenarForm", value = "/ServletAdoptanteLlenarForm")
-public class ServletAdoptanteLlenarForm extends HttpServlet {
+@WebServlet(name = "ServletEspecieListar", value = "/ServletEspecieListar")
+public class ServletEspecieListar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletAdoptanteLlenarForm() {
+    public ServletEspecieListar() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        AdoptanteController adoptante = new AdoptanteController();
-        long cedula = Long.parseLong(request.getParameter("cedula"));
-        String adoptanteStr = adoptante.llenarAdoptanteFrom(cedula);
+        EspecieController especie = new EspecieController();
 
+        String especieStr = especie.listarEspecie();
+
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(adoptanteStr);
+        out.println(especieStr);
         out.flush();
         out.close();
     }

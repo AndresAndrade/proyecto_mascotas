@@ -1,6 +1,7 @@
 package com.proyecto_mascotas.controller;
 
 import com.google.gson.Gson;
+import com.proyecto_mascotas.beans.Adoptante;
 import com.proyecto_mascotas.beans.Fundacion;
 import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.connection.DBConnection;
@@ -123,7 +124,21 @@ public class FundacionController implements IFundacionController{
 
     @Override
     public String eliminarFundacion(int idFundacion) {
-        return null;
+        DBConnection con = new DBConnection();
+
+        String sql = "DELETE FROM fundacion WHERE id_fundacion = " + idFundacion;
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
     }
 
     @Override
@@ -148,6 +163,31 @@ public class FundacionController implements IFundacionController{
                 String departamento = rs.getString("departamento");
 
                 Fundacion fundacion = new Fundacion(idFundacion, nombreFundacion, telefono, email, ciudad, departamento);
+                return gson.toJson(fundacion);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+        } finally {
+            conn.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String llenarFundacionModal(int idFundacion) {
+        Gson gson = new Gson();
+        DBConnection conn = new DBConnection();
+        String sql = "SELECT nombre " +
+                "FROM fundacion " +
+                "WHERE id_fundacion = " + idFundacion;
+
+        try {
+            Statement stm = conn.getConnection().createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+
+            while (rs.next()) {
+                String nombreFundacion = rs.getString("nombre");
+                Fundacion fundacion = new Fundacion(idFundacion, nombreFundacion);
                 return gson.toJson(fundacion);
             }
         } catch (SQLException e) {

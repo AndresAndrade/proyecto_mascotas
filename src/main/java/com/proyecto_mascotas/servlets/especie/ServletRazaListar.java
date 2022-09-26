@@ -1,6 +1,7 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.especie;
 
-import com.proyecto_mascotas.controller.MascotasController;
+import com.proyecto_mascotas.controller.EspecieController;
+import com.proyecto_mascotas.controller.UbicacionController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -8,23 +9,25 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletMascotaLlenarForm", value = "/ServletMascotaLlenarForm")
-public class ServletMascotaLlenarForm extends HttpServlet {
-
+@WebServlet(name = "ServletRazaListar", value = "/ServletRazaListar")
+public class ServletRazaListar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletMascotaLlenarForm() {
+    public ServletRazaListar() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MascotasController mascota = new MascotasController();
-        int idMascota = Integer.parseInt(request.getParameter("idMascota"));
-        String mascotaStr =  mascota.llenarMascotaForm(idMascota);
+        EspecieController raza = new EspecieController();
 
+        String especie = request.getParameter("especie");
+
+        String razaStr = raza.listarRaza(especie);
+
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(mascotaStr);
+        out.println(razaStr);
         out.flush();
         out.close();
     }

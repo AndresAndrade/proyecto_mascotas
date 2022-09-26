@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.mascota;
 
 import com.proyecto_mascotas.controller.MascotasController;
 
@@ -8,11 +8,11 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletMascotaEliminar", value = "/ServletMascotaEliminar")
-public class ServletMascotaEliminar extends HttpServlet {
+@WebServlet(name = "ServletMascotaModificar", value = "/ServletMascotaModificar")
+public class ServletMascotaModificar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletMascotaEliminar() {
+    public ServletMascotaModificar() {
         super();
     }
 
@@ -20,8 +20,12 @@ public class ServletMascotaEliminar extends HttpServlet {
         MascotasController mascota = new MascotasController();
 
         int idMascota = Integer.parseInt(request.getParameter("idMascota"));
+        String nombreMascota = request.getParameter("nombreMascota");
+        float edad = Float.parseFloat(request.getParameter("edad"));
+        String descripcion = request.getParameter("descripcion");
+        boolean estado = Boolean.parseBoolean(request.getParameter("estado"));
 
-        String mascotaStr = mascota.eliminarMascota(idMascota);
+        String mascotaStr = mascota.editarMascota(idMascota, nombreMascota, edad, descripcion, estado);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -30,7 +34,8 @@ public class ServletMascotaEliminar extends HttpServlet {
         out.close();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         doGet(request, response);
     }
 }

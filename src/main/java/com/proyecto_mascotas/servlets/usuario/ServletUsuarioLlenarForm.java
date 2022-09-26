@@ -1,31 +1,30 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.usuario;
 
+import com.proyecto_mascotas.controller.MascotasController;
 import com.proyecto_mascotas.controller.UsuarioController;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletUsuarioLogin", value = "/ServletUsuarioLogin")
-public class ServletUsuarioLogin extends HttpServlet {
-
+@WebServlet(name = "ServletUsuarioLlenarForm", value = "/ServletUsuarioLlenarForm")
+public class ServletUsuarioLlenarForm extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletUsuarioLogin() {
+    public ServletUsuarioLlenarForm() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UsuarioController usuario = new UsuarioController();
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String result = usuario.login(username, password);
+        int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+        String usuarioStr =  usuario.llenarUsuarioFrom(idUsuario);
 
-        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(result);
+        out.println(usuarioStr);
         out.flush();
         out.close();
     }

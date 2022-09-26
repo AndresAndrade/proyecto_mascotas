@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.usuario;
 
 import com.proyecto_mascotas.controller.UsuarioController;
 

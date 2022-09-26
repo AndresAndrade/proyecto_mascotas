@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.mascota;
 
 import com.proyecto_mascotas.controller.MascotasController;
 
@@ -8,34 +8,37 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletMascotaModificar", value = "/ServletMascotaModificar")
-public class ServletMascotaModificar extends HttpServlet {
+@WebServlet(name = "ServletMascotaRegister", value = "/ServletMascotaRegister")
+public class ServletMascotaRegister extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
-    public ServletMascotaModificar() {
+    public ServletMascotaRegister() {
         super();
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         MascotasController mascota = new MascotasController();
 
-        int idMascota = Integer.parseInt(request.getParameter("idMascota"));
         String nombreMascota = request.getParameter("nombreMascota");
         float edad = Float.parseFloat(request.getParameter("edad"));
         String descripcion = request.getParameter("descripcion");
-        boolean estado = Boolean.parseBoolean(request.getParameter("estado"));
+        int idRaza = Integer.parseInt(request.getParameter("idRaza"));
+        int idFundacion = Integer.parseInt(request.getParameter("idFundacion"));
 
-        String mascotaStr = mascota.editarMascota(idMascota, nombreMascota, edad, descripcion, estado);
+        String result = mascota.registrarMascota(nombreMascota, edad, descripcion, idRaza, idFundacion);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(mascotaStr);
+        out.println(result);
         out.flush();
         out.close();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 }

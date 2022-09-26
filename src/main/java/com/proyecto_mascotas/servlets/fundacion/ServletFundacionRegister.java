@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.fundacion;
 
 import com.proyecto_mascotas.controller.FundacionController;
 import com.proyecto_mascotas.controller.MascotasController;

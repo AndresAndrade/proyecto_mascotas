@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.mascota;
 
 import com.proyecto_mascotas.controller.MascotasController;
 
@@ -8,36 +8,28 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletMascotaRegister", value = "/ServletMascotaRegister")
-public class ServletMascotaRegister extends HttpServlet {
-
+@WebServlet(name = "ServletMascotaEliminar", value = "/ServletMascotaEliminar")
+public class ServletMascotaEliminar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletMascotaRegister() {
+    public ServletMascotaEliminar() {
         super();
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         MascotasController mascota = new MascotasController();
 
-        String nombreMascota = request.getParameter("nombreMascota");
-        float edad = Float.parseFloat(request.getParameter("edad"));
-        String descripcion = request.getParameter("descripcion");
-        int idRaza = Integer.parseInt(request.getParameter("idRaza"));
-        int idFundacion = Integer.parseInt(request.getParameter("idFundacion"));
+        int idMascota = Integer.parseInt(request.getParameter("idMascota"));
 
-        String result = mascota.registrarMascota(nombreMascota, edad, descripcion, idRaza, idFundacion);
+        String mascotaStr = mascota.eliminarMascota(idMascota);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(result);
+        out.println(mascotaStr);
         out.flush();
         out.close();
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }

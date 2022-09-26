@@ -1,7 +1,6 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.ubicacion;
 
-import com.proyecto_mascotas.controller.EspecieController;
-import com.proyecto_mascotas.controller.MascotasController;
+import com.proyecto_mascotas.controller.UbicacionController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,23 +8,25 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletMascotaListar", value = "/ServletMascotaListar")
-public class ServletMascotaListar extends HttpServlet {
+@WebServlet(name = "ServletCiudadListar", value = "/ServletCiudadListar")
+public class ServletCiudadListar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletMascotaListar() {
+    public ServletCiudadListar() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MascotasController mascota = new MascotasController();
+        UbicacionController ciudad = new UbicacionController();
 
-        String mascotaStr = mascota.listarMascotas();
+        String departamento = request.getParameter("departamento");
+
+        String ciudadStr = ciudad.listarCiudad(departamento);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(mascotaStr);
+        out.println(ciudadStr);
         out.flush();
         out.close();
     }

@@ -1,4 +1,4 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.mascota;
 
 import com.proyecto_mascotas.controller.MascotasController;
 

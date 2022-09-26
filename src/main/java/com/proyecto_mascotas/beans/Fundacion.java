@@ -36,6 +36,11 @@ public class Fundacion {
         this.departamentoFundacion = departamentoFundacion;
     }
 
+    public Fundacion(int idFundacion, String nombreFundacion) {
+        this.idFundacion = idFundacion;
+        this.nombreFundacion = nombreFundacion;
+    }
+
     public int getIdFundacion() {
         return idFundacion;
     }

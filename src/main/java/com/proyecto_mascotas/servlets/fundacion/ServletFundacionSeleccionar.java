@@ -1,7 +1,6 @@
-package com.proyecto_mascotas.servlets;
+package com.proyecto_mascotas.servlets.fundacion;
 
-import com.proyecto_mascotas.controller.MascotasController;
-import com.proyecto_mascotas.controller.UsuarioController;
+import com.proyecto_mascotas.controller.FundacionController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,24 +8,24 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletUsuarioListar", value = "/ServletUsuarioListar")
-public class ServletUsuarioListar extends HttpServlet {
+@WebServlet(name = "ServletFundacionSeleccionar", value = "/ServletFundacionSeleccionar")
+public class ServletFundacionSeleccionar extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ServletUsuarioListar() {
+    public ServletFundacionSeleccionar() {
         super();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        UsuarioController usuario = new UsuarioController();
+        FundacionController fundacion = new FundacionController();
 
-        String usuarioStr = usuario.listarUsuarios();
+        String fundacionStr = fundacion.seleccionarFundacion();
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println(usuarioStr);
+        out.println(fundacionStr);
         out.flush();
         out.close();
     }
