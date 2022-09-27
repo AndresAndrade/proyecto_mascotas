@@ -33,12 +33,11 @@ public class MascotasController implements IMascotaControlador{
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");
 
-                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
+                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, especie, raza, fundacion);
                 mascotas.add(gson.toJson(mascota));
             }
         } catch (SQLException e) {
@@ -79,7 +78,8 @@ public class MascotasController implements IMascotaControlador{
     public String editarMascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado) {
         DBConnection con = new DBConnection();
 
-        String sql = "UPDATE mascota SET nombre_mascota = '" + nombreMascota + "', edad = " + edad + ", descripcion = '" + descripcion + "', estado = ";
+        String sql = "UPDATE mascota SET nombre_mascota = '" + nombreMascota + "', edad = " + edad + ", descripcion = '"
+                + descripcion + "', estado = ";
 
         if (estado == true) {
             sql += " 1 ";
@@ -138,12 +138,11 @@ public class MascotasController implements IMascotaControlador{
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");
 
-                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
+                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, especie, raza, fundacion);
                 return gson.toJson(mascota);
             }
         } catch (SQLException e) {

@@ -14,7 +14,8 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad) {
+    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+                   String email, String telefono, int idCiudad) {
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
@@ -25,7 +26,8 @@ public class Persona {
     }
 
     /*Para llenar el formulario de edición*/
-    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String ciudad, String departamento) {
+    public Persona(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+                   String email, String telefono, String ciudad, String departamento) {
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;

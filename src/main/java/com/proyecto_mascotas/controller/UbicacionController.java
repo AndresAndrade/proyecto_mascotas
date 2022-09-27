@@ -43,7 +43,9 @@ public class UbicacionController implements IUbicacionController{
     public String listarCiudad(String departamento) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT id_ciudad, ciudad, id_departamento FROM ciudad INNER JOIN departamento USING(id_departamento) WHERE departamento = '" + departamento + "' ORDER BY ciudad";
+        String sql = "SELECT id_ciudad, ciudad, id_departamento " +
+                "FROM ciudad INNER JOIN departamento USING(id_departamento) " +
+                "WHERE departamento = '" + departamento + "' ORDER BY ciudad";
 
         List<String> ciudades = new ArrayList<>();
 

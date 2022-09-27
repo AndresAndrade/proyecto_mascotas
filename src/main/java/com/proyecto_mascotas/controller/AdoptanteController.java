@@ -13,20 +13,23 @@ import java.util.List;
 public class AdoptanteController implements IAdoptanteController{
 
     @Override
-    public String register(long cedula, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String observacion, int idCiudad) {
+    public String register(long cedula, String primerNombre, String segundoNombre, String primerApellido,
+                           String segundoApellido, String email, String telefono, String observacion, int idCiudad) {
 
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
 
         String sql = "INSERT INTO adoptante(cedula, primer_nombre, segundo_nombre, primer_apellido, " +
                 "segundo_apellido, email, telefono, observacion, id_ciudad) " +
-                "VALUES(" + cedula + ", '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ observacion +"', " + idCiudad + ")";
+                "VALUES(" + cedula + ", '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" +
+                segundoApellido + "', '" + email + "', '" + telefono + "', '"+ observacion +"', " + idCiudad + ")";
 
         try {
             Statement stm = conn.getConnection().createStatement();
             stm.executeUpdate(sql);
 
-            Adoptante adoptante = new Adoptante(cedula, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, observacion, idCiudad);
+            Adoptante adoptante = new Adoptante(cedula, primerNombre, segundoNombre, primerApellido, segundoApellido,
+                    email, telefono, observacion, idCiudad);
 
             stm.close();
             return gson.toJson(adoptante);
@@ -44,7 +47,8 @@ public class AdoptanteController implements IAdoptanteController{
 
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT cedula, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, telefono, departamento, ciudad, observacion " +
+        String sql = "SELECT cedula, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, " +
+                "telefono, departamento, ciudad, observacion " +
                 "FROM adoptante INNER JOIN ciudad USING(id_ciudad) " +
                 "INNER JOIN departamento USING(id_departamento)";
 
@@ -66,7 +70,8 @@ public class AdoptanteController implements IAdoptanteController{
                 String ciudad = rs.getString("ciudad");
                 String observacion = rs.getString("observacion");
 
-                Adoptante adoptante = new Adoptante(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, cedula, observacion);
+                Adoptante adoptante = new Adoptante(primerNombre, segundoNombre, primerApellido, segundoApellido, email,
+                        telefono, ciudad, departamento, cedula, observacion);
                 adoptantes.add(gson.toJson(adoptante));
             }
         } catch (SQLException e) {
@@ -78,7 +83,8 @@ public class AdoptanteController implements IAdoptanteController{
     }
 
     @Override
-    public String editarAdoptante(long cedula, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String observacion) {
+    public String editarAdoptante(long cedula, String primerNombre, String segundoNombre, String primerApellido,
+                                  String segundoApellido, String email, String telefono, String observacion) {
         DBConnection con = new DBConnection();
 
         String sql = "UPDATE adoptante SET primer_nombre = '" + primerNombre + "', segundo_nombre = '" + segundoNombre + "', " +
@@ -121,7 +127,8 @@ public class AdoptanteController implements IAdoptanteController{
     public String llenarAdoptanteFrom(long cedula) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT cedula, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, telefono, departamento, ciudad, observacion " +
+        String sql = "SELECT cedula, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, telefono, " +
+                "departamento, ciudad, observacion " +
                 "FROM adoptante INNER JOIN ciudad USING(id_ciudad) " +
                 "INNER JOIN departamento USING(id_departamento) " +
                 "WHERE cedula = " + cedula;
@@ -141,7 +148,8 @@ public class AdoptanteController implements IAdoptanteController{
                 String ciudad = rs.getString("ciudad");
                 String observacion = rs.getString("observacion");
 
-                Adoptante adoptante = new Adoptante(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, cedula, observacion);
+                Adoptante adoptante = new Adoptante(primerNombre, segundoNombre, primerApellido, segundoApellido, email,
+                        telefono, ciudad, departamento, cedula, observacion);
                 return gson.toJson(adoptante);
             }
         } catch (SQLException e) {

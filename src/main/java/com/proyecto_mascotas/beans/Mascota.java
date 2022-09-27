@@ -1,14 +1,11 @@
 package com.proyecto_mascotas.beans;
 
-import java.sql.Blob;
-
 public class Mascota {
     private int idMascota;
     private String nombreMascota;
     private float edad;
     private String descripcion;
     private boolean estado;
-    private Blob foto; //Verificar si es correcto el tipo para la foto
     private String especie;
     private String raza;
     private String fundacion;
@@ -16,13 +13,13 @@ public class Mascota {
     private int idFundacion;
 
     //Para listar en el html
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, Blob foto, String especie, String raza, String fundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, String especie,
+                   String raza, String fundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
         this.descripcion = descripcion;
         this.estado = estado;
-        this.foto = foto;
         this.especie = especie;
         this.raza = raza;
         this.fundacion = fundacion;
@@ -36,7 +33,8 @@ public class Mascota {
         this.idRaza = idRaza;
         this.idFundacion = idFundacion;
     }
-    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, int idRaza, int idFundacion) {
+    public Mascota(int idMascota, String nombreMascota, float edad, String descripcion, boolean estado, int idRaza,
+                   int idFundacion) {
         this.idMascota = idMascota;
         this.nombreMascota = nombreMascota;
         this.edad = edad;
@@ -91,14 +89,6 @@ public class Mascota {
         this.estado = estado;
     }
 
-    public Blob getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Blob foto) {
-        this.foto = foto;
-    }
-
     public String getEspecie() {
         return especie;
     }
@@ -147,7 +137,6 @@ public class Mascota {
                 ", edad=" + edad +
                 ", descripcion='" + descripcion + '\'' +
                 ", estado=" + estado +
-                ", foto=" + foto +
                 ", especie='" + especie + '\'' +
                 ", raza='" + raza + '\'' +
                 ", fundacion='" + fundacion + '\'' +

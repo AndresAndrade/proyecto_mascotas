@@ -8,7 +8,8 @@ public class Usuario extends Persona{
     private String fundacion;
     private String nombreCompleto;
 
-    public Usuario(int idUsuario, String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
+    public Usuario(int idUsuario, String username, String primerNombre, String segundoNombre, String primerApellido,
+                   String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
         this.idUsuario = idUsuario;
         this.username = username;
@@ -17,7 +18,8 @@ public class Usuario extends Persona{
     }
 
     //Para insertar el usuario en la DB
-    public Usuario(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idUbicacion, int idFundacion) {
+    public Usuario(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+                   String email, String telefono, String password, int idUbicacion, int idFundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idUbicacion);
         this.username = username;
         this.password = password;
@@ -25,14 +27,17 @@ public class Usuario extends Persona{
     }
 
     //Para listar en el HTML
-    public Usuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, int idCiudad, String fundacion) {
+    public Usuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+                   String email, String telefono, int idCiudad, String fundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad);
         this.idUsuario = idUsuario;
         this.fundacion = fundacion;
     }
 
     /*Para llenar el formulario de edición*/
-    public Usuario(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String ciudad, String departamento, int idUsuario, String username, String password, String fundacion) {
+    public Usuario(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email,
+                   String telefono, String ciudad, String departamento, int idUsuario, String username, String password,
+                   String fundacion) {
         super(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento);
         this.idUsuario = idUsuario;
         this.username = username;

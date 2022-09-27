@@ -27,7 +27,8 @@ public class Fundacion {
     }
 
     /*Para listar en el HTML*/
-    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, String ciudadFundacion, String departamentoFundacion) {
+    public Fundacion(int idFundacion, String nombreFundacion, String telefono, String email, String ciudadFundacion,
+                     String departamentoFundacion) {
         this.idFundacion = idFundacion;
         this.nombreFundacion = nombreFundacion;
         this.telefono = telefono;

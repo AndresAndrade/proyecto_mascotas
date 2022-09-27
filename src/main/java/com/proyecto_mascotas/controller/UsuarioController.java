@@ -34,7 +34,8 @@ public class UsuarioController implements IUsuarioController{
                 int idCiudad = rs.getInt("id_ciudad");
                 int idFundacion = rs.getInt("id_fundacion");
 
-                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
+                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido,
+                        segundoApellido, email, telefono, password, idCiudad, idFundacion);
                 return gson.toJson(usuario);
             }
         } catch (SQLException e) {
@@ -46,20 +47,23 @@ public class UsuarioController implements IUsuarioController{
     }
 
     @Override
-    public String register(String username, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
+    public String register(String username, String primerNombre, String segundoNombre, String primerApellido,
+                           String segundoApellido, String email, String telefono, String password, int idCiudad, int idFundacion) {
 
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
 
         String sql = "INSERT INTO usuario(username, primer_nombre, segundo_nombre, primer_apellido, " +
                 "segundo_apellido, email, telefono, password, id_ciudad, id_fundacion) " +
-                "VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" + segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idCiudad + ", " + idFundacion + ")";
+                "VALUES('" + username + "', '" + primerNombre +"', '" + segundoNombre + "', '" + primerApellido + "', '" +
+                segundoApellido + "', '" + email + "', '" + telefono + "', '"+ password +"', " + idCiudad + ", " + idFundacion + ")";
         
         try {
             Statement stm = conn.getConnection().createStatement();
             stm.executeUpdate(sql);
 
-            Usuario usuario = new Usuario(username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
+            Usuario usuario = new Usuario(username, primerNombre, segundoNombre, primerApellido, segundoApellido,
+                    email, telefono, password, idCiudad, idFundacion);
 
             stm.close();
             return gson.toJson(usuario);
@@ -94,7 +98,8 @@ public class UsuarioController implements IUsuarioController{
                 int idCiudad = rs.getInt("id_ciudad");
                 int idFundacion = rs.getInt("id_fundacion");
 
-                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, password, idCiudad, idFundacion);
+                Usuario usuario = new Usuario(idUsuario, username, primerNombre, segundoNombre, primerApellido,
+                        segundoApellido, email, telefono, password, idCiudad, idFundacion);
                 return gson.toJson(usuario);
             }
         } catch (SQLException e) {
@@ -109,7 +114,8 @@ public class UsuarioController implements IUsuarioController{
     public String listarUsuarios() {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT id_usuario, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, usuario.email, usuario.telefono, fundacion.nombre, usuario.id_ciudad " +
+        String sql = "SELECT id_usuario, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, " +
+                "usuario.email, usuario.telefono, fundacion.nombre, usuario.id_ciudad " +
                 "FROM usuario INNER JOIN fundacion USING(id_fundacion) " +
                 "ORDER BY id_usuario";
 
@@ -130,7 +136,8 @@ public class UsuarioController implements IUsuarioController{
                 int idCiudad = rs.getInt("usuario.id_ciudad");
                 String fundacion = rs.getString("fundacion.nombre");
 
-                Usuario usuario = new Usuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, idCiudad, fundacion);
+                Usuario usuario = new Usuario(idUsuario, primerNombre, segundoNombre, primerApellido, segundoApellido,
+                        email, telefono, idCiudad, fundacion);
                 usuarios.add(gson.toJson(usuario));
             }
         } catch (SQLException e) {
@@ -142,7 +149,8 @@ public class UsuarioController implements IUsuarioController{
     }
 
     @Override
-    public String editarUsuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String email, String telefono, String password) {
+    public String editarUsuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido,
+                                String segundoApellido, String email, String telefono, String password) {
         DBConnection con = new DBConnection();
 
         String sql = "UPDATE usuario SET primer_nombre = '" + primerNombre + "', segundo_nombre = '" + segundoNombre + "', " +
@@ -185,7 +193,8 @@ public class UsuarioController implements IUsuarioController{
     public String llenarUsuarioFrom(int idUsuario) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT username, password, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, usuario.email, usuario.telefono, fundacion.nombre, ciudad, departamento " +
+        String sql = "SELECT username, password, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, " +
+                "usuario.email, usuario.telefono, fundacion.nombre, ciudad, departamento " +
                 "FROM usuario INNER JOIN fundacion USING(id_fundacion) " +
                 "INNER JOIN ciudad ON usuario.id_ciudad = ciudad.id_ciudad " +
                 "INNER JOIN departamento USING(id_departamento) " +
@@ -208,7 +217,8 @@ public class UsuarioController implements IUsuarioController{
                 String departamento = rs.getString("departamento");
                 String fundacion = rs.getString("fundacion.nombre");
 
-                Usuario usuario = new Usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, email, telefono, ciudad, departamento, idUsuario, username, password, fundacion);
+                Usuario usuario = new Usuario(primerNombre, segundoNombre, primerApellido, segundoApellido, email,
+                        telefono, ciudad, departamento, idUsuario, username, password, fundacion);
                 return gson.toJson(usuario);
             }
         } catch (SQLException e) {

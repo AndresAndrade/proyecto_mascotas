@@ -108,7 +108,8 @@ public class FundacionController implements IFundacionController{
     public String editarFundacion(int idFundacion, String nombreFundacion, String telefono, String email) {
         DBConnection con = new DBConnection();
 
-        String sql = "UPDATE fundacion SET nombre = '" + nombreFundacion + "', telefono = '" + telefono + "', email = '" + email + "' WHERE id_fundacion = " + idFundacion;
+        String sql = "UPDATE fundacion SET nombre = '" + nombreFundacion + "', telefono = '" + telefono + "', email = '"
+                + email + "' WHERE id_fundacion = " + idFundacion;
 
         try {
             Statement st = con.getConnection().createStatement();

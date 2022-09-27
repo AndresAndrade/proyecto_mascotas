@@ -43,7 +43,8 @@ public class EspecieController implements IEspecieController{
     public String listarRaza(String especie) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT id_raza, raza, id_especie FROM raza INNER JOIN especie USING(id_especie) WHERE especie = '" + especie + "' ORDER BY raza";
+        String sql = "SELECT id_raza, raza, id_especie FROM raza INNER JOIN especie USING(id_especie) WHERE especie = '"
+                + especie + "' ORDER BY raza";
 
         List<String> razas = new ArrayList<>();
 

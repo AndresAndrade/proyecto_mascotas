@@ -50,12 +50,11 @@ public class OperacionesDB {
                 float edad = rs.getFloat("edad");
                 String descripcion = rs.getString("descripcion");
                 boolean estado = rs.getBoolean("estado");
-                Blob foto = rs.getBlob("foto");
                 String especie = rs.getString("especie");
                 String raza = rs.getString("raza");
                 String fundacion = rs.getString("fundacion.nombre");
 
-                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, foto, especie, raza, fundacion);
+                Mascota mascota = new Mascota(idMascota, nombreMascota, edad, descripcion, estado, especie, raza, fundacion);
                 System.out.println(mascota);
             }
 
@@ -64,8 +63,6 @@ public class OperacionesDB {
         } finally {
             conn.desconectar();
         }
-
-
     }
 
     public static void listarUsuarios(String username, String password) throws SQLException {
