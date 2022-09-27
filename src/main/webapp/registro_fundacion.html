@@ -5,15 +5,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>contactos</title>
+	<title>Registro miembros de fundaciones</title>
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!-- adoptante.js -->
-	<script src="js/adoptante.js"></script>
+	<!-- usuario.js -->
+	<script src="js/usuario.js"></script>
 	<!--CSS-->
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,68 +51,80 @@
 	<!--Registro de adoptante-->
 	<div class="card sizeDiv">
 		<div class="card-body">
-			<h5 class="card-title text-center">Formulario de registro de adoptante</h5>
-			<form id="form-register-adoptante" class="pb-4">
+			<h5 class="card-title text-center">Formulario de registro miembros de fundaciones</h5>
+			<form id="form-register" class="pb-4">
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-cedula">Cédula:</label>
-						<input type="text" class="form-control" id="input-cedula" placeholder="Cédula" required>
+						<label class="form-label" for="input-username">Nombre de usuario:</label>
+						<input type="text" class="form-control" id="input-username" placeholder="Nombre de usuario" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-primer-nombre-adoptante">Primer nombre:</label>
-						<input type="text" class="form-control" id="input-primer-nombre-adoptante" placeholder="Primer nombre" required>
+						<label class="form-label" for="input-contrasena">Contraseña:</label>
+						<input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" required>
 					</div>
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-segundo-nombre-adoptante">Segundo nombre:</label>
-						<input type="text" class="form-control" id="input-segundo-nombre-adoptante" placeholder="Segundo nombre">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-primer-apellido-adoptante">Primer apellido:</label>
-						<input type="text" class="form-control" id="input-primer-apellido-adoptante" placeholder="Primer apellido" required>
-					</div>
-					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-segundo-apellido-adoptante">Segundo apellido:</label>
-						<input type="text" class="form-control" id="input-segundo-apellido-adoptante" placeholder="Segundo apellido">
+						<label class="form-label" for="input-contrasena-repeat">Repetir contraseña:</label>
+						<input type="password" class="form-control" id="input-contrasena-repeat" placeholder="Repetir contraseña" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-email-adoptante">Correo electronico:</label>
-						<input type="email" class="form-control" id="input-email-adoptante" placeholder="ejemplo@mail.com" required>
+						<label class="form-label" for="input-primer-nombre">Primer nombre:</label>
+						<input type="text" class="form-control" id="input-primer-nombre" placeholder="Primer nombre" required>
 					</div>
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-telefono-adoptante">Teléfono:</label>
-						<input type="tel" class="form-control" id="input-telefono-adoptante" placeholder="Telefono" required>
+						<label class="form-label" for="input-segundo-nombre">Segundo nombre:</label>
+						<input type="text" class="form-control" id="input-segundo-nombre" placeholder="Segundo nombre">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="select-departamento-adoptante">Departamento:</label>
-						<select class="form-select" id="select-departamento-adoptante" aria-label="select-departamento">
+						<label class="form-label" for="input-primer-apellido">Primer apellido:</label>
+						<input type="text" class="form-control" id="input-primer-apellido" placeholder="Primer apellido" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-segundo-apellido">Segundo apellido:</label>
+						<input type="text" class="form-control" id="input-segundo-apellido" placeholder="Segundo apellido" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-email">Correo electronico:</label>
+						<input type="email" class="form-control" id="input-email" placeholder="Email" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="input-telefono">Teléfono:</label>
+						<input type="tel" class="form-control" id="input-telefono" placeholder="Telefono" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label class="form-label" for="select-departamento">Departamento:</label>
+						<select class="form-select" id="select-departamento" aria-label="select-departamento">
 							<!--Se llaman los datos desde MySQL con jquery-->
 						</select>
 					</div>
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="select-ciudad-adoptante">Ciudad:</label>
-						<select class="form-select" id="select-ciudad-adoptante" aria-label="select-ciudad">
+						<label class="form-label" for="select-ciudad">Ciudad:</label>
+						<select class="form-select" id="select-ciudad" aria-label="select-ciudad">
 							<!--Se llaman los datos desde MySQL con jquery-->
 						</select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<label class="form-label" for="input-observacion-adoptante">Observación:</label>
-						<input type="text" class="form-control" id="input-observacion-adoptante" placeholder="Observación">
+						<label class="form-label" for="select-fundacion">Fundación:</label>
+						<select class="form-select" id="select-fundacion" aria-label="select-fundacion">
+							<!--Se llaman los datos desde MySQL con jquery-->
+						</select>
 					</div>
 				</div>
-				<input type="submit" class="btn btn-primary mb-3" id="btnRegister-adoptante" value="Registrar"/>
+				<input type="submit" class="btn btn-primary mb-3" id="register-btn" value="Registrar Usuario"/>
 			</form>
-			<div id="register-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
-			<div id="register-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+			<div id="register-error" class="alert alert-danger d-none" role="alert"></div>
+			<div id="register-success" class="alert alert-success d-none" role="alert"></div>
 		</div>
 	</div>
 </main>

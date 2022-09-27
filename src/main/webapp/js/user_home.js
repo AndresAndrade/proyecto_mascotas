@@ -1,12 +1,12 @@
 var username = new URL(location.href).searchParams.get("username");
 var user;
 
-$(document).ready(function () {
+/*$(document).ready(function () {
 
     //getUsuario().then(function () {
 
     //});
-});
+});*/
 
 //proceso asincronico, obligatorio usar los prefijos async y await
 /*async function getUsuario() {

@@ -360,17 +360,12 @@ function listarMascotasIndex(mascotas) {
                 '<img src="' + imagenPet +'" class="card-img-top" alt="...">' +
                     '<div class="card-body">'+
                         '<h2 class="card-title text-center">'+ mascota.nombreMascota +'</h2>' +
-                        '<div class="row">' +
-                            '<div class="col-sm-auto mb-3">' +
-                                '<h5>Especie:</h5>' +
-                                '<p class="card-text">' + mascota.especie + '</p>' +
-                            '</div>' +
-                        '</div>' +
-
+                        '<h5>Especie:</h5>' +
+                        '<p class="card-text">' + mascota.especie + '</p>' +
                         '<h5>Raza:</h5>' +
                         '<p class="card-text">' + mascota.raza + '</p>' +
                         '<h5>Edad:</h5>' +
-                        '<p class="card-text">' + mascota.edad + '</p>' +
+                        '<p class="card-text">' + mascota.edad + ' años</p>' +
                         '<p>' +
                             '<a class="btn btn-primary" data-bs-toggle="collapse" href="#info-dog' + mascota.idMascota +'" ' +
                             'role="button" aria-expanded="false" aria-controls="info-dog' + mascota.idMascota +'">' +

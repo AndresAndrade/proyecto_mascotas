@@ -32,22 +32,6 @@
 			<a href="index.html">
 				<button class="btn btn-primary me-2" type="submit">Logout</button>
 			</a>
-			<div class="collapse navbar-collapse" id="navbar-header">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="home_user.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="mascotas_user.html">Mascotas</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="fundaciones_user.html">Fundaciones</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="adoptantes_user.html">Adoptantes</a>
-					</li>
-				</ul>
-			</div>
 		</div>
 	</nav>
 </header>
@@ -73,7 +57,7 @@
 		</div>
 		
 		<!--Tarjeta Fundaciones-->
-		<div class="card mb-3">
+		<div class="card mb-3 d-none" id="tarjeta-fundaciones">
 			<div class="row g-0">
 				<div class="col-md-2">
 					<img src="img/baseline_house_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
@@ -111,7 +95,7 @@
 		</div>
 		
 		<!--Tarjeta usuarios-->
-		<div class="card mb-3">
+		<div class="card mb-3 d-none" id="tarjeta-usuarios">
 			<div class="row g-0">
 				<div class="col-md-2">
 					<img src="img/baseline_person_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
@@ -951,19 +935,20 @@
 	</div>
 </main>
 <footer>
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+	<nav class="navbar fixed-bottom navbar-expand-lg bg-dark navbar-dark">
 		<div class="container-fluid">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="consejo.html">Consejos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="contacto.html">Contacto</a>
-				</li>
-			</ul>
+			<div class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-5">
+				<div class="nav-item">
+					<a class="navbar-brand" href="#">
+						<img src="img/outline_pets_white_48dp.png" alt="Logo" class="d-inline-block align-text-top">
+					</a>
+				</div>
+				<div class="nav-item mt-4">
+					<span class="navbar-text">Pagina creada por:</span>
+					<br>
+					<a class="nav-link active" aria-current="page" target="_blank" href="https://www.linkedin.com/in/andresandrade87/" >Andrés Andrade</a>
+				</div>
+			</div>
 		</div>
 	</nav>
 </footer>

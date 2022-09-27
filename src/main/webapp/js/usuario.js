@@ -1,4 +1,19 @@
+var username = new URL(location.href).searchParams.get("username");
+const admin = "fpantoja";
+console.log(username);
+
 $(document).ready(function () {
+
+    if (username === admin) {
+        $("#tarjeta-usuarios").removeClass("d-none");
+        $("#tarjeta-fundaciones").removeClass("d-none");
+    } else {
+        if (!$("#tarjeta-fundaciones").hasClass("d-none")) {
+            $("#tarjeta-usuarios").addClass("d-none");
+            $("#tarjeta-fundaciones").addClass("d-none");
+        }
+    }
+
     $("#form-register").submit(function (event) {
         event.preventDefault();
         registrarUsuario();
