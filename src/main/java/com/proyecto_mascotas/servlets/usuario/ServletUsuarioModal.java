@@ -23,6 +23,7 @@ public class ServletUsuarioModal extends HttpServlet {
 
         String usuarioStr = usuario.llenarUsuarioModal(idUsuario);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(usuarioStr);
         out.flush();

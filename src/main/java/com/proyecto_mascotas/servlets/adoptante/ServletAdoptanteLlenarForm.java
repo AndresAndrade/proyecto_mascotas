@@ -23,6 +23,7 @@ public class ServletAdoptanteLlenarForm extends HttpServlet {
         long cedula = Long.parseLong(request.getParameter("cedula"));
         String adoptanteStr = adoptante.llenarAdoptanteFrom(cedula);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(adoptanteStr);
         out.flush();

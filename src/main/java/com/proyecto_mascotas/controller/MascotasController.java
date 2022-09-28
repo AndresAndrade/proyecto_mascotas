@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.proyecto_mascotas.beans.Mascota;
 import com.proyecto_mascotas.connection.DBConnection;
 
-import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,7 +15,7 @@ public class MascotasController implements IMascotaControlador{
     public String listarMascotas() {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT id_mascota, nombre_mascota, edad, especie, raza, fundacion.nombre, foto, estado, descripcion " +
+        String sql = "SELECT id_mascota, nombre_mascota, edad, especie, raza, fundacion.nombre, estado, descripcion " +
                 "FROM mascota INNER JOIN raza USING(id_raza) " +
                 "INNER JOIN especie USING(id_especie) " +
                 "INNER JOIN fundacion USING(id_fundacion) ORDER BY id_mascota";
@@ -124,7 +123,7 @@ public class MascotasController implements IMascotaControlador{
     public String llenarMascotaForm(int idMascota) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT nombre_mascota, edad, especie, raza, fundacion.nombre, foto, estado, descripcion " +
+        String sql = "SELECT nombre_mascota, edad, especie, raza, fundacion.nombre, estado, descripcion " +
                 "FROM mascota INNER JOIN raza USING(id_raza) " +
                 "INNER JOIN especie USING(id_especie) " +
                 "INNER JOIN fundacion USING(id_fundacion) WHERE id_mascota = " + idMascota;

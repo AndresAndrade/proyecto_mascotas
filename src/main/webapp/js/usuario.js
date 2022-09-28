@@ -1,5 +1,5 @@
 var username = new URL(location.href).searchParams.get("username");
-const admin = "fpantoja";
+const admin = "admin";
 console.log(username);
 
 $(document).ready(function () {
@@ -13,6 +13,10 @@ $(document).ready(function () {
             $("#tarjeta-fundaciones").addClass("d-none");
         }
     }
+
+    getUsuario().then(function () {
+        $("#welcome-user").html(user.primerNombre + " " + user.primerApellido);
+    });
 
     $("#form-register").submit(function (event) {
         event.preventDefault();
@@ -36,6 +40,26 @@ $(document).ready(function () {
     getFund();
 
 });
+
+//proceso asincronico, obligatorio usar los prefijos async y await
+async function getUsuario() {
+    await $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioGet",
+        data: $.param({
+            username: username
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+                user = parsedResult;
+            } else {
+                console.log("Error, recuperando los datos del usuario.");
+            }
+        }
+    });
+}
 
 /*Registrar usuario*/
 function registrarUsuario() {
@@ -83,8 +107,8 @@ function registrarUsuario() {
                     $("#register-error").addClass("d-none");
                     //let username = parsedResult['username'];
                     //document.location.href = "home_user.html?username=" + username;
-                    $("#register-success-mascota").removeClass("d-none");
-                    $("#register-success-mascota").html("Registro exitoso");
+                    $("#register-success").removeClass("d-none");
+                    $("#register-success").html("Registro exitoso");
                 } else {
                     $("#register-error").removeClass("d-none");
                     $("#register-error").html("Error en el registro del usuario");

@@ -24,6 +24,7 @@ public class ServletAdoptanteModal extends HttpServlet {
 
         String adoptanteStr = adoptante.llenarAdoptanteModal(cedula);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(adoptanteStr);
         out.flush();

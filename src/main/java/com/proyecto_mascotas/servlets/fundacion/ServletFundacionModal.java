@@ -23,6 +23,7 @@ public class ServletFundacionModal extends HttpServlet {
 
         String fundacionStr = fundacion.llenarFundacionModal(idFundacion);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(fundacionStr);
         out.flush();

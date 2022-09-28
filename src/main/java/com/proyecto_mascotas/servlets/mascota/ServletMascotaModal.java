@@ -22,6 +22,7 @@ public class ServletMascotaModal extends HttpServlet {
         int idMascota = Integer.parseInt(request.getParameter("idMascota"));
         String mascotaStr =  mascota.llenarMascotaModal(idMascota);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(mascotaStr);
         out.flush();

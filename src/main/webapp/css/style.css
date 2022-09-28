@@ -1,3 +1,7 @@
 body {
     background-image: url("../img/fondo-pet.jpg");
 }
+
+footer {
+    margin-top: auto;
+}

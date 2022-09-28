@@ -151,16 +151,14 @@ function mostrarFundaciones(fundaciones) {
             '<td>' + fundacion.ciudadFundacion + '</td>' +
             '<td>' + fundacion.departamentoFundacion + '</td>';
 
-            if (!pathRegex.test(path)) {
-                contenido += '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
-                    'data-bs-target="#modal-editar-fundacion" ' +
-                    'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
-                    '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
-                    'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
-                    'Eliminar</button></td></tr>';
-            }
-
-
+        if (!pathRegex.test(path)) {
+            contenido += '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+                'data-bs-target="#modal-editar-fundacion" ' +
+                'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
+                '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
+                'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
+                'Eliminar</button></td></tr>';
+        }
     });
     $("#fundaciones-tbody").html(contenido);
 }

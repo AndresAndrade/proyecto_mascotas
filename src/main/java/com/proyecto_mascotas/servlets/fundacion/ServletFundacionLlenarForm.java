@@ -23,6 +23,7 @@ public class ServletFundacionLlenarForm extends HttpServlet {
         int idFundacion = Integer.parseInt(request.getParameter("idFundacion"));
         String fundacionStr =  fundacion.llenarFundacionForm(idFundacion);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(fundacionStr);
         out.flush();

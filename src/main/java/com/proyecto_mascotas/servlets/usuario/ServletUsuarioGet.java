@@ -18,6 +18,7 @@ public class ServletUsuarioGet extends HttpServlet {
         String username = request.getParameter("username");
         String usuarioStr =  usuario.getUser(username);
 
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(usuarioStr);
         out.flush();
