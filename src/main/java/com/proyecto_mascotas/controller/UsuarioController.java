@@ -233,7 +233,7 @@ public class UsuarioController implements IUsuarioController{
     public String llenarUsuarioModal(int idUsuario) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT CONCAT(primer_apellido, ' ', primer_apellido) AS nombre_completo, username " +
+        String sql = "SELECT CONCAT(primer_nombre, ' ', primer_apellido) AS nombre_completo, username " +
                 "FROM usuario " +
                 "WHERE id_usuario = " + idUsuario;
 

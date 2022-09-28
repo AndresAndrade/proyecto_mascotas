@@ -18,6 +18,14 @@ $(document).ready(function () {
         $("#welcome-user").html(user.primerNombre + " " + user.primerApellido);
     });
 
+    $(".btn-success").click(function () {
+        location.reload();
+    });
+
+    $(".btn-close").click(function () {
+        location.reload();
+    });
+
     $("#form-register").submit(function (event) {
         event.preventDefault();
         registrarUsuario();
@@ -104,11 +112,8 @@ function registrarUsuario() {
                 let parsedResult = JSON.parse(result);
 
                 if (parsedResult !== false) {
-                    $("#register-error").addClass("d-none");
-                    //let username = parsedResult['username'];
-                    //document.location.href = "home_user.html?username=" + username;
+                    $("#btnRegistrar-usuario").addClass("d-none");
                     $("#register-success").removeClass("d-none");
-                    $("#register-success").html("Registro exitoso");
                 } else {
                     $("#register-error").removeClass("d-none");
                     $("#register-error").html("Error en el registro del usuario");
@@ -273,6 +278,7 @@ function llenarFormularioUsuario(idUsuario) {
                 $("#input-editar-segundo-apellido").val(parsedResult.segundoApellido);
                 $("#input-editar-email-usuario").val(parsedResult.email);
                 $("#input-editar-telefono-usuario").val(parsedResult.telefono);
+                $("#input-editar-contrasena-repeat").val(parsedResult.password);
                 $("#input-editar-contrasena").val(parsedResult.password);
                 $("#select-editar-ciudad-usuario").val(parsedResult.ciudad);
                 $("#select-editar-departamento-usuario").val(parsedResult.departamento);
@@ -314,9 +320,8 @@ function editarUsuario() {
         success: function (result) {
 
             if (result !== false) {
-                $("#editar-error-usuario").addClass("d-none");
+                $("#btnEditar-usuario").addClass("d-none");
                 $("#editar-success-usuario").removeClass("d-none");
-                $("#editar-success-usuario").html("Registro exitoso");
             } else {
                 $("#editar-error-usuario").removeClass("d-none");
                 $("#editar-error-usuario").html("Error en el registro del usuario");
@@ -342,9 +347,7 @@ function eliminarUsuario() {
 
             if (result !== false) {
                 console.log("Registro eliminado")
-                $("#eliminar-error-usuario").addClass("d-none");
-                $("#eliminar-success-usuario").removeClass("d-none");
-                $("#eliminar-success-usuario").html("Registro eliminado con exito");
+                $("#respuesta-formulario").html("registro eliminado con éxito.");
             } else {
                 console.log("Error eliminando el registro del usuario");
                 $("#eliminar-error-usuario").removeClass("d-none");

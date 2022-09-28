@@ -306,7 +306,7 @@
 	</div>
 	
 	<!--Registro de usuario-->
-	<div class="modal fade" id="modal-registro-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-usuario">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-registro-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-usuario">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -383,10 +383,13 @@
 								</select>
 							</div>
 						</div>
-						<input type="submit" class="btn btn-primary mb-3" id="register-btn" value="Registrar Usuario"/>
+						<input type="submit" class="btn btn-primary mb-3" id="btnRegistrar-usuario" value="Registrar Usuario"/>
 					</form>
 					<div id="register-error" class="alert alert-danger d-none" role="alert"></div>
-					<div id="register-success" class="alert alert-success d-none" role="alert"></div>
+					<div id="register-success" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -470,7 +473,7 @@
 	</div>
 	
 	<!--Editar usuario-->
-	<div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-usuario">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-editar-usuario" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-usuario">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -541,14 +544,17 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<label class="form-label" for="select-fundacion">Fundación:</label>
+								<label class="form-label" for="select-editar-fundacion-usuario">Fundación:</label>
 								<input type="text" class="form-control" id="select-editar-fundacion-usuario" disabled>
 							</div>
 						</div>
 						<input type="submit" class="btn btn-primary mb-3" id="btnEditar-usuario" value="Guardar cambios"/>
 					</form>
 					<div id="editar-error-usuario" class="alert alert-danger d-none" role="alert"></div>
-					<div id="editar-success-usuario" class="alert alert-success d-none" role="alert"></div>
+					<div id="editar-success-usuario" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -934,6 +940,7 @@
 			</div>
 		</div>
 	</div>
+	
 </main>
 <footer style="margin-top: auto">
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
