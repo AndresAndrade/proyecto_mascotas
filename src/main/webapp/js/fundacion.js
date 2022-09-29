@@ -49,8 +49,8 @@ function registrarFundacion() {
 
             if (parsedResult !== false) {
                 $("#register-error-fundacion").addClass("d-none");
+                $("#btnRegistrar-fundacion").addClass("d-none");
                 $("#register-success-fundacion").removeClass("d-none");
-                $("#register-success-fundacion").html("Registro exitoso");
             } else {
                 $("#register-error-fundacion").removeClass("d-none");
                 $("#register-error-fundacion").html("Error en el registro de la mascota");
@@ -213,8 +213,8 @@ function editarFundacion() {
 
             if (result !== false) {
                 $("#editar-error-fundacion").addClass("d-none");
+                $("#btnEditar-fundacion").addClass("d-none");
                 $("#editar-success-fundacion").removeClass("d-none");
-                $("#editar-success-fundacion").html("Registro exitoso");
             } else {
                 $("#editar-error-fundacion").removeClass("d-none");
                 $("#editar-error-fundacion").html("Error en el registro de la fundacion");

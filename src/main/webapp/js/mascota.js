@@ -36,14 +36,6 @@ function registrarMascota() {
          $("#select-fundacion-mascota option:selected").val();
     });
 
-    /*var raza_id = document.getElementById('select-raza').options;
-    console.log(raza_id)
-    var razas;
-    for(var i = 0 ; i < raza_id.length ; i++) {
-        razas = raza_id[i];
-        console.log(razas.value)
-    }*/
-
     console.log("idRaza = " + idRaza[0].value);
     console.log("idFundacion = " + idFundacion[0].value);
 
@@ -63,8 +55,8 @@ function registrarMascota() {
 
             if (parsedResult !== false) {
                 $("#register-error-mascota").addClass("d-none");
+                $("#btnRegistrar-mascota").addClass("d-none");
                 $("#register-success-mascota").removeClass("d-none");
-                $("#register-success-mascota").html("Registro exitoso");
             } else {
                 $("#register-error-mascota").removeClass("d-none");
                 $("#register-error-mascota").html("Error en el registro de la mascota");
@@ -261,8 +253,8 @@ function editarMascota() {
 
             if (result !== false) {
                 $("#editar-error-mascota").addClass("d-none");
+                $("#btnEditar-mascota").addClass("d-none");
                 $("#editar-success-mascota").removeClass("d-none");
-                $("#editar-success-mascota").html("Registro exitoso");
             } else {
                 $("#editar-error-mascota").removeClass("d-none");
                 $("#editar-error-mascota").html("Error en el registro de la mascota");

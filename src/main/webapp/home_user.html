@@ -47,7 +47,7 @@
 				<div class="col-md-10">
 					<div class="card-body">
 						<h5 class="card-title">Mascotas</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<p class="card-text">Menu de mascotas.</p>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">Lista de mascotas</button></li>
 							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">Agregar registro</button></li>
@@ -116,7 +116,7 @@
 	</div>
 	
 	<!--Registro de mascota-->
-	<div class="modal fade" id="modal-registro-mascota" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-mascota">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-registro-mascota" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-mascota">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -157,15 +157,14 @@
 								<!--Se llaman los datos desde MySQL con jquery-->
 							</select>
 						</div>
-						<!--<div class="mb-3">
-							<label for="input-foto" class="form-label">Agregar fotografía</label>
-							<input class="form-control" type="file" id="input-foto">
-						</div>-->
 						<hr>
-						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnAgrgar-mascota">Agregar</button>
+						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnRegistrar-mascota">Agregar</button>
 					</form>
 					<div id="register-error-mascota" class="alert alert-danger d-none" role="alert"></div>
-					<div id="register-success-mascota" class="alert alert-success d-none" role="alert"></div>
+					<div id="register-success-mascota" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -246,7 +245,7 @@
 	</div>
 	
 	<!--Editar mascota-->
-	<div class="modal fade" id="modal-editar-mascota" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-mascota">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-editar-mascota" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-mascota">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -285,10 +284,6 @@
 							<label class="form-label" for="select-editar-fundacion-mascota">Fundación:</label>
 							<input type="text" class="form-control" id="select-editar-fundacion-mascota" disabled>
 						</div>
-						<!--<div class="mb-3">
-							<label for="input-foto" class="form-label">Agregar fotografía</label>
-							<input class="form-control" type="file" id="input-foto">
-						</div>-->
 						<div class="mb-3">
 							<div class="form-check">
 								<input type="checkbox" class="form-check-input" id="input-estado-mascota">
@@ -299,7 +294,10 @@
 						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnEditar-mascota">Guardar cambios</button>
 					</form>
 					<div id="editar-error-mascota" class="alert alert-danger d-none" role="alert"></div>
-					<div id="editar-success-mascota" class="alert alert-success d-none" role="alert"></div>
+					<div id="editar-success-mascota" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -561,7 +559,7 @@
 	</div>
 	
 	<!--Registro de fundaciones-->
-	<div class="modal fade" id="modal-registro-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-fundacion">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-registro-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-fundacion">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -597,10 +595,13 @@
 							</div>
 						</div>
 						<hr>
-						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnAgregar-fundacion">Agregar</button>
+						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnRegistrar-fundacion">Agregar</button>
 					</form>
 					<div id="register-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
-					<div id="register-success-fundacion" class="alert alert-success d-none" role="alert"></div>
+					<div id="register-success-fundacion" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -678,7 +679,7 @@
 	</div>
 	
 	<!--Editar fundaciones-->
-	<div class="modal fade" id="modal-editar-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-fundacion">
+	<div class="modal fade"  data-bs-backdrop="static" data-bs-keyboard="false" id="modal-editar-fundacion" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-fundacion">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -717,14 +718,17 @@
 						<button type="submit" class="btn btn-primary btn-block mb-3" id="btnEditar-fundacion">Guardar cambios</button>
 					</form>
 					<div id="editar-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
-					<div id="editar-success-fundacion" class="alert alert-success d-none" role="alert"></div>
+					<div id="editar-success-fundacion" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	<!--Registro de adoptante-->
-	<div class="modal fade" id="modal-registro-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-adoptante">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-registro-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-registro-adoptante">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -789,10 +793,13 @@
 								<input type="text" class="form-control" id="input-observacion-adoptante" placeholder="Observación">
 							</div>
 						</div>
-						<input type="submit" class="btn btn-primary mb-3" id="btnRegister-adoptante" value="Registrar"/>
+						<input type="submit" class="btn btn-primary mb-3" id="btnRegistrar-adoptante" value="Registrar"/>
 					</form>
 					<div id="register-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
-					<div id="register-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+					<div id="register-success-adoptante" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -871,7 +878,7 @@
 	</div>
 	
 	<!--Editar adoptante-->
-	<div class="modal fade" id="modal-editar-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-adoptante">
+	<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-editar-adoptante" tabindex="-1" aria-hidden="true" aria-labelledby="modal-editar-adoptante">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header bg-info text-white">
@@ -935,7 +942,10 @@
 						<input type="submit" class="btn btn-primary mb-3" id="btnEditar-adoptante" value="Guardar cambios"/>
 					</form>
 					<div id="editar-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
-					<div id="editar-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+					<div id="editar-success-adoptante" class="text-center d-none" role="alert">
+						<p class="alert alert-success">Registro exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>

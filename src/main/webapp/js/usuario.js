@@ -320,6 +320,7 @@ function editarUsuario() {
         success: function (result) {
 
             if (result !== false) {
+                $("#editar-error-usuario").addClass("d-none");
                 $("#btnEditar-usuario").addClass("d-none");
                 $("#editar-success-usuario").removeClass("d-none");
             } else {

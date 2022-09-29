@@ -54,8 +54,8 @@ function registrarAdoptante() {
 
             if (parsedResult !== false) {
                 $("#register-error-adoptante").addClass("d-none");
+                $("#btnRegistrar-adoptante").addClass("d-none");
                 $("#register-success-adoptante").removeClass("d-none");
-                $("#register-success-adoptante").html("Registro exitoso");
             } else {
                 $("#register-error-adoptante").removeClass("d-none");
                 $("#register-error-adoptante").html("Error en el registro del adoptante");
@@ -228,8 +228,8 @@ function editarAdoptante() {
 
             if (result !== false) {
                 $("#editar-error-adoptante").addClass("d-none");
+                $("#btnEditar-adoptante").addClass("d-none");
                 $("#editar-success-adoptante").removeClass("d-none");
-                $("#editar-success-adoptante").html("Registro exitoso");
             } else {
                 $("#editar-error-adoptante").removeClass("d-none");
                 $("#editar-error-adoptante").html("Error en el registro del adoptante");
