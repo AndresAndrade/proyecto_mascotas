@@ -373,8 +373,6 @@ function listarMascotasIndex(mascotas) {
         Caballo: "img/pets/caballo.jpg",
         Hamster: "img/pets/hamster.jpg",
         'Mini pig': "img/pets/piggy.jpg"
-
-
     };
 
     $.each(mascotas, function (index, mascota) {
@@ -383,17 +381,21 @@ function listarMascotasIndex(mascotas) {
 
         contenido += '<div class="col">' +
             '<div class="card">' +
-                '<img src="' + imagenPet +'" class="card-img-top" height="200px" alt="...">' +
-                    '<div class="card-body">'+
+                '<img src="' + imagenPet +'" class="card-img-top" height="200px" alt="' + mascota.raza + '">' +
+                    '<div class="card-body">' +
                         '<h2 class="card-title text-center">'+ mascota.nombreMascota +'</h2>' +
-                        '<h5>Especie:</h5>' +
-                        '<p class="card-text">' + mascota.especie + '</p>' +
-                        '<h5>Raza:</h5>' +
-                        '<p class="card-text">' + mascota.raza + '</p>' +
-                        '<h5>Edad:</h5>' +
-                        '<p class="card-text">' + mascota.edad + ' años</p>' +
-                        '<p>' +
-                            '<a class="btn btn-primary" data-bs-toggle="collapse" href="#info-dog' + mascota.idMascota +'" ' +
+                        '<div class="row g-3 align-items-center mb-3">' +
+                            '<div class="col-auto">' +
+                                '<p class="card-text"><strong>Especie: </strong>' + mascota.especie + '</p>' +
+                            '</div>' +
+                            '<div class="col-auto">' +
+                                '<p class="card-text"><strong>Raza: </strong>' + mascota.raza + '</p>' +
+                            '</div>' +
+                            '<div class="col-auto">' +
+                                '<p class="card-text"><strong>Edad: </strong>' + mascota.edad + ' años</p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<a class="btn btn-outline-info" data-bs-toggle="collapse" href="#info-dog' + mascota.idMascota +'" ' +
                             'role="button" aria-expanded="false" aria-controls="info-dog' + mascota.idMascota +'">' +
                                 'Más Info' +
                             '</a>' +

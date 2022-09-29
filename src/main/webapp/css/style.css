@@ -1,3 +1,31 @@
 body {
-    background-image: url("../img/fondo-pet.jpg");
+    background-image: url("../img/fondo-huellas.jpg");
+    background-size: 100vw;
+    background-repeat: repeat;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+nav button:hover{
+    font-size: 18px;
+}
+
+div button:hover{
+    font-size: 18px;
+}
+
+form button:hover{
+    font-size: 18px;
+}
+
+.card:hover{
+    border-color: #0eb6dc;
+    border-width: 5px;
+}
+
+.card-body p{
+    font-size: 18px;
 }

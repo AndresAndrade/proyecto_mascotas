@@ -124,7 +124,7 @@ public class AdoptanteController implements IAdoptanteController{
     }
 
     @Override
-    public String llenarAdoptanteFrom(long cedula) {
+    public String llenarAdoptanteForm(long cedula) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
         String sql = "SELECT cedula, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, telefono, " +
@@ -164,7 +164,7 @@ public class AdoptanteController implements IAdoptanteController{
     public String llenarAdoptanteModal(long cedula) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
-        String sql = "SELECT CONCAT(primer_apellido, ' ', primer_apellido) AS nombre_completo " +
+        String sql = "SELECT CONCAT(primer_nombre, ' ', primer_apellido) AS nombre_completo " +
                 "FROM adoptante " +
                 "WHERE cedula = " + cedula;
 

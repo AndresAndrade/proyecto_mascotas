@@ -1,7 +1,6 @@
 package com.proyecto_mascotas.servlets.adoptante;
 
 import com.proyecto_mascotas.controller.AdoptanteController;
-import com.proyecto_mascotas.controller.UsuarioController;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,7 +20,7 @@ public class ServletAdoptanteLlenarForm extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdoptanteController adoptante = new AdoptanteController();
         long cedula = Long.parseLong(request.getParameter("cedula"));
-        String adoptanteStr = adoptante.llenarAdoptanteFrom(cedula);
+        String adoptanteStr = adoptante.llenarAdoptanteForm(cedula);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
