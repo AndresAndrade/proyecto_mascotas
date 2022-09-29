@@ -337,19 +337,53 @@ function getMascotasIndex() {
 
 function listarMascotasIndex(mascotas) {
     let contenido = "";
-    const IMAGEN_URL = {
-        Perro: "img/silueta-perro.jpg",
-        Gato: "img/silueta-gato.jpg",
-        Otro: "img/silueta-conejo.jpg"
+    const RAZAS_URL = {
+        /*Perros*/
+        'Bulldog frances': "img/pets/bulldog-frances.jpg",
+        'Yorkshire Terrier': "img/pets/yorkie.jpg",
+        'Braco de Weimar': "img/pets/braco-weimar.jpg",
+        'Golden Retriever': "img/pets/golden-retriever.jpg",
+        'Husky Siberiano': "img/pets/husky.jpg",
+        Criollo: "img/pets/mestizo.jpg",
+        'Springer Spaniel': "img/pets/springer.jpg",
+        'Cocker Spaniel': "img/pets/cocker-spaniel.jpg",
+        'Bobtail': "img/pets/bobtail.jpg",
+        'Pincher': "img/pets/pinscher.jpg",
+        'Chihuahua': "img/pets/chihuahua.jpg",
+        'Beagle': "img/pets/beagle.jpg",
+        'Pug': "img/pets/pug.jpg",
+        'Poodle': "img/pets/poodle.jpg",
+        'Dálmata': "img/pets/dalmata.jpg",
+        'Pastor Alemán': "img/pets/pastor-aleman.jpg",
+        'Border Collie': "img/pets/border-collie.jpeg",
+
+        /*Gatos*/
+        Persa: "img/pets/persa.jpg",
+        'Azul ruso': "img/pets/azul.jpg",
+        'Siamés': "img/pets/siames.jpg",
+        'Angora Turco': "img/pets/angora-turco.jpg",
+        Siberiano: "img/pets/gato-siberiano.jpg",
+        'Bengalí': "img/pets/bengali.jpg",
+        Birmano: "img/pets/birmano.jpg",
+        Esfinge: "img/pets/gato-esfinge.jpg",
+        'Común': "img/pets/gato-comun.jpg",
+
+        /*Otros*/
+        Conejo: "img/pets/conejo.jpg",
+        Caballo: "img/pets/caballo.jpg",
+        Hamster: "img/pets/hamster.jpg",
+        'Mini pig': "img/pets/piggy.jpg"
+
+
     };
 
     $.each(mascotas, function (index, mascota) {
         mascota = JSON.parse(mascota);
-        let imagenPet = IMAGEN_URL[mascota.especie];
+        let imagenPet = RAZAS_URL[mascota.raza];
 
         contenido += '<div class="col">' +
             '<div class="card">' +
-                '<img src="' + imagenPet +'" class="card-img-top" alt="...">' +
+                '<img src="' + imagenPet +'" class="card-img-top" height="200px" alt="...">' +
                     '<div class="card-body">'+
                         '<h2 class="card-title text-center">'+ mascota.nombreMascota +'</h2>' +
                         '<h5>Especie:</h5>' +
