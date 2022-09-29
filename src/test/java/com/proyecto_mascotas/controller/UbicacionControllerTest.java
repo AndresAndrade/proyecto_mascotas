@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UbicacionControllerTest {
 
     UbicacionController ubicacionController = new UbicacionController();
-
+    
     @Test
     void listarDepartamento() {
         String listaDepartamentos = ubicacionController.listarDepartamento();

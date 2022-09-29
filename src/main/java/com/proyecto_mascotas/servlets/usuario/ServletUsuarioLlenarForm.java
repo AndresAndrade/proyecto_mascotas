@@ -1,6 +1,5 @@
 package com.proyecto_mascotas.servlets.usuario;
 
-import com.proyecto_mascotas.controller.MascotasController;
 import com.proyecto_mascotas.controller.UsuarioController;
 
 import javax.servlet.*;
@@ -21,7 +20,7 @@ public class ServletUsuarioLlenarForm extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UsuarioController usuario = new UsuarioController();
         int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-        String usuarioStr =  usuario.llenarUsuarioFrom(idUsuario);
+        String usuarioStr =  usuario.llenarUsuarioForm(idUsuario);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

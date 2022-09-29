@@ -9,6 +9,6 @@ public interface IUsuarioController {
     String editarUsuario(int idUsuario, String primerNombre, String segundoNombre, String primerApellido,
                          String segundoApellido, String email, String telefono, String password);
     String eliminarUsuario(int idUsuario);
-    String llenarUsuarioFrom(int idUsuario);
+    String llenarUsuarioForm(int idUsuario);
     String llenarUsuarioModal(int idUsuario);
 }

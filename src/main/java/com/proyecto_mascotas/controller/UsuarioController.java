@@ -190,7 +190,7 @@ public class UsuarioController implements IUsuarioController{
     }
 
     @Override
-    public String llenarUsuarioFrom(int idUsuario) {
+    public String llenarUsuarioForm(int idUsuario) {
         Gson gson = new Gson();
         DBConnection conn = new DBConnection();
         String sql = "SELECT username, password, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, " +
