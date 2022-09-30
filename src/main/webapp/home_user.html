@@ -39,79 +39,120 @@
 		</div>
 	</nav>
 </header>
-<main>
-	<div class="container col-md-6">
-		<!--Tarjeta de mascotas-->
-		<div class="card mb-3">
-			<div class="row g-0">
-				<div class="col-md-2">
-					<img src="img/baseline_pets_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
-				</div>
-				<div class="col-md-10">
-					<div class="card-body">
-						<h5 class="card-title">Mascotas</h5>
-						<p class="card-text">Menu de mascotas.</p>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">Lista de mascotas</button></li>
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">Agregar registro</button></li>
-						</ul>
+<main class="container col-md-10">
+	<div class="row row-cols-1 row-cols-md-2 g-4 pt-lg-4 pb-lg-4">
+		
+			<!--Tarjeta de mascotas-->
+		<div class="col">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-2">
+						<img src="img/baseline_pets_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+					</div>
+					<div class="col-md-10">
+						<div class="card-body">
+							<h5 class="card-title">Mascotas</h5>
+							<p class="card-text">En este menu encontrarás las opciones para ver la lista de mascotas, agregar un nuevo registro, actualizar información y borrar un registro. </p>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<button class="btn btn-secondary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-mascotas">
+										<i class="fa-solid fa-table-list"></i> Lista de mascotas
+									</button>
+								</li>
+								<li class="list-group-item">
+									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">
+										<i class="fa-solid fa-plus"></i> Agregar registro
+									</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!--Tarjeta Fundaciones-->
-		<div class="card mb-3 d-none" id="tarjeta-fundaciones">
-			<div class="row g-0">
-				<div class="col-md-2">
-					<img src="img/baseline_house_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
-				</div>
-				<div class="col-md-10">
-					<div class="card-body">
-						<h5 class="card-title">Fundaciones</h5>
-						<p class="card-text">ññññn is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-fundaciones">Lista de fundaciones</button></li>
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-fundacion">Agregar registro</button></li>
-						</ul>
+			
+			<!--Tarjeta Fundaciones-->
+		<div class="col">
+			<div class="card mb-3 d-none" id="tarjeta-fundaciones">
+				<div class="row g-0">
+					<div class="col-md-2">
+						<img src="img/baseline_house_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+					</div>
+					<div class="col-md-10">
+						<div class="card-body">
+							<h5 class="card-title">Fundaciones</h5>
+							<p class="card-text">En este menu encontrarás las opciones para ver la lista de fundaciones, agregar un nuevo registro, actualizar información y borrar un registro.</p>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<button class="btn btn-secondary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-fundaciones">
+										<i class="fa-solid fa-table-list"></i> Lista de fundaciones
+									</button>
+								</li>
+								<li class="list-group-item">
+									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-fundacion">
+										<i class="fa-solid fa-plus"></i> Agregar registro
+									</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!--Tarjeta adoptantes-->
-		<div class="card mb-3">
-			<div class="row g-0">
-				<div class="col-md-2">
-					<img src="img/baseline_face_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
-				</div>
-				<div class="col-md-10">
-					<div class="card-body">
-						<h5 class="card-title">Adoptantes</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-adoptantes">Lista de adoptantes</button></li>
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-adoptante">Agregar registro</button></li>
-						</ul>
+			
+			<!--Tarjeta adoptantes-->
+		<div class="col">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-2">
+						<img src="img/baseline_face_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+					</div>
+					<div class="col-md-10">
+						<div class="card-body">
+							<h5 class="card-title">Adoptantes</h5>
+							<p class="card-text">TEn este menu encontrarás las opciones para ver la lista de adoptantes, agregar un nuevo registro, actualizar información y borrar un registro.</p>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<button class="btn btn-secondary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-adoptantes">
+										<i class="fa-solid fa-table-list"></i> Lista de adoptantes
+									</button>
+								</li>
+								<li class="list-group-item">
+									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-adoptante">
+										<i class="fa-solid fa-plus"></i> Agregar registro
+									</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!--Tarjeta usuarios-->
-		<div class="card mb-3 d-none" id="tarjeta-usuarios">
-			<div class="row g-0">
-				<div class="col-md-2">
-					<img src="img/baseline_person_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
-				</div>
-				<div class="col-md-10">
-					<div class="card-body">
-						<h5 class="card-title">Usuarios</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-usuarios">Lista de usuarios</button></li>
-							<li class="list-group-item"><button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-usuario">Agregar registro</button></li>
-						</ul>
+			
+			<!--Tarjeta usuarios-->
+		<div class="col">
+			<div class="card mb-3 d-none" id="tarjeta-usuarios">
+				<div class="row g-0">
+					<div class="col-md-2">
+						<img src="img/baseline_person_black_48dp.png" class="img-fluid mx-auto d-block py-2" alt="pet">
+					</div>
+					<div class="col-md-10">
+						<div class="card-body">
+							<h5 class="card-title">Usuarios</h5>
+							<p class="card-text">En este menu encontrarás las opciones para ver la lista de usuarios, agregar un nuevo registro, actualizar información y borrar un registro.</p>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<button class="btn btn-secondary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-lista-usuarios">
+										<i class="fa-solid fa-table-list"></i> Lista de usuarios
+									</button>
+								</li>
+								<li class="list-group-item">
+									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-usuario">
+										<i class="fa-solid fa-plus"></i> Agregar registro
+									</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -188,10 +229,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Nombre</th>
-								<th scope="col" id="ordernar-genero" data-bs-toggle="tooltip" data-popper-placement="top" data-bs-title="Ordernar por genero">
-									Edad(Años)
-									<span><i class="fa fa-sort" id="icono-ordenar"></i></span>
-								</th>
+								<th scope="col">Edad(Años)</th>
 								<th scope="col">Especie</th>
 								<th scope="col">Raza</th>
 								<th scope="col">Fundación</th>
