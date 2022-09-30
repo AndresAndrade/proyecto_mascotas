@@ -28,9 +28,6 @@
 <header class="sticky-top mb-3">
 	<nav class="navbar navbar-expand-lg bg-success navbar-dark">
 		<div class="container-fluid">
-			<!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>-->
 			<a href="index.html">
 				<button class="btn btn-warning me-2" type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
 			</a>
@@ -60,7 +57,7 @@
 									</button>
 								</li>
 								<li class="list-group-item">
-									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">
+									<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-mascota">
 										<i class="fa-solid fa-plus"></i> Agregar registro
 									</button>
 								</li>
@@ -89,7 +86,7 @@
 									</button>
 								</li>
 								<li class="list-group-item">
-									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-fundacion">
+									<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-fundacion">
 										<i class="fa-solid fa-plus"></i> Agregar registro
 									</button>
 								</li>
@@ -118,7 +115,7 @@
 									</button>
 								</li>
 								<li class="list-group-item">
-									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-adoptante">
+									<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-adoptante">
 										<i class="fa-solid fa-plus"></i> Agregar registro
 									</button>
 								</li>
@@ -147,7 +144,7 @@
 									</button>
 								</li>
 								<li class="list-group-item">
-									<button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-usuario">
+									<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modal-registro-usuario">
 										<i class="fa-solid fa-plus"></i> Agregar registro
 									</button>
 								</li>
@@ -273,13 +270,16 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnEliminar-mascota-close"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-mascota-aceptar"
 					        onclick="eliminarMascota()">
 						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-mascota" class="alert alert-danger d-none" role="alert"></div>
-					<div id="eliminar-success-mascota" class="alert alert-success d-none" role="alert"></div>
+					<div id="eliminar-success-mascota" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Proceso exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -499,13 +499,16 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnEliminar-usuario-close"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-usuario-aceptar"
 					        onclick="eliminarUsuario()">
 						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-usuario" class="alert alert-danger d-none" role="alert"></div>
-					<div id="eliminar-success-usuario" class="alert alert-success d-none" role="alert"></div>
+					<div id="eliminar-success-usuario" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Proceso exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -707,13 +710,16 @@
 					<br>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnEliminar-fundacion-close"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-fundacion-aceptar"
 					        onclick="eliminarFundacion()">
 						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
-					<div id="eliminar-success-fundacion" class="alert alert-success d-none" role="alert"></div>
+					<div id="eliminar-success-fundacion" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Proceso exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -906,13 +912,16 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnEliminar-adoptante-close"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-adoptante-aceptar"
 					        onclick="eliminarAdoptante()">
 						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
-					<div id="eliminar-success-adoptante" class="alert alert-success d-none" role="alert"></div>
+					<div id="eliminar-success-adoptante" class="d-none text-center" role="alert">
+						<p class="alert alert-success">Proceso exitoso!</p>
+						<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+					</div>
 				</div>
 			</div>
 		</div>

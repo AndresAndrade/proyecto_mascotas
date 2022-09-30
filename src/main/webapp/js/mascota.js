@@ -282,7 +282,8 @@ function eliminarMascota() {
                 console.log("Registro eliminado")
                 $("#eliminar-error-mascota").addClass("d-none");
                 $("#eliminar-success-mascota").removeClass("d-none");
-                $("#eliminar-success-mascota").html("Registro eliminado con exito");
+                $("#btnEliminar-mascota-aceptar").addClass("d-none");
+                $("#btnEliminar-mascota-close").addClass("d-none");
             } else {
                 console.log("Error eliminando el registro de la mascota");
                 $("#eliminar-error-mascota").removeClass("d-none");

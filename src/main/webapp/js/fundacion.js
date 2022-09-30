@@ -242,7 +242,8 @@ function eliminarFundacion() {
                 console.log("Registro eliminado")
                 $("#eliminar-error-fundacion").addClass("d-none");
                 $("#eliminar-success-fundacion").removeClass("d-none");
-                $("#eliminar-success-fundacion").html("Registro eliminado con exito");
+                $("#btnEliminar-fundacion-aceptar").addClass("d-none");
+                $("#btnEliminar-fundacion-close").addClass("d-none");
             } else {
                 console.log("Error eliminando el registro del adoptante");
                 $("#eliminar-error-fundacion").removeClass("d-none");

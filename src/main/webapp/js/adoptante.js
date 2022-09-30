@@ -257,7 +257,8 @@ function eliminarAdoptante() {
                 console.log("Registro eliminado")
                 $("#eliminar-error-adoptante").addClass("d-none");
                 $("#eliminar-success-adoptante").removeClass("d-none");
-                $("#eliminar-success-adoptante").html("Registro eliminado con exito");
+                $("#btnEliminar-adoptante-aceptar").addClass("d-none");
+                $("#btnEliminar-adoptante-close").addClass("d-none");
             } else {
                 console.log("Error eliminando el registro del adoptante");
                 $("#eliminar-error-adoptante").removeClass("d-none");

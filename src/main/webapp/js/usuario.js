@@ -348,7 +348,10 @@ function eliminarUsuario() {
 
             if (result !== false) {
                 console.log("Registro eliminado")
-                $("#respuesta-formulario").html("registro eliminado con éxito.");
+                $("#eliminar-error-usuario").addClass("d-none");
+                $("#btnEliminar-usuario-aceptar").addClass("d-none");
+                $("#btnEliminar-usuario-close").addClass("d-none");
+                $("#eliminar-success-usuario").removeClass("d-none");
             } else {
                 console.log("Error eliminando el registro del usuario");
                 $("#eliminar-error-usuario").removeClass("d-none");
