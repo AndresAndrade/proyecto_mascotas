@@ -249,10 +249,10 @@ function mostrarUsuarios(usuarios) {
             '<td>' + usuario.fundacion + '</td>' +
             '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-editar-usuario" ' +
-            'onclick="llenarFormularioUsuario(' + usuario.idUsuario + ')">Editar</button></td>' +
+            'onclick="llenarFormularioUsuario(' + usuario.idUsuario + ')"><i class="fas fa-pencil"></button></td>' +
             '<td><button type="submit" class="btn btn-warning" id="btnEliminar-usuario" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-eliminar-usuario" onclick="llenarUsuarioModal('+ usuario.idUsuario +')">' +
-            'Eliminar</button></td></tr>';
+            '<i class="fas fa-trash"></button></td></tr>';
     });
     $("#usuarios-tbody").html(contenido);
 }

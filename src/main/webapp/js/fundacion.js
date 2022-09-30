@@ -154,10 +154,10 @@ function mostrarFundaciones(fundaciones) {
         if (!pathRegex.test(path)) {
             contenido += '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
                 'data-bs-target="#modal-editar-fundacion" ' +
-                'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')">Editar</button></td>' +
+                'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')"><i class="fas fa-pencil"></button></td>' +
                 '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
                 'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
-                'Eliminar</button></td></tr>';
+                '<i class="fas fa-trash"></button></td></tr>';
         }
     });
     $("#fundaciones-tbody").html(contenido);

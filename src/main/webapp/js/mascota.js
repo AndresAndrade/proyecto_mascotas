@@ -191,10 +191,10 @@ function listarMascotas(mascotas) {
         contenido += '><td>' + mascota.descripcion + '</td>' +
             '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-editar-mascota" ' +
-            'onclick="llenarFormularioMascota(' + mascota.idMascota + ')">Editar</button></td>' +
+            'onclick="llenarFormularioMascota(' + mascota.idMascota + ')"><i class="fas fa-pencil"></button></td>' +
             '<td><button type="submit" class="btn btn-warning" id="btnEliminar-mascota" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-eliminar-mascota" onclick="llenarMascotaModal('+ mascota.idMascota +')">' +
-            'Eliminar</button></td></tr>';
+            '<i class="fas fa-trash"></button></td></tr>';
     });
 
     $("#mascotas-tbody").html(contenido);

@@ -10,7 +10,7 @@ class UsuarioControllerTest {
 
     @Test
     void login() {
-        String userLogin = usuarioController.login("fpantoja", "fpan12345");
+        String userLogin = usuarioController.login("admin", "admin123");
         System.out.println("Metodo login:\n\n" + userLogin + "\n\n");
     }
 
@@ -24,7 +24,7 @@ class UsuarioControllerTest {
 
     @Test
     void getUser() {
-        String getUser = usuarioController.getUser("fpantoja");
+        String getUser = usuarioController.getUser("arosero");
         System.out.println("Metodo getUser:\n\n" + getUser + "\n\n");
     }
 

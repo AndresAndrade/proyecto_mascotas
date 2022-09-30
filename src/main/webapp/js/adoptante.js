@@ -159,10 +159,10 @@ function mostrarAdoptantes(adoptantes) {
             '<td>' + adoptante.observacion + '</td>' +
             '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-editar-adoptante" ' +
-            'onclick="llenarFormularioAdoptante(' + adoptante.cedula + ')">Editar</button></td>' +
+            'onclick="llenarFormularioAdoptante(' + adoptante.cedula + ')"><i class="fas fa-pencil"></i></button></td>' +
             '<td><button type="submit" class="btn btn-warning" id="btnEliminar-adoptante" data-bs-toggle="modal" ' +
             'data-bs-target="#modal-eliminar-adoptante" onclick="llenarAdoptanteModal('+ adoptante.cedula +')">' +
-                'Eliminar</button></td></tr>';
+                '<i class="fas fa-trash"></i></button></td></tr>';
     });
     $("#adoptantes-tbody").html(contenido);
 }

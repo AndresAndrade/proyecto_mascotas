@@ -11,6 +11,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!--font-awesome-->
+	<script src="https://kit.fontawesome.com/b098af49b5.js" crossorigin="anonymous"></script>
 	<!-- usuario.js -->
 	<script src="js/usuario.js"></script>
 	<!-- mascota.js -->
@@ -30,8 +32,9 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>-->
 			<a href="index.html">
-				<button class="btn btn-warning me-2" type="submit">Logout</button>
+				<button class="btn btn-warning me-2" type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
 			</a>
+			<h3 class="text-white">AdoptaUnaHuella.com</h3>
 			<h3 class="text-white">Bienvenido <strong id="welcome-user"></strong> </h3>
 		</div>
 	</nav>
@@ -232,10 +235,10 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-mascota-aceptar"
 					        onclick="eliminarMascota()">
-						Eliminar mascota
+						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-mascota" class="alert alert-danger d-none" role="alert"></div>
 					<div id="eliminar-success-mascota" class="alert alert-success d-none" role="alert"></div>
@@ -458,10 +461,10 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-usuario-aceptar"
 					        onclick="eliminarUsuario()">
-						Eliminar registro
+						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-usuario" class="alert alert-danger d-none" role="alert"></div>
 					<div id="eliminar-success-usuario" class="alert alert-success d-none" role="alert"></div>
@@ -666,10 +669,10 @@
 					<br>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-fundacion-aceptar"
 					        onclick="eliminarFundacion()">
-						Eliminar registro
+						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-fundacion" class="alert alert-danger d-none" role="alert"></div>
 					<div id="eliminar-success-fundacion" class="alert alert-success d-none" role="alert"></div>
@@ -865,10 +868,10 @@
 					<hr>
 					Esta es una acción que no se puede restaurar. ¿Está seguro?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i></button>
 					<button type="button" class="btn btn-danger" id="btnEliminar-adoptante-aceptar"
 					        onclick="eliminarAdoptante()">
-						Eliminar registro
+						<i class="fa-solid fa-trash"></i>
 					</button>
 					<div id="eliminar-error-adoptante" class="alert alert-danger d-none" role="alert"></div>
 					<div id="eliminar-success-adoptante" class="alert alert-success d-none" role="alert"></div>
@@ -962,9 +965,9 @@
 					</a>
 				</div>
 				<div class="nav-item mt-4">
-					<span class="navbar-text">Pagina creada por:</span>
-					<br>
-					<a class="nav-link active" aria-current="page" target="_blank" href="https://www.linkedin.com/in/andresandrade87/" >Andrés Andrade</a>
+					<span class="navbar-text mb-3">Pagina creada por:</span>
+					<a class="nav-link active" aria-current="page" target="_blank" href="https://www.linkedin.com/in/andresandrade87/" ><i class="fa-brands fa-linkedin"></i> Andrés Andrade</a>
+					<a class="nav-link active" aria-current="page" target="_blank" href="https://wa.me/+573162516204" ><i class="fa-brands fa-whatsapp"></i> 316 251 6204</a>
 				</div>
 			</div>
 		</div>
