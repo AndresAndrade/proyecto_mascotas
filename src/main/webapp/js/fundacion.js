@@ -1,5 +1,5 @@
 let path = $(location).attr('pathname');
-let pathRegex = /\/proyecto_mascotas(_war_exploded|)\/directorio_fundaciones.html/;
+let pathRegex = /\/(proyecto_mascotas_war_exploded|adoptaunahuella.herokuapp.com)\/directorio_fundaciones.html/;
 
 $(document).ready(function () {
     console.log(path);

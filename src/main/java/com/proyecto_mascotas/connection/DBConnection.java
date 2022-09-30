@@ -5,17 +5,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    static String db = "bd_adopcion_mascotas";
-    static String port = "3306";
+    static String db = "railway";
+    static String port = "6714";
     static String login = "root";
-    static String password = "admin";
+    static String password = "GxmKhUlZSiE2BaLHPUCr";
+    static String ipHost = "containers-us-west-50.railway.app";
 
     Connection connection = null;
 
     public DBConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:" + this.port + "/" + this.db;
+            String url = "jdbc:mysql://" + this.ipHost + ":" + this.port + "/" + this.db;
             connection = DriverManager.getConnection(url, this.login, this.password);
             if (connection == null) {
                 System.out.println("Conexión fallida");
