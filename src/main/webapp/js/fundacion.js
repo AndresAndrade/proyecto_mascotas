@@ -1,8 +1,4 @@
-let path = $(location).attr('pathname');
-let pathRegex = /\/(proyecto_mascotas_war_exploded|adoptaunahuella.herokuapp.com)\/directorio_fundaciones.html/;
-
 $(document).ready(function () {
-    console.log(path);
     $("#form-register-fundacion").submit(function (event) {
         event.preventDefault();
         registrarFundacion();
@@ -20,6 +16,7 @@ $(document).ready(function () {
     });
 
     listarFundaciones();
+    listarFundacionesIndex();
 
 });
 
@@ -134,7 +131,7 @@ function listarFundaciones() {
             if (parsedResult !== false) {
                 mostrarFundaciones(parsedResult);
             } else {
-                console.log("Error recuperando los datos de las funsaciones.");
+                console.log("Error recuperando los datos de las fundaciones.");
             }
         }
     });
@@ -149,16 +146,14 @@ function mostrarFundaciones(fundaciones) {
             '<td>' + fundacion.telefono + '</td>' +
             '<td>' + fundacion.email + '</td>' +
             '<td>' + fundacion.ciudadFundacion + '</td>' +
-            '<td>' + fundacion.departamentoFundacion + '</td>';
-
-        if (!pathRegex.test(path)) {
-            contenido += '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
+            '<td>' + fundacion.departamentoFundacion + '</td>' +
+            '<td><button class="btn btn-success" type="submit" data-bs-toggle="modal" ' +
                 'data-bs-target="#modal-editar-fundacion" ' +
                 'onclick="llenarFormularioFundacion(' + fundacion.idFundacion + ')"><i class="fas fa-pencil"></button></td>' +
                 '<td><button type="submit" class="btn btn-warning" id="btnEliminar-fundacion" data-bs-toggle="modal" ' +
                 'data-bs-target="#modal-eliminar-fundacion" onclick="llenarFundacionModal('+ fundacion.idFundacion +')">' +
                 '<i class="fas fa-trash"></button></td></tr>';
-        }
+
     });
     $("#fundaciones-tbody").html(contenido);
 }
@@ -274,4 +269,38 @@ function llenarFundacionModal(idFundacion) {
             }
         }
     });
+}
+
+/*Listar fundaciones Index*/
+function listarFundacionesIndex() {
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletFundacionListar",
+        data: $.param({
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            if (parsedResult !== false) {
+                mostrarFundacionesIndex(parsedResult);
+            } else {
+                console.log("Error recuperando los datos de las fundaciones.");
+            }
+        }
+    });
+}
+
+function mostrarFundacionesIndex(fundaciones) {
+    let contenido = "";
+    $.each(fundaciones, function (index, fundacion) {
+        fundacion = JSON.parse(fundacion);
+        contenido += '<tr><th scope="row">' + fundacion.idFundacion + '</th>' +
+            '<td>' + fundacion.nombreFundacion + '</td>' +
+            '<td>' + fundacion.telefono + '</td>' +
+            '<td>' + fundacion.email + '</td>' +
+            '<td>' + fundacion.ciudadFundacion + '</td>' +
+            '<td>' + fundacion.departamentoFundacion + '</td>';
+    });
+    $("#fundaciones-tbody-index").html(contenido);
 }
