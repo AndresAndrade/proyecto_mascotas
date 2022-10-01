@@ -15,6 +15,14 @@ $(document).ready(function () {
         getCiudadesFundacion(text);
     });
 
+    $(".btn-success").click(function () {
+        location.reload();
+    });
+
+    $(".btn-close").click(function () {
+        location.reload();
+    });
+
     listarFundaciones();
     listarFundacionesIndex();
 

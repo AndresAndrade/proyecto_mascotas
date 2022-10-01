@@ -124,10 +124,13 @@
 						</select>
 					</div>
 				</div>
-				<input type="submit" class="btn btn-primary mb-3" id="register-btn" value="Registrar Usuario"/>
+				<button type="submit" class="btn btn-primary btn-block mb-3" id="btnRegistrar-usuario">Registrar Usuario</button>
 			</form>
 			<div id="register-error" class="alert alert-danger d-none" role="alert"></div>
-			<div id="register-success" class="alert alert-success d-none" role="alert"></div>
+			<div id="register-success" class="d-none text-center" role="alert">
+				<p class="alert alert-success">Registro exitoso!</p>
+				<button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">Aceptar</button>
+			</div>
 		</div>
 	</div>
 </main>
